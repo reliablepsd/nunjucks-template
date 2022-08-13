@@ -26,210 +26,18 @@ const bsr = function reload(cb) {
 }
 
 
+// ==================== COMMON VARIABLE ====================
 
-// ====================
-// ====================
-// ====================
-// ==================== PATHS ========================
-// ====================
-// ====================
-// ====================
+const modulesOn = false;
+let v = {};
+v = require('./gulp-config.js');
 
-const folder = {
-	src: "src/",
-	build: "build/",
-	dist: "dist/"
-}
-const ext = {
-	fonts: "+(otf|eot|woff2|woff|ttf|svg|OTF|EOT|WOFF2|WOFF|TTF|SVG)",
-	img: "+(jpg|jpeg|png|svg|gif|ico|JPG|JPEG|PNG|SVG|GIF|ICO)",
-}
-let webpackMode = "none";
-// let webpackMode = "development";
-let webpackDevtool = "inline-source-map";
-const v = {
-	src: {
-		html: `${folder.src}*.html`,
-		style: `${folder.src}scss/*.scss`,
-		js: [`${folder.src}js/*.js`, `!${folder.src}js/modules.js`],
-		jsModules: `${folder.src}js/modules.js`,
-		img: `${folder.src}img/**/*.${ext.img}`,
-		fonts: `${folder.src}fonts/**/*.${ext.fonts}`,
-		other: `${folder.src}other/**/*.*`,
-	},
-	build: {
-		html: folder.build,
-		style: `${folder.build}css/`,
-		js: `${folder.build}js/`,
-		img: `${folder.build}img/`,
-		fonts: `${folder.build}fonts/`,
-		other: `${folder.build}other/`,
-		clean: `${folder.build}**`,
-	},
-	dist: {
-		html: folder.dist,
-		style: `${folder.dist}css/`,
-		js: `${folder.dist}js/`,
-		img: `${folder.dist}img/`,
-		fonts: `${folder.dist}fonts/`,
-		other: `${folder.dist}other/`,
-		clean: `${folder.dist}**`,
-	},
-	watch: {
-		html: [`${folder.src}*.html`, `${folder.src}template/**/*.html`],
-		style: `${folder.src}scss/**/*.scss`,
-		js: [`${folder.src}js/**/*.js`, `!${folder.src}js/modules.js`, `!${folder.src}js/modules/`],
-		jsModules: [`${folder.src}js/modules.js`, `${folder.src}js/modules/`],
-		img: `${folder.src}img/**/*.${ext.img}`,
-		fonts: `${folder.src}fonts/**/*.${ext.fonts}`,
-		delet: [
-			`${folder.src}img/**/*.${ext.img}`,
-			`${folder.src}fonts/**/*.${ext.fonts}`,
-			`${folder.src}js/*.js`,
-			`${folder.src}*.html`
-		],
-	},
-	config: {
-		imgRetina: {
-			suffix: {
-				2: "@2x",
-				// 3: '@3x'
-			},
-			ignore: ["wpn-", "none-"],
-		},
-		//config webserver for browserSync build
-		configWebserverBuild: {
-			server: {
-				baseDir: folder.build,
-				index: folder.build + "home.html",
-				reloadDelay: 300,
-				directory: true,
-			},
-			tunnel: false,
-			host: "localhost",
-			port: 3000,
-			logPrefix: "build",
-		},
-		//config webserver for browserSync prod
-		configWebserverProd: {
-			server: {
-				baseDir: folder.dist,
-				index: folder.dist + "home.html",
-				reloadDelay: 300,
-				directory: true,
-			},
-			tunnel: false,
-			host: "localhost",
-			port: 3000,
-			logPrefix: "prod",
-		},
-		//----------#OPTIONS FOR HTMLBEAUTIFY PLUGIN
-		//all options https://www.npmjs.com/package/gulp-html-beautify
-		optionsHtmlBeautify: {
-			//indent tabs
-			indent_with_tabs: true,
-			//maximum number of new lines
-			max_preserve_newlines: 2,
-			unformatted: [
-				// https://www.w3.org/TR/html5/dom.html#phrasing-content
-				"abbr",
-				"area",
-				"b",
-				"bdi",
-				"bdo",
-				"br",
-				"cite",
-				"code",
-				"data",
-				"datalist",
-				"del",
-				"dfn",
-				"em",
-				"embed",
-				"i",
-				"ins",
-				"kbd",
-				"keygen",
-				"map",
-				"mark",
-				"math",
-				"meter",
-				"noscript",
-				"object",
-				"output",
-				"progress",
-				"q",
-				"ruby",
-				"s",
-				"samp",
-				"small",
-				"strong",
-				"sub",
-				"sup",
-				"template",
-				"time",
-				"u",
-				"var",
-				"wbr",
-				"text",
-				"acronym",
-				"address",
-				"big",
-				"dt",
-				"ins",
-				"strike",
-				"tt",
-			],
-		},
-		cssComb: {
-			"remove-empty-rulesets": true,
-			"always-semicolon": true,
-			"color-case": "lower",
-			"block-indent": "\t",
-			"color-shorthand": true,
-			"element-case": "lower",
-			"eof-newline": true,
-			"leading-zero": true,
-			"space-before-colon": "",
-			"space-after-colon": " ",
-			"space-before-combinator": " ",
-			"space-after-combinator": " ",
-			"space-between-declarations": "\n",
-			"space-before-opening-brace": " ",
-			"space-after-opening-brace": "\n",
-			"space-after-selector-delimiter": "\n",
-			"space-before-selector-delimiter": "",
-			"space-before-closing-brace": "\n",
-			"strip-spaces": true,
-		},
-		// webpack config
-		webpackConf: {
-			mode: webpackMode,
-			devtool: webpackDevtool,
-			output: {
-				filename: "modules.js",
-			},
-			module: {
-				rules: [
-					{
-						test: /\.m?js$/,
-						exclude: /(node_modules)/,
-						use: {
-							loader: "babel-loader",
-							options: {
-								presets: ["@babel/preset-env"],
-							},
-						},
-					},
-				],
-			},
-			externals: {
-				jquery: "jQuery",
-			},
-		},
-	},
-};
-
+// For debug
+// function test(cb) {
+// 	console.log(v);
+// 	cb()
+// }
+// exports.test = test;
 
 // ====================
 // ====================
@@ -288,11 +96,17 @@ function imageBuild(cb) {
 }
 
 // js Modules build version project
-function jsModulesBuild() {
-	return src(v.src.jsModules)
-	.pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
-	.pipe(webpackStream(v.config.webpackConf))
-	.pipe(dest(v.build.js))
+function jsModulesBuild(cb) {
+	if (modulesOn) {
+		console.log('----------- Modules BUILD');
+		return src(v.src.jsModules)
+		.pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
+		.pipe(webpackStream(v.config.webpackConf))
+		.pipe(dest(v.build.js))
+	} else {
+		console.log('----------- Work with modules is DISABLED');
+		cb()
+	}
 }
 
 // js file build version project
@@ -347,11 +161,11 @@ function watchServBuild() {
 	))
 
 	watch(v.watch.delet).on('unlink', function (filepath) {
-    var filePathFromSrc = path.relative(path.resolve(folder.src), filepath);
-    var destFilePath = path.resolve(folder.build, filePathFromSrc);
+		var filePathFromSrc = path.relative(path.resolve(v.folderProject.src), filepath);
+		var destFilePath = path.resolve(v.folderProject.build, filePathFromSrc);
 		console.log("You delet this file - " + destFilePath);
-    del.sync(destFilePath);
-  });
+		del.sync(destFilePath);
+	});
 }
 
 
@@ -420,14 +234,21 @@ function imageProd(cb) {
 }
 
 // js Modules dist version project
-function jsModulesProd() {
-	v.config.webpackConf.mode = "production";
-	v.config.webpackConf.devtool = false;
-	return src(v.src.jsModules)
-	.pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
-	.pipe(webpackStream(v.config.webpackConf))
-	.pipe(dest(v.dist.js))
+function jsModulesProd(cb) {
+	if (modulesOn) {
+		console.log('----------- Modules BUILD');
+		v.config.webpackConf.mode = "production";
+		v.config.webpackConf.devtool = false;
+		return src(v.src.jsModules)
+		.pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
+		.pipe(webpackStream(v.config.webpackConf))
+		.pipe(dest(v.dist.js))
+	} else {
+		console.log('----------- Work with modules is DISABLED');
+		cb()
+	}
 }
+exports.jsModulesProd = jsModulesProd;
 
 // js file Prod version project
 function jsProd() {
@@ -490,8 +311,8 @@ function watchServerProd() {
 	))
 
 	watch(v.watch.delet).on('unlink', function (filepath) {
-    var filePathFromSrc = path.relative(path.resolve(folder.src), filepath);
-    var destFilePath = path.resolve(folder.dist, filePathFromSrc);
+    var filePathFromSrc = path.relative(path.resolve(v.folderProject.src), filepath);
+    var destFilePath = path.resolve(v.folderProject.dist, filePathFromSrc);
 		console.log("You delet this file - " + destFilePath);
     del.sync(destFilePath);
   });
