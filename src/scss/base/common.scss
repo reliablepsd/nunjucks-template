@@ -59,3 +59,13 @@ body {
 .footer {
 	min-width: 0;
 }
+
+// bg-str
+.bg-str {
+	@include a-r();
+	@include armod(100,100,1,1);
+	@include armod(100,50,2,1);
+	img {
+		@extend %bg-stretch-img;
+	}
+}

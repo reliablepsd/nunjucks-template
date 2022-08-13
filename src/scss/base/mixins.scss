@@ -1,118 +1,29 @@
-/// Mixin helping defining both `width` and `height` simultaneously.
-///
-/// @author Hugo Giraudel
-///
-/// @access public
-///
-/// @param {Length} $width - Element’s `width`
-/// @param {Length} $height ($width) - Element’s `height`
-///
-/// @example scss - Usage
-///   .foo {
-///     @include size(10em);
-///   }
-///
-///   .bar {
-///     @include size(100%, 10em);
-///   }
-///
-/// @example css - CSS output
-///   .foo {
-///     width: 10em;
-///     height: 10em;
-///   }
-///
-///   .bar {
-///     width: 100%;
-///     height: 10em;
-///   }
-///
-@mixin size($width: 100px, $height: $width) {
-	width: $width;
-	height: $height;
+// Clearfix
+%clearfix {
+	&:after {
+		content: '';
+		display: block;
+		clear: both;
+	}
 }
 
+// Helper class to truncate and add ellipsis to a string too long for it to fit on a single line.
+%ellipsis {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
 
-/// Creates a visual triangle. https://github.com/thoughtbot/bourbon/blob/v5.1.0/core/bourbon/library/_triangle.scss
-/// Generates a triangle pointing in a specified direction.
-///
-/// @argument {string} $direction
-///   The direction the triangle should point. Accepts `up`, `up-right`,
-///   `right`, `down-right`, `down`, `down-left`, `left` or `up-left`.
-///
-/// @argument {number (with unit)} $width
-///   Width of the triangle.
-///
-/// @argument {number (with unit)} $height
-///   Height of the triangle.
-///
-/// @argument {color} $color
-///   Color of the triangle.
-///
-/// @example scss
-///   .element {
-///     &::before {
-///       @include triangle("up", 2rem, 1rem, #b25c9c);
-///       content: "";
-///     }
-///   }
-///
-///   // CSS Output
-///   .element::before {
-///     border-style: solid;
-///     height: 0;
-///     width: 0;
-///     border-color: transparent transparent #b25c9c;
-///     border-width: 0 1rem 1rem;
-///     content: "";
-///   }
-
-@mixin triangle(
-	$direction,
-	$width,
-	$height,
-	$color
-) {
-	@if not index(
-		"up" "up-right" "right" "down-right" "down" "down-left" "left" "up-left",
-		$direction
-	) {
-		@error "Direction must be `up`, `up-right`, `right`, `down-right`, " +
-					 "`down`, `down-left`, `left` or `up-left`.";
-	} @else if not _is-color($color) {
-		@error "`#{$color}` is not a valid color for the `$color` argument in " +
-					 "the `triangle` mixin.";
-	} @else {
-		border-style: solid;
-		height: 0;
-		width: 0;
-
-		@if $direction == "up" {
-			border-color: transparent transparent $color;
-			border-width: 0 ($width / 2) $height;
-		} @else if $direction == "up-right" {
-			border-color: transparent $color transparent transparent;
-			border-width: 0 $width $width 0;
-		} @else if $direction == "right" {
-			border-color: transparent transparent transparent $color;
-			border-width: ($height / 2) 0 ($height / 2) $width;
-		} @else if $direction == "down-right" {
-			border-color: transparent transparent $color;
-			border-width: 0 0 $width $width;
-		} @else if $direction == "down" {
-			border-color: $color transparent transparent;
-			border-width: $height ($width / 2) 0;
-		} @else if $direction == "down-left" {
-			border-color: transparent transparent transparent $color;
-			border-width: $width 0 0 $width;
-		} @else if $direction == "left" {
-			border-color: transparent $color transparent transparent;
-			border-width: ($height / 2) $width ($height / 2) 0;
-		} @else if $direction == "up-left" {
-			border-color: $color transparent transparent;
-			border-width: $width $width 0 0;
-		}
-	}
+// Stretch img with fix to chrome
+%bg-stretch-img {
+	width: 100%;
+	max-width: none;
+	height: 100%;
+	object-fit: cover;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
 }
 
 //------------------------- Placeholder mixin
@@ -139,7 +50,6 @@
 		@content;
 	}
 }
-
 //how to use
 // .foo {
 // 	@include placeholder {
@@ -147,17 +57,28 @@
 // 	}
 // }
 
-//------------------------- mixin responsive-ratio with round off
-@mixin ar($x: 16, $y: 9) {
-	@extend %ar;
-	&:before {
-		$var-aspect-ratio: ($y / $x);
-		$var-aspect-ratio-round: round($var-aspect-ratio * 10000) / 10000;
-		padding-top: $var-aspect-ratio-round * 100%;
-	}
+//------------------------- size mixin
+@mixin size($width: 100px, $height: $width) {
+	width: $width;
+	height: $height;
+}
+//how to use
+///.foo {
+///		@include size(100px, 150px);
+///}
+
+//------------------------- mixin responsive-ratio
+@function arf($x: 16, $y: 9) {
+	$var-aspect-ratio: calc($y / $x);
+		$var-aspect-ratio-round: calc(round($var-aspect-ratio * 10000) / 10000);
+	@return $var-aspect-ratio-round * 100%;
 }
 
-%ar {
+@mixin a-r($x: 16, $y: 9) {
+	@extend %a-r-ex;
+}
+
+%a-r-ex {
 	position: relative;
 	overflow: hidden;
 
@@ -165,12 +86,27 @@
 		content: "";
 		display: block;
 		width: 100%;
-		padding-top:  56.25%;
+		padding-top: arf(16px,9px);
 	}
 }
 
 //how to use see https://codepen.io/sharnirio/pen/ZEOQvmb
-//div {@include ar(16,9);} or div {@include ar(200px,400px);}
+//div {@include a-r(16,9);} or div {@include a-r(200px,400px);}
+
+//------------------------- mixin for modifications responsive-ratio
+@mixin armod($xReal: 100, $yReal: 100,$x: 1, $y: 1) {
+	&._#{$x}-#{$y}:before {
+		padding-top: arf($xReal,$yReal);
+	}
+}
+
+//how to use see https://codepen.io/sharnirio/pen/ZEOQvmb
+//.bg-str {
+// 	@include a-r();
+// 	@include armod(100,100,1,1);
+// 	@include armod(100,50,2,1);
+// }
+
 
 //------------------------- Mixin for vertical indentation
 @mixin liY($value:15px) {
@@ -192,53 +128,16 @@
 //how to use
 // ul>li {@include liX(20px}
 
-// ----------------------------------------------
-// ----------------new function -----------------
-// ----------------------------------------------
-
-
 //------------------------- function calculate px --to-- em
-$browser-context: 16;
-
-@function em($pixels, $context: $browser-context) {
-	@if (unitless($pixels)) {
-		$pixels: $pixels * 1px;
-	}
-	@if (unitless($context)) {
-		$context: $context * 1px;
-	}
-	$em-pixels: $pixels / $context * 1em;
-	@return round($em-pixels * 1000) / 1000;
+@function em($pixels, $context) {
+	$em-pixels: calc($pixels / $context * 1em);
+	@return calc(round($em-pixels * 100) / 100);
 }
 
 //how to use
-//div {
-// font-size: em(20px, 18px);
+// .div {
+// 	font-size: em(20px, 18px);
 // }
-
-//------------------------- function calculate px --to-- vw
-@function vw($px, $screen-width: 1920) {
-	@return round( ($px/($screen-width * 0.01) ) * 100) / 100 * 1vw;
-}
-
-//how to use
-// .container {
-// 	width: vw(100, 1200) !important;
-// }
-
-//------------------------- function calculate px --to-- %
-@function p($width-block, $width-container: $width-block) {
-	@if (unitless($width-block)) {
-		$width-block: $width-block * 1px;
-	}
-	@if (unitless($width-container)) {
-		$width-container: $width-container * 1px;
-	}
-	@return round($width-block / $width-container*100%* 100) / 100;
-}
-//how to use
-// .block {width: p(1000px, 200px);}
-
 
 // Fetch nested keys https://www.sitepoint.com/extra-map-functions-sass/
 // @param {Map} $map - Map
@@ -249,53 +148,4 @@ $browser-context: 16;
 		$map: map-get($map, $key);
 	}
 	@return $map;
-}
-
-// list reset
-%listreset {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-
-// clearfix
-%clearfix {
-	&:after {
-		content: '';
-		display: block;
-		clear: both;
-	}
-}
-
-/// * Helper class to truncate and add ellipsis to a string too long for it to fit
-/// * on a single line.
-/// * 1. Prevent content from wrapping, forcing it on a single line.
-/// * 2. Add ellipsis at the end of the line.
-
-%ellipsis {
-	white-space: nowrap; /* 1 */
-	text-overflow: ellipsis; /* 2 */
-	overflow: hidden;
-}
-
-/// Hides the text in an element, commonly used to show an image. Some elements will need block-level styles applied.
-///
-/// @link http://zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement
-
-%hide-text {
-	overflow: hidden;
-	text-indent: 101%;
-	white-space: nowrap;
-}
-
-// stretch img with fix to chrome
-%bg-stretch-img {
-	width: 100%;
-	max-width: none;
-	height: 100%;
-	object-fit: cover;
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
 }

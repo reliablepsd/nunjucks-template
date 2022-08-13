@@ -1,3 +1,4 @@
+
 //----- main style for project
 @import "base/variables";
 @import "base/fonts";
@@ -11,3 +12,5 @@
 @import "base/header";
 @import "base/footer";
 @import "vendors/smartmenus";
+// If the project is on wp
+@import "base/wp-reset";

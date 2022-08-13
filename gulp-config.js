@@ -93,7 +93,7 @@ module.exports = {
 			//indent tabs
 			indent_with_tabs: true,
 			//maximum number of new lines
-			max_preserve_newlines: 2,
+			max_preserve_newlines: 0,
 			unformatted: [
 				// https://www.w3.org/TR/html5/dom.html#phrasing-content
 				"abbr",
