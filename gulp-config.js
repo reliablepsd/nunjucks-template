@@ -2,7 +2,7 @@
 const folder = {
 	src: "src/",
 	build: "build/",
-	dist: "dist/"
+	dist: "markup/"
 }
 
 const ext = {
