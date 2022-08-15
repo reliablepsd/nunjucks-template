@@ -1,7 +1,7 @@
 var $ = jQuery.noConflict();
 jQuery(function() {
 	isElementExist(".nav-drop", initSmartMenu);
-	initCustomForms();
+	jcfInit();
 });
 
 //-------- -------- -------- --------
@@ -22,12 +22,28 @@ function isElementExist(_el, _cb) {
 }
 
 // initialize custom form elements (checkbox, radio, select) https://github.com/w3co/jcf
-function initCustomForms() {
+function jcfInit() {
+	var customSelect = jQuery('select');
+	var customCheckbox = jQuery('input[type="checkbox"]');
+	var customRadio = jQuery('input[type="radio"]');
+
+	// all option see https://github.com/w3co/jcf
 	jcf.setOptions('Select', {
-		maxVisibleItems: 5, // visible dropdown items before scroll appear
 		wrapNative: false,
+		wrapNativeOnMobile: false,
+		fakeDropInBody: false,
+		maxVisibleItems: 6
 	});
-	jcf.replaceAll();
+
+	jcf.setOptions('Checkbox', {});
+
+	jcf.setOptions('Radio', {});
+
+	// init only after option
+	jcf.replace(customSelect);
+	jcf.replace(customCheckbox);
+	jcf.replace(customRadio);
+
 }
 
 // smart menu init
