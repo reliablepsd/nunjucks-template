@@ -191,5 +191,24 @@ module.exports = {
 				jquery: "jQuery",
 			},
 		},
+		versionConfig: {
+			value: "%DT%",
+			append: {
+				key: "_v",
+				to: [
+					{
+						type: "css",
+						files: ["style.css"],
+					},
+					{
+						type: "js",
+						files: ["jquery.main.js"],
+					},
+				],
+			},
+			output: {
+				file: "version.json",
+			},
+		},
 	},
 };

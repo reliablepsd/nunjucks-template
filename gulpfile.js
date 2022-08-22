@@ -20,6 +20,7 @@ const frontMatter = require('gulp-front-matter');
 const pcsscomb = require('postcss-csscomb');
 const webpackStream = require('webpack-stream');
 const browserSync = require('browser-sync').create();
+const version = require('gulp-version-number');
 const bsr = function reload(cb) {
 	browserSync.reload();
 	cb();
@@ -216,6 +217,7 @@ function htmlProd() {
 		.pipe(nunjucksRender())
 		.pipe(imgRetina(v.config.imgRetina))
 		.pipe(htmlbeautify(v.config.optionsHtmlBeautify))
+		.pipe(version(v.config.versionConfig))
 		.pipe(dest(v.dist.html))
 }
 
