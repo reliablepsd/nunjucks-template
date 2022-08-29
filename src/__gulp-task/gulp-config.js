@@ -144,7 +144,7 @@ const versionConfigVar = {
 		],
 	},
 	output: {
-		file: "gulp-task/version.json",
+		file: "src/__gulp-task/version.json",
 	},
 }
 
