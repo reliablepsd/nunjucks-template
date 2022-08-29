@@ -1,18 +1,44 @@
 ---
 title: Don't forget to change tittle - for this page
 ---
-{% import 'src/template/macros.html' as mac %}
+{% import 'src/template/macrosAndVariable.html' as global %}
 {% include 'src/template/head.html' %}
 
 <body>
 	<div class="wrapper">
 		{% include 'src/template/header.html' %}
 		<main class="main">
+			<div class="container" style="margin-top: 50px;">
+			{# How to use global variable #}
+			<h2 style="text-align: center; padding-top: 50px">{{global.h2TestVar}}</h2>
 			{# How to use macros #}
-			{{ mac.test({
+			{{ global.test({
 				h2: "This is H2",
 				h3: "This is H3"
 			}) }}
+			{# How to use loop #}
+			{% set testList = [{
+				'h2': 'H2 text',
+				'p': 'p text'
+				},{
+				'h2': 'H2 text 2',
+				'p': 'p text 2'
+				}] %}
+			<ul>
+			{% for item in testList %}
+				<li>
+					<h2>{{item.h2}}</h2>
+					<p>{{item.p}}</p>
+				</li>
+			{% endfor %}
+			</ul>
+			{# How to use range loop #}
+			<ul>
+			{% for i in range(0, 5) %}
+				<li>{{ i }} Lorem ipsum, dolor sit amet consectetur adipisicing elit.!</li>
+			{% endfor %}
+			</ul>
+			</div>
 		</main>
 		{% include 'src/template/footer.html' %}
 	</div>

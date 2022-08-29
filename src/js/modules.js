@@ -1,8 +1,8 @@
 import $ from "jquery";
-import { debounce } from "./modules/debounce.js";
+// import debounce from "./modules/debounce.js";
 
 document.addEventListener("DOMContentLoaded", function() {
-	isElementExist("body", testES6)
+	isElementExist("body", testES6);
 });
 
 // Helper if element exist then call function
@@ -22,6 +22,6 @@ function testES6() {
 	let str = `window location is ${window.location}`;
 	console.log(str);
 	console.log($);
-	console.log(debounce);
+	// console.log(debounce);
 	console.log(7 ** 2);
 }

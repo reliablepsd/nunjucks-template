@@ -1,4 +1,3 @@
-
 //----- main style for project
 @import "base/variables";
 @import "base/fonts";
@@ -14,3 +13,6 @@
 @import "vendors/smartmenus";
 // If the project is on wp
 @import "base/wp-reset";
+body {
+	// background-color: #000;
+}
