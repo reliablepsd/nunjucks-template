@@ -1,0 +1,1770 @@
+<!DOCTYPE html><html lang="en"><head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1, width=device-width, height=device-height, viewport-fit=cover">
+	<link media="all" rel="stylesheet" href="css/root.css">
+	<link media="all" rel="stylesheet" href="css/style.css">
+	<title>dev_wp-post-list page</title>
+</head>
+
+
+<body class="admin-bar">
+	<link rel="stylesheet" id="dashicons-css" href="https://brightgrovestg.wpengine.com/wp-includes/css/dashicons.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="admin-bar-css" href="https://brightgrovestg.wpengine.com/wp-includes/css/admin-bar.min.css" type="text/css" media="all">
+<style type="text/css" media="print">
+	#wpadminbar {
+		display: none;
+	}
+</style>
+<style type="text/css" media="screen">
+html {
+	margin-top: 32px !important;
+}
+
+@media(max-width: 1023px) {
+	html {
+		margin-top: 0 !important;
+	}
+}
+
+* html body {
+	margin-top: 32px !important;
+}
+
+@media screen and (max-width: 782px) {
+	html {
+		margin-top: 0 !important;
+	}
+
+	* html body {
+		margin-top: 0 !important;
+	}
+}
+</style>
+
+	<div class="wrapper">
+		<header class="page-header">
+	<div class="header-menu-wrapper">
+		<div class="container">
+			<a href="#" class="logo">
+				<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 460.2 103.2"> <path d="M0 3.2c0-1.1.9-2.1 2.1-2.1h32.5c13.1 0 23.7 10.6 23.7 23.5 0 10-6.6 18.1-16.1 21.9l14.9 27.6c.8 1.4 0 3.2-1.8 3.2H40.8c-.9 0-1.5-.5-1.7-1L24.6 47.4h-7.5v27.7c0 1.1-1 2.1-2.1 2.1H2.1c-1.2 0-2.1-1-2.1-2.1V3.2zm33.2 30.4c4.5 0 8.3-4.1 8.3-8.7s-3.8-8.3-8.3-8.3H17.1v17h16.1zM68.1 3.2c0-1.1.9-2.1 2.1-2.1h45c1.2 0 2.1 1 2.1 2.1V15c0 1.1-.9 2.1-2.1 2.1H85v13.5h24.8c1.1 0 2.1 1 2.1 2.1v11.9c0 1.2-1 2.1-2.1 2.1H85v14.7h30.1c1.2 0 2.1 1 2.1 2.1v11.9c0 1.1-.9 2.1-2.1 2.1h-45c-1.2 0-2.1-1-2.1-2.1V3.2zm59.8 0c0-1.1.9-2.1 2.1-2.1h12.9c1.1 0 2.1 1 2.1 2.1v58.1h25.9c1.2 0 2.1 1 2.1 2.1v11.9c0 1.1-.9 2.1-2.1 2.1H130c-1.2 0-2.1-1-2.1-2.1V3.2zm55.6 0c0-1.1 1-2.1 2.1-2.1h13.1c1.1 0 2.1 1 2.1 2.1v72c0 1.1-1 2.1-2.1 2.1h-13.1c-1.1 0-2.1-1-2.1-2.1v-72zm63.4 30h-.1l-18.6 41.4c-.5 1.3-1.7 2.6-3.9 2.6h-12c-1.6 0-2.5-1.4-1.8-2.8l34-73.2c.3-.7 1.1-1.2 1.8-1.2h1.1c.8 0 1.5.5 1.8 1.2l34 73.2c.7 1.4-.2 2.8-1.8 2.8h-12.1c-2 0-2.8-.7-3.8-2.7l-18.6-41.3zm46.2-30c0-1.1.9-2.1 2.1-2.1h25.3c12.8 0 23.4 8.8 23.4 20.2 0 8.4-7.5 14.5-12.6 17.2 5.8 2.4 14.6 7.7 14.6 17.7 0 12.2-10.8 21-23.7 21h-27c-1.2 0-2.1-1-2.1-2.1V3.2zM318.5 32c4.1 0 7.6-3.5 7.6-7.8 0-4.4-3.5-7.4-7.6-7.4H310V32h8.5zm1.5 29.7c4.2 0 7.8-3.5 7.8-7.9s-4.7-7.6-8.9-7.6h-8.8v15.6h9.9zm35.5-58.5c0-1.1.9-2.1 2.1-2.1h12.9c1.1 0 2.1 1 2.1 2.1v58.1h25.9c1.2 0 2.1 1 2.1 2.1v11.9c0 1.1-.9 2.1-2.1 2.1h-40.9c-1.2 0-2.1-1-2.1-2.1V3.2zm55.5 0c0-1.1.9-2.1 2.1-2.1h45c1.2 0 2.1 1 2.1 2.1V15c0 1.1-.9 2.1-2.1 2.1H428v13.5h24.8c1.1 0 2.1 1 2.1 2.1v11.9c0 1.2-1 2.1-2.1 2.1H428v14.7h30.1c1.2 0 2.1 1 2.1 2.1v11.9c0 1.1-.9 2.1-2.1 2.1h-45c-1.2 0-2.1-1-2.1-2.1V3.2zM281.5 88.4h-69.2c-1.2 0-2.1 1-2.1 2.1v10.7c0 1.1.9 2.1 2.1 2.1h69.2c1.2 0 2.1-1 2.1-2.1V90.4c0-1-.9-2-2.1-2z" fill="#e25262"></path> </svg>
+			</a>
+
+			<div class="nav-drop">
+				<nav class="nav">
+					<ul class="header-menu">
+						<li class="current-menu-item">
+							<a href="#">Item 1</a>
+							<ul>
+								<li><a href="#">Item 2-1</a></li>
+								<li><a href="#">Item 2-2</a></li>
+								<li><a href="#">Item 2-3</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#">Item 2</a>
+							<ul>
+								<li>
+									<a href="#">Item 2-1</a>
+									<ul>
+										<li>
+											<a href="#">Item 3-1</a>
+											<ul>
+												<li><a href="#">Item 4-1</a></li>
+												<li><a href="#">Item 4-2</a></li>
+												<li><a href="#">Item 4-3</a></li>
+											</ul>
+										</li>
+										<li><a href="#">Item 3-2</a></li>
+										<li><a href="#">Item 3-3</a></li>
+									</ul>
+								</li>
+								<li>
+									<a href="#">Item 2-2</a>
+									<ul>
+										<li><a href="#">Item 2-1</a></li>
+										<li><a href="#">Item 2-2</a></li>
+										<li><a href="#">Item 2-3</a></li>
+									</ul>
+								</li>
+								<li>
+									<a href="#">Item 2-3</a>
+									<ul>
+										<li><a href="#">Item 2-1</a></li>
+										<li><a href="#">Item 2-2</a></li>
+										<li><a href="#">Item 2-3</a></li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li class="has-mega-menu">
+							<a href="#">Mega 3</a>
+							<ul class="mega-menu">
+								<li>
+									<div class="col">
+										<h2>Heading 1</h2>
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum elit velit, ultricies eget porta ac.</p>
+										<ul>
+											<li><a href="#">Regular link 1</a></li>
+											<li><a href="#">Regular link 2</a></li>
+										</ul>
+									</div>
+									<div class="col">
+										<h2>Heading 2</h2>
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum elit velit, ultricies eget porta ac.</p>
+										<ul>
+											<li><a href="#">Regular link 1</a></li>
+											<li><a href="#">Regular link 2</a></li>
+										</ul>
+									</div>
+									<div class="col">
+										<h2>Heading 3</h2>
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.Vestibulum elit velit, ultricies eget porta ac.</p>
+										<ul>
+											<li><a href="#">Regular link 1</a></li>
+											<li><a href="#">Regular link 2</a></li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#">Item 4</a>
+							<ul>
+								<li><a href="#">Item 2-1</a></li>
+								<li>
+									<a href="#">Item 2-2</a>
+									<ul>
+										<li><a href="#">Item 2-1</a></li>
+										<li><a href="#">Item 2-2</a></li>
+										<li><a href="#">Item 2-3</a></li>
+									</ul>
+								</li>
+								<li><a href="#">Item 2-3</a></li>
+							</ul>
+						</li>
+					</ul>
+				</nav>
+			</div>
+			<button class="nav-opener"><span></span></button>
+		</div>
+	</div>
+</header>
+
+		<main class="main">
+			<div class="container">
+				<aside id="sidebar">
+	<div class="widget widget_meta">
+		<h3>Meta</h3>
+		<ul>
+			<li><a href="https://widgets.demo.w3.ua/wp-login.php">Log in</a></li>
+			<li><a title="Syndicate this site using RSS 2.0" href="#">Entries <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a title="The latest comments to all posts in RSS" href="#">Comments <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a title="Powered by WordPress, state-of-the-art semantic personal publishing platform." href="https://wordpress.org/">WordPress.org</a></li>
+		</ul>
+	</div>
+	<div class="widget widget_categories">
+		<h3>Categories (dropdown)</h3>
+		<select class="postform" id="cat" name="cat">
+			<option value="-1">Select Category</option>
+			<option value="1" class="level-0">Uncategorized</option>
+		</select>
+	</div>
+	<div class="widget widget_categories">
+		<h3>Categories (hierarchy)</h3>
+		<ul>
+			<li class="cat-item cat-item-1"><a href="#">Uncategorized</a></li>
+			<li class="cat-item cat-item-2"><a href="#">Category 2</a></li>
+		</ul>
+	</div>
+	<div class="widget widget_categories">
+		<h3>Categories (counts)</h3>
+		<ul>
+			<li class="cat-item cat-item-1"><a href="#">Uncategorized</a> (3)</li>
+			<li class="cat-item cat-item-2"><a href="#">Category 2</a> (15)</li>
+		</ul>
+	</div>
+	<div class="widget widget_archive">
+		<h3>Archives_counts</h3>
+		<ul>
+			<li><a href="#">June 2014</a> (1)</li>
+			<li><a href="#">May 2014</a> (1)</li>
+			<li><a href="#">April 2014</a> (1)</li>
+		</ul>
+	</div>
+	<div class="widget widget_archive">
+		<h3>Archives</h3>
+		<select name="archive-dropdown">
+			<option value="">Select Month</option>
+			<option value=""> June 2014 </option>
+			<option value=""> May 2014 </option>
+			<option value=""> April 2014 </option>
+		</select>
+	</div>
+	<div class="widget widget_recent_comments">
+		<h3>Recent Comments</h3>
+		<ul id="recentcomments">
+			<li class="recentcomments"><a class="url" rel="external nofollow" href="https://wordpress.org/">Mr WordPress</a>
+				on <a href="#">Hello world!</a></li>
+			<li class="recentcomments"><a class="url" rel="external nofollow" href="https://wordpress.org/">Mr WordPress</a>
+				on <a href="#">Hello world2.</a></li>
+		</ul>
+	</div>
+	<div id="text-2" class="widget widget_text">
+		<h3>Text</h3>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+			magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.
+		</p>
+	</div>
+	<div class="widget widget_search">
+		<h3>Search</h3>
+		<form action="#" class="search-form" method="get">
+			<fieldset>
+				<input name="s" type="search" placeholder="Search">
+				<button type="submit">GO</button>
+			</fieldset>
+		</form>
+	</div>
+	<div class="widget widget_calendar">
+		<h3>Calendar</h3>
+		<div id="calendar_wrap">
+			<table id="wp-calendar">
+				<caption>May 2014</caption>
+				<thead>
+					<tr>
+						<th title="Monday" scope="col">M</th>
+						<th title="Tuesday" scope="col">T</th>
+						<th title="Wednesday" scope="col">W</th>
+						<th title="Thursday" scope="col">T</th>
+						<th title="Friday" scope="col">F</th>
+						<th title="Saturday" scope="col">S</th>
+						<th title="Sunday" scope="col">S</th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<td id="prev" colspan="3"><a title="View posts for April 2014" href="#">« Apr</a></td>
+						<td class="pad">&nbsp;</td>
+						<td id="next" colspan="3"><a title="View posts for June 2014" href="#">Jun »</a></td>
+					</tr>
+				</tfoot>
+				<tbody>
+					<tr>
+						<td class="pad" colspan="3">&nbsp;</td>
+						<td>1</td>
+						<td>2</td>
+						<td>3</td>
+						<td>4</td>
+					</tr>
+					<tr>
+						<td>5</td>
+						<td>6</td>
+						<td>7</td>
+						<td>8</td>
+						<td>9</td>
+						<td>10</td>
+						<td>11</td>
+					</tr>
+					<tr>
+						<td>12</td>
+						<td>13</td>
+						<td>14</td>
+						<td>15</td>
+						<td>16</td>
+						<td>17</td>
+						<td>18</td>
+					</tr>
+					<tr>
+						<td>19</td>
+						<td>20</td>
+						<td>21</td>
+						<td>22</td>
+						<td>23</td>
+						<td>24</td>
+						<td>25</td>
+					</tr>
+					<tr>
+						<td><a title="post" href="#">26</a></td>
+						<td>27</td>
+						<td>28</td>
+						<td>29</td>
+						<td>30</td>
+						<td>31</td>
+						<td colspan="1" class="pad">&nbsp;</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="widget widget_pages">
+		<h3>Pages</h3>
+		<ul>
+			<li class="page_item page-item-2"><a href="#">Sample Page</a></li>
+			<li class="page_item page-item-3"><a href="#">Sample Page2</a></li>
+		</ul>
+	</div>
+	<div id="tag_cloud-2" class="widget widget_tag_cloud">
+		<h3>Tag</h3>
+		<div class="tagcloud">
+			<a style="font-size: 8px;" title="1 topic" class="tag-link-2" href="#">test</a>
+			<a style="font-size: 16px;" title="1 topic" class="tag-link-3" href="#">test_2</a>
+			<a style="font-size: 12px;" title="1 topic" class="tag-link-5" href="#">test_4</a>
+			<a style="font-size: 20px;" title="1 topic" class="tag-link-6" href="#">test_5</a>
+			<a style="font-size: 8px;" title="1 topic" class="tag-link-4" href="#">test__3</a>
+		</div>
+	</div>
+	<div id="media_gallery-2" class="widget widget_media_gallery">
+		<h3>Gallery</h3>
+		<div id="gallery-1" class="gallery galleryid-1928 gallery-columns-3 gallery-size-thumbnail">
+			<figure class="gallery-item">
+				<div class="gallery-icon landscape">
+					<img width="100" height="100" src="http://via.placeholder.com/100x100" class="attachment-thumbnail size-thumbnail" alt="">
+				</div>
+			</figure>
+			<figure class="gallery-item">
+				<div class="gallery-icon landscape">
+					<img width="100" height="100" src="http://via.placeholder.com/100x100" class="attachment-thumbnail size-thumbnail" alt="">
+				</div>
+			</figure>
+			<figure class="gallery-item">
+				<div class="gallery-icon landscape">
+					<img width="100" height="100" src="http://via.placeholder.com/100x100" class="attachment-thumbnail size-thumbnail" alt="">
+				</div>
+			</figure>
+			<figure class="gallery-item">
+				<div class="gallery-icon landscape">
+					<img width="100" height="100" src="http://via.placeholder.com/100x100" class="attachment-thumbnail size-thumbnail" alt="">
+				</div>
+			</figure>
+		</div>
+	</div>
+	<div class="widget widget_media_image">
+		<div class="widget_inner">
+			<h3 class="widgettitle">Image</h3>
+			<figure style="width: 300px" class="wp-caption alignnone"><img width="300" height="150" class="image wp-image-9  attachment-medium size-medium" alt="" style="max-width: 100%; height: auto;" src="http://via.placeholder.com/300x150">
+				<figcaption class="wp-caption-text">some caption</figcaption>
+			</figure>
+		</div>
+	</div>
+</aside>
+
+				<div id="content">
+					<div class="title">
+	<h1>Page Title</h1>
+</div>
+<div class="entry">
+	<h1>Header one</h1>
+	<h2>Header two</h2>
+	<h3>Header three</h3>
+	<h4>Header four</h4>
+	<h5>Header five</h5>
+	<h6>Header six</h6>
+	<h1>Header one</h1>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, minus, provident, possimus, aperiam ipsum
+		fugit eos natus est ducimus quasi in libero repudiandae et mollitia perspiciatis adipisci ex. Perferendis, odit!
+	</p>
+	<h2>Header two</h2>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, minus, provident, possimus, aperiam ipsum
+		fugit eos natus est ducimus quasi in libero repudiandae et mollitia perspiciatis adipisci ex. Perferendis, odit!
+	</p>
+	<h3>Header three</h3>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, minus, provident, possimus, aperiam ipsum
+		fugit eos natus est ducimus quasi in libero repudiandae et mollitia perspiciatis adipisci ex. Perferendis, odit!
+	</p>
+	<h4>Header four</h4>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, minus, provident, possimus, aperiam ipsum
+		fugit eos natus est ducimus quasi in libero repudiandae et mollitia perspiciatis adipisci ex. Perferendis, odit!
+	</p>
+	<h5>Header five</h5>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, minus, provident, possimus, aperiam ipsum
+		fugit eos natus est ducimus quasi in libero repudiandae et mollitia perspiciatis adipisci ex. Perferendis, odit!
+	</p>
+	<h6>Header six</h6>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, minus, provident, possimus, aperiam ipsum
+		fugit eos natus est ducimus quasi in libero repudiandae et mollitia perspiciatis adipisci ex. Perferendis, odit!
+	</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, minus, provident, possimus, aperiam ipsum
+		fugit eos natus est ducimus quasi in libero repudiandae et mollitia perspiciatis adipisci ex. Perferendis, odit!
+	</p>
+	<p><img class="alignleft" src="http://via.placeholder.com/100x100" alt="image description"></p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, minus, provident, possimus, aperiam ipsum
+		fugit eos natus est ducimus quasi in libero repudiandae et mollitia perspiciatis adipisci ex. Perferendis, odit!
+	</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, minus, provident, possimus, aperiam ipsum
+		fugit eos natus est ducimus quasi in libero repudiandae et mollitia perspiciatis adipisci ex. Perferendis, odit!
+	</p>
+	<p><img class="alignright" src="http://via.placeholder.com/100x100" alt="image description"></p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, minus, provident, possimus, aperiam ipsum
+		fugit eos natus est ducimus quasi in libero repudiandae et mollitia perspiciatis adipisci ex. Perferendis, odit!
+	</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, minus, provident, possimus, aperiam ipsum
+		fugit eos natus est ducimus quasi in libero repudiandae et mollitia perspiciatis adipisci ex. Perferendis, odit!
+	</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, minus, provident, possimus, aperiam ipsum
+		fugit eos natus est ducimus quasi in libero repudiandae et mollitia perspiciatis adipisci ex. Perferendis, odit!
+	</p>
+	<p><img class="aligncenter" src="http://via.placeholder.com/350x250" alt="image description"></p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, minus, provident, possimus, aperiam ipsum
+		fugit eos natus est ducimus quasi in libero repudiandae et mollitia perspiciatis adipisci ex. Perferendis, odit!
+	</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, minus, provident, possimus, aperiam ipsum
+		fugit eos natus est ducimus quasi in libero repudiandae et mollitia perspiciatis adipisci ex. Perferendis, odit!
+	</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, minus, provident, possimus, aperiam ipsum
+		fugit eos natus est ducimus quasi in libero repudiandae et mollitia perspiciatis adipisci ex. Perferendis, odit!
+	</p>
+	<figure class="wp-caption alignleft" style="width: 350px;">
+		<img src="http://via.placeholder.com/350x150" alt="image description"><br>
+		<figcaption class="wp-caption-text">Sapiente, minus, provident, possimus <strong>Use strong inside</strong>
+		</figcaption>
+	</figure>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, minus, provident, possimus, aperiam ipsum
+		fugit eos natus est ducimus quasi in libero repudiandae et mollitia perspiciatis adipisci ex. Perferendis, odit!
+	</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, minus, provident, possimus, aperiam ipsum
+		fugit eos natus est ducimus quasi in libero repudiandae et mollitia perspiciatis adipisci ex. Perferendis, odit!
+	</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, minus, provident, possimus, aperiam ipsum
+		fugit eos natus est ducimus quasi in libero repudiandae et mollitia perspiciatis adipisci ex. Perferendis, odit!
+	</p>
+	<figure class="wp-caption alignright" style="width: 350px;">
+		<img src="http://via.placeholder.com/350x150" alt="image description"><br>
+		<figcaption class="wp-caption-text">Sapiente, minus, provident, possimus <strong>Use strong inside</strong>
+		</figcaption>
+	</figure>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, minus, provident, possimus, aperiam ipsum
+		fugit eos natus est ducimus quasi in libero repudiandae et mollitia perspiciatis adipisci ex. Perferendis, odit!
+	</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, minus, provident, possimus, aperiam ipsum
+		fugit eos natus est ducimus quasi in libero repudiandae et mollitia perspiciatis adipisci ex. Perferendis, odit!
+	</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, minus, provident, possimus, aperiam ipsum
+		fugit eos natus est ducimus quasi in libero repudiandae et mollitia perspiciatis adipisci ex. Perferendis, odit!
+	</p>
+	<figure class="wp-caption aligncenter" style="width: 350px;">
+		<img src="http://via.placeholder.com/350x150" alt="image description"><br>
+		<figcaption class="wp-caption-text">Sapiente, minus, provident, possimus <strong>Use strong inside</strong>
+		</figcaption>
+	</figure>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, minus, provident, possimus, aperiam ipsum
+		fugit eos natus est ducimus quasi in libero repudiandae et mollitia perspiciatis adipisci ex. Perferendis, odit!
+	</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, minus, provident, possimus, aperiam ipsum
+		fugit eos natus est ducimus quasi in libero repudiandae et mollitia perspiciatis adipisci ex. Perferendis, odit!
+	</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, minus, provident, possimus, aperiam ipsum
+		fugit eos natus est ducimus quasi in libero repudiandae et mollitia perspiciatis adipisci ex. Perferendis, odit!
+	</p>
+	<p><iframe width="800" height="400" src="//www.youtube.com/embed/nwe-H6l4beM?wmode=transparent" frameborder="0" allowfullscreen=""></iframe></p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, minus, provident, possimus, aperiam ipsum
+		fugit eos natus est ducimus quasi in libero repudiandae et mollitia perspiciatis adipisci ex. Perferendis, odit!
+	</p>
+	<!-- Blockquotes -->
+	<p>Single line blockquote:</p>
+	<blockquote>Stay hungry. Stay foolish.</blockquote>
+	<p>Multi line blockquote with a cite reference:</p>
+	<blockquote>
+		<p>People think focus means saying yes to the thing you've got to focus on. But that's not what it means at all.
+			It means saying no to the hundred other good ideas that there are. You have to pick carefully. I'm actually as
+			proud of the things we haven't done as the things I have done. Innovation is saying no to 1,000 things.</p>
+		<p><cite>Steve Jobs - Apple Worldwide Developers' Conference, 1997</cite></p>
+	</blockquote>
+	<!-- Tables -->
+	<table>
+		<tbody>
+			<tr>
+				<th>Employee</th>
+				<th class="views">Salary</th>
+				<th></th>
+			</tr>
+			<tr class="odd">
+				<td><a href="https://example.com/">Jane</a></td>
+				<td>$1</td>
+				<td>Because that's all Steve Job' needed for a salary.</td>
+			</tr>
+			<tr class="even">
+				<td><a href="https://example.com/">John</a></td>
+				<td>$100K</td>
+				<td>For all the blogging he does.</td>
+			</tr>
+			<tr class="odd">
+				<td><a href="https://example.com/">Jane</a></td>
+				<td>$100M</td>
+				<td>Pictures are worth a thousand words, right? So Tom x 1,000.</td>
+			</tr>
+			<tr class="even">
+				<td><a href="https://example.com/">Jane</a></td>
+				<td>$100B</td>
+				<td>With hair like that?! Enough said...</td>
+			</tr>
+		</tbody>
+	</table>
+	<!-- Definition Lists -->
+	<dl>
+		<dt>Definition List Title:</dt>
+		<dd>Definition list division.</dd>
+		<dt>Startup:</dt>
+		<dd>A startup company or startup is a company or temporary organization designed to search for a repeatable and
+			scalable business model.</dd>
+		<dt>#dowork:</dt>
+		<dd>Coined by Rob Dyrdek and his personal body guard Christopher "Big Black" Boykins, "Do Work" works as a self
+			motivator, to motivating your friends.</dd>
+		<dt>Do It Live:</dt>
+		<dd>I'll let Bill O'Reilly will <a title="We'll Do It Live" href="https://www.youtube.com/watch?v=O_HyZ5aW76c">explain</a> this one.</dd>
+	</dl>
+	<!-- Unordered Lists (Nested) -->
+	<ul>
+		<li>List item one <ul>
+				<li>List item one <ul>
+						<li>List item one</li>
+						<li>List item two</li>
+						<li>List item three</li>
+						<li>List item four</li>
+					</ul>
+				</li>
+				<li>List item two</li>
+				<li>List item three</li>
+				<li>List item four</li>
+			</ul>
+		</li>
+		<li>List item two</li>
+		<li>List item three</li>
+		<li>List item four</li>
+	</ul>
+	<!-- Ordered List (Nested) -->
+	<ol>
+		<li>List item one <ol>
+				<li>List item one <ol>
+						<li>List item one</li>
+						<li>List item two</li>
+						<li>List item three</li>
+						<li>List item four</li>
+					</ol>
+				</li>
+				<li>List item two</li>
+				<li>List item three</li>
+				<li>List item four</li>
+			</ol>
+		</li>
+		<li>List item two</li>
+		<li>List item three</li>
+		<li>List item four</li>
+	</ol>
+	<!-- Ordered-Unordered-Ordered List -->
+	<ol>
+		<li>ordered item</li>
+		<li>ordered item <ul>
+				<li><strong>unordered</strong></li>
+				<li><strong>unordered</strong>
+					<ol>
+						<li>ordered item</li>
+						<li>ordered item</li>
+					</ol>
+				</li>
+			</ul>
+		</li>
+		<li>ordered item</li>
+		<li>ordered item</li>
+	</ol>
+	<!-- Ordered-Unordered-Unordered List -->
+	<ol>
+		<li>ordered item</li>
+		<li>ordered item <ul>
+				<li><strong>unordered</strong></li>
+				<li><strong>unordered</strong>
+					<ul>
+						<li>unordered item</li>
+						<li>unordered item</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li>ordered item</li>
+		<li>ordered item</li>
+	</ol>
+	<!-- Unordered-Ordered-Unordered List -->
+	<ul>
+		<li>unordered item</li>
+		<li>unordered item <ol>
+				<li>ordered</li>
+				<li>ordered <ul>
+						<li>unordered item</li>
+						<li>unordered item</li>
+					</ul>
+				</li>
+			</ol>
+		</li>
+		<li>unordered item</li>
+		<li>unordered item</li>
+	</ul>
+	<!-- Unordered-Unordered-Ordered List -->
+	<ul>
+		<li>unordered item</li>
+		<li>unordered item <ul>
+				<li>unordered</li>
+				<li>unordered <ol>
+						<li><strong>ordered item</strong></li>
+						<li><strong>ordered item</strong></li>
+					</ol>
+				</li>
+			</ul>
+		</li>
+		<li>unordered item</li>
+		<li>unordered item</li>
+	</ul>
+	<!-- HTML Tags -->
+	<strong>Address Tag</strong>
+	<p>
+		</p><address>1 Infinite Loop Cupertino, CA 95014 United States</address> example text
+	<p></p>
+	<strong>Anchor Tag (aka. Link)</strong>
+	<p>This is an example of a <a title="Apple" href="https://apple.com/">link</a>.</p>
+	<strong>Cite Tag</strong>
+	<p>"Code is poetry." --<cite>Automattic</cite></p>
+	<strong>Code Tag</strong>
+	<p>You will learn later on in these tests that <code>word-wrap: break-word;</code> will be your best friend.</p>
+	<strong>Delete Tag</strong>
+	<p>This tag will let you <del>strikeout text</del>, but this tag is no longer supported in HTML5 (use the
+		<code>&lt;strike&gt;</code> instead).</p>
+	<strong>Emphasize Tag</strong>
+	<p>The emphasize tag should <em>italicize</em> text.</p>
+	<strong>Keyboard Tag</strong>
+	<p>This scarcely known tag emulates <kbd>keyboard text</kbd>, which is usually styled like the
+		<code>&lt;code&gt;</code> tag.</p>
+	<strong>Preformatted Tag</strong>
+	<p>This tag styles large blocks of code.</p>
+	<pre>.post-title {<br>	margin: 0 0 5px;<br>	font-weight: bold;<br>	font-size: 38px;<br>	line-height: 1.2;<br>}</pre>
+	<strong>Quote Tag</strong>
+	<p><q>Developers, developers, developers...</q> --Steve Ballmer</p>
+	<strong>Strong Tag</strong>
+	<p>This tag shows <strong>bold<strong> text.</strong></strong>
+	</p>
+	<strong>Subscript Tag</strong>
+	<p>Getting our science styling on with H<sub>2</sub>O, which should push the "2" down.</p>
+	<strong>Superscript Tag</strong>
+	<p>Still sticking with science and Isaac Newton's E = MC<sup>2</sup>, which should lift the 2 up.</p>
+	<!-- pagination -->
+	<div class="navigation">
+		<div class="next"><a href="#"><span>←</span> Older Comments</a></div>
+		<div class="prev"><a href="#">Newer Comments <span>→</span></a></div>
+	</div>
+	<!-- Search Form -->
+	<form action="#" class="search-form" id="searchform" method="get" role="search">
+		<input id="s" name="s" type="search" placeholder="Search">
+		<button type="submit">Search</button>
+	</form>
+	<!-- Password Form -->
+	<form method="post" class="post-password-form" action="#">
+		<p>This content is password protected. To view it please enter your password below:</p>
+		<p>
+			<label for="pwbox-1168">Password:</label>
+			<input type="password" size="20" id="pwbox-1168" name="post_password">
+			<input type="submit" value="Submit" name="Submit">
+		</p>
+	</form>
+	<!-- Form -->
+	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam dignissim convallis est. Quisque aliquam.
+		Donec
+		faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida
+		vehicula, nisl. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam
+		eget
+		metus.</p>
+	<!-- <h2>Contact form 7</h2>
+	<div role="form" class="wpcf7" id="wpcf7-f1567-p704-o1" lang="en-US" dir="ltr">
+		<div class="screen-reader-response"></div>
+		<form action="/wordpress/contact-us/#wpcf7-f1567-p704-o1" method="post" class="wpcf7-form"
+			enctype="multipart/form-data" novalidate="novalidate">
+			<div style="display: none;">
+				<input type="hidden" name="_wpcf7" value="1567" />
+				<input type="hidden" name="_wpcf7_version" value="4.9.2" />
+				<input type="hidden" name="_wpcf7_locale" value="en_US" />
+				<input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f1567-p704-o1" />
+				<input type="hidden" name="_wpcf7_container_post" value="704" />
+			</div>
+			<p>Your Name (required)<br />
+				<span class="wpcf7-form-control-wrap your-name">
+					<input type="text" name="your-name" value="" size="40"
+						class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required wpcf7-not-valid" aria-required="true"
+						aria-invalid="false" />
+				</span>
+				<span role="alert" class="wpcf7-not-valid-tip" style="display: block;">Please fill the required
+					field.</span>
+			</p>
+			<p>Your Email (required)<br />
+				<span class="wpcf7-form-control-wrap your-email">
+					<input type="email" name="your-email" value="" size="40"
+						class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email"
+						aria-required="true" aria-invalid="false" />
+				</span>
+			</p>
+			<p>Subject<br />
+				<span class="wpcf7-form-control-wrap your-subject">
+					<input type="text" name="your-subject" value="" size="40" class="wpcf7-form-control wpcf7-text"
+						aria-invalid="false" />
+				</span>
+			</p>
+			<p>Your Message<br />
+				<span class="wpcf7-form-control-wrap your-message">
+					<textarea name="your-message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea"
+						aria-invalid="false"></textarea>
+				</span>
+			</p>
+			<p>URL<br />
+				<span class="wpcf7-form-control-wrap url-824">
+					<input type="url" name="url-824" value="" size="40"
+						class="wpcf7-form-control wpcf7-text wpcf7-url wpcf7-validates-as-url" aria-invalid="false" />
+				</span>
+			</p>
+			<p>number<br />
+				<span class="wpcf7-form-control-wrap number-964">
+					<input type="number" name="number-964" value=""
+						class="wpcf7-form-control wpcf7-number wpcf7-validates-as-number" aria-invalid="false" />
+				</span>
+			</p>
+			<p>range<br />
+				<span class="wpcf7-form-control-wrap number-964">
+					<input type="range" name="number-964" value=""
+						class="wpcf7-form-control wpcf7-range wpcf7-validates-as-number" aria-invalid="false" />
+				</span>
+			</p>
+			<p>date<br />
+				<span class="wpcf7-form-control-wrap date-911">
+					<input type="date" name="date-911" value="" class="wpcf7-form-control wpcf7-date wpcf7-validates-as-date"
+						aria-invalid="false" />
+				</span>
+			</p>
+			<p>select<br />
+				<span class="wpcf7-form-control-wrap menu-184">
+					<select name="menu-184" class="wpcf7-form-control wpcf7-select" aria-invalid="false">
+						<option value="">---</option>
+						<option value="">-----</option>
+					</select>
+				</span>
+			</p>
+			<p>checkbox<br />
+				<span class="wpcf7-form-control-wrap cheџckbox-399">
+					<span class="wpcf7-form-control wpcf7-checkbox">
+						<span class="wpcf7-list-item first">
+							<label>
+								<input type="checkbox" name="checkbox-399[]" value="1" />
+								<span class="wpcf7-list-item-label">1</span>
+							</label>
+						</span>
+						<span class="wpcf7-list-item">
+							<label>
+								<input type="checkbox" name="checkbox-399[]" value="2" />
+								<span class="wpcf7-list-item-label">2</span>
+							</label>
+						</span>
+						<span class="wpcf7-list-item last">
+							<label>
+								<input type="checkbox" name="checkbox-399[]" value="3" />
+								<span class="wpcf7-list-item-label">3</span>
+							</label>
+						</span>
+					</span>
+				</span>
+			</p>
+			<p>radio<br />
+				<span class="wpcf7-form-control-wrap radio-637">
+					<span class="wpcf7-form-control wpcf7-radio">
+						<span class="wpcf7-list-item first">
+							<label>
+								<input type="radio" name="radio-637" value="1" checked="checked" />
+								<span class="wpcf7-list-item-label">1</span>
+							</label>
+						</span>
+						<span class="wpcf7-list-item">
+							<label>
+								<input type="radio" name="radio-637" value="2" />
+								<span class="wpcf7-list-item-label">2</span>
+							</label>
+						</span>
+						<span class="wpcf7-list-item last">
+							<label>
+								<input type="radio" name="radio-637" value="3" />
+								<span class="wpcf7-list-item-label">3</span>
+							</label>
+						</span>
+					</span>
+				</span>
+			</p>
+			<p>acceptance<br />
+				<span class="wpcf7-form-control-wrap acceptance-141">
+					<input type="checkbox" name="acceptance-141" value="1" class="wpcf7-form-control wpcf7-acceptance"
+						aria-invalid="false" />
+				</span>
+			</p>
+			<p>quiz<br />
+				<span class="wpcf7-form-control-wrap quiz-37">
+					<label>
+						<span class="wpcf7-quiz-label">The capital of Brazil?</span>
+						<input type="text" name="quiz-37" size="40" class="wpcf7-form-control wpcf7-quiz" autocomplete="off"
+							aria-required="true" aria-invalid="false" />
+					</label>
+					<input type="hidden" name="_wpcf7_quiz_answer_quiz-37" value="8debceaf93f2f3103ff6d52122fe2bc1" />
+				</span>
+			</p>
+			<p>file<br />
+				<span class="wpcf7-form-control-wrap file-853">
+					<input type="file" name="file-853" size="40" class="wpcf7-form-control wpcf7-file" aria-invalid="false" />
+				</span>
+			</p>
+			<p>
+				<input type="submit" value="Send" class="wpcf7-form-control wpcf7-submit" />
+			</p>
+			<div class="wpcf7-response-output wpcf7-display-none wpcf7-mail-sent-ok" role="alert" style="display: block;">
+				Your message was sent successfully. Thanks.</div>
+			<div class="wpcf7-response-output wpcf7-display-none wpcf7-validation-errors" style="display: block;"
+				role="alert">Validation errors occurred. Please confirm the fields and submit it again.</div>
+		</form>
+	</div> -->
+	<form>
+		<h2>Form Element</h2>
+		<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam dignissim convallis est. Quisque aliquam.
+			Donec faucibus. Nunc iaculis suscipit dui.</p>
+		<p><label for="text_field">Text Field:</label><br>
+			<input type="text" id="text_field"></p>
+		<p><label for="text_area">Text Area:</label><br>
+			<textarea id="text_area"></textarea></p>
+		<p><label for="select_element">Select Element:</label><br>
+			<select name="select_element">
+				<optgroup label="Option Group 1">
+					<option value="1">Option 1</option>
+					<option value="2">Option 2</option>
+					<option value="3">Option 3</option>
+				</optgroup>
+				<optgroup label="Option Group 2">
+					<option value="1">Option 1</option>
+					<option value="2">Option 2</option>
+					<option value="3">Option 3</option>
+				</optgroup>
+			</select></p>
+		<p><label for="radio_buttons">Radio Buttons:</label><br>
+			<input type="radio" class="radio" name="radio_button" value="radio_1"> Radio 1<br>
+			<input type="radio" class="radio" name="radio_button" value="radio_2"> Radio 2<br>
+			<input type="radio" class="radio" name="radio_button" value="radio_3"> Radio 3<br>
+		</p>
+		<p><label for="checkboxes">Checkboxes:</label><br>
+			<input type="checkbox" class="checkbox" name="checkboxes" value="check_1"> Radio 1<br>
+			<input type="checkbox" class="checkbox" name="checkboxes" value="check_2"> Radio 2<br>
+			<input type="checkbox" class="checkbox" name="checkboxes" value="check_3"> Radio 3<br>
+		</p>
+		<p><label for="password">Password:</label><br>
+			<input type="password" class="password" name="password">
+		</p>
+		<p><label for="file">File Input:</label><br>
+			<input type="file" class="file" name="file">
+		</p>
+		<p><input class="button" type="reset" value="Clear"> <input class="button" type="submit" value="Submit">
+		</p>
+	</form>
+	<p>Gallery example 1</p>
+	<div id="gallery-1" class="gallery galleryid-1 gallery-columns-1 gallery-size-thumbnail">
+		<figure class="gallery-item">
+			<div class="gallery-icon landscape">
+				<a href="http://via.placeholder.com/150x150"><img width="150" height="150" src="http://via.placeholder.com/150x150" class="attachment-thumbnail size-thumbnail" alt="" srcset="http://via.placeholder.com/150x150 150w, http://via.placeholder.com/300x300 300w, http://via.placeholder.com/768x768 768w, http://via.placeholder.com/1024x1024 1024w, http://via.placeholder.com/100x100 100w" sizes="100vw"></a>
+			</div>
+		</figure>
+		<figure class="gallery-item">
+			<div class="gallery-icon portrait">
+				<a href="http://via.placeholder.com/150x150"><img width="150" height="150" src="http://via.placeholder.com/150x150" class="attachment-thumbnail size-thumbnail" alt="" srcset="http://via.placeholder.com/150x150 150w, http://via.placeholder.com/300x300 300w, http://via.placeholder.com/768x768 768w, http://via.placeholder.com/1024x1024 1024w, http://via.placeholder.com/100x100 100w" sizes="100vw"></a>
+			</div>
+		</figure>
+	</div>
+	<p>Gallery example 2</p>
+	<div id="gallery-2" class="gallery galleryid-1 gallery-columns-2 gallery-size-thumbnail">
+		<figure class="gallery-item">
+			<div class="gallery-icon landscape">
+				<a href="http://via.placeholder.com/150x150"><img width="150" height="150" src="http://via.placeholder.com/150x150" class="attachment-thumbnail size-thumbnail" alt="" srcset="http://via.placeholder.com/150x150 150w, http://via.placeholder.com/300x300 300w, http://via.placeholder.com/768x768 768w, http://via.placeholder.com/1024x1024 1024w, http://via.placeholder.com/100x100 100w" sizes="100vw"></a>
+			</div>
+		</figure>
+		<figure class="gallery-item">
+			<div class="gallery-icon portrait">
+				<a href="http://via.placeholder.com/150x150"><img width="150" height="150" src="http://via.placeholder.com/150x150" class="attachment-thumbnail size-thumbnail" alt="" srcset="http://via.placeholder.com/150x150 150w, http://via.placeholder.com/300x300 300w, http://via.placeholder.com/768x768 768w, http://via.placeholder.com/1024x1024 1024w, http://via.placeholder.com/100x100 100w" sizes="100vw"></a>
+			</div>
+		</figure>
+		<figure class="gallery-item">
+			<div class="gallery-icon landscape">
+				<a href="http://via.placeholder.com/150x150"><img width="150" height="150" src="http://via.placeholder.com/150x150" class="attachment-thumbnail size-thumbnail" alt="" srcset="http://via.placeholder.com/150x150 150w, http://via.placeholder.com/300x300 300w, http://via.placeholder.com/768x768 768w, http://via.placeholder.com/1024x1024 1024w, http://via.placeholder.com/100x100 100w" sizes="100vw"></a>
+			</div>
+		</figure>
+		<figure class="gallery-item">
+			<div class="gallery-icon landscape">
+				<a href="http://via.placeholder.com/150x150"><img width="150" height="150" src="http://via.placeholder.com/150x150" class="attachment-thumbnail size-thumbnail" alt="" srcset="http://via.placeholder.com/150x150 150w, http://via.placeholder.com/300x300 300w, http://via.placeholder.com/768x768 768w, http://via.placeholder.com/1024x1024 1024w, http://via.placeholder.com/100x100 100w" sizes="100vw"></a>
+			</div>
+		</figure>
+	</div>
+	<p>Gallery example 3</p>
+	<div id="gallery-3" class="gallery galleryid-1 gallery-columns-3 gallery-size-thumbnail">
+		<figure class="gallery-item">
+			<div class="gallery-icon landscape">
+				<a href="http://via.placeholder.com/150x150"><img width="150" height="150" src="http://via.placeholder.com/150x150" class="attachment-thumbnail size-thumbnail" alt="" srcset="http://via.placeholder.com/150x150 150w, http://via.placeholder.com/300x300 300w, http://via.placeholder.com/768x768 768w, http://via.placeholder.com/1024x1024 1024w, http://via.placeholder.com/100x100 100w" sizes="100vw"></a>
+			</div>
+		</figure>
+		<figure class="gallery-item">
+			<div class="gallery-icon portrait">
+				<a href="http://via.placeholder.com/150x150"><img width="150" height="150" src="http://via.placeholder.com/150x150" class="attachment-thumbnail size-thumbnail" alt="" srcset="http://via.placeholder.com/150x150 150w, http://via.placeholder.com/300x300 300w, http://via.placeholder.com/768x768 768w, http://via.placeholder.com/1024x1024 1024w, http://via.placeholder.com/100x100 100w" sizes="100vw"></a>
+			</div>
+		</figure>
+		<figure class="gallery-item">
+			<div class="gallery-icon landscape">
+				<a href="http://via.placeholder.com/150x150"><img width="150" height="150" src="http://via.placeholder.com/150x150" class="attachment-thumbnail size-thumbnail" alt="" srcset="http://via.placeholder.com/150x150 150w, http://via.placeholder.com/300x300 300w, http://via.placeholder.com/768x768 768w, http://via.placeholder.com/1024x1024 1024w, http://via.placeholder.com/100x100 100w" sizes="100vw"></a>
+			</div>
+		</figure>
+		<figure class="gallery-item">
+			<div class="gallery-icon landscape">
+				<a href="http://via.placeholder.com/150x150"><img width="150" height="150" src="http://via.placeholder.com/150x150" class="attachment-thumbnail size-thumbnail" alt="" srcset="http://via.placeholder.com/150x150 150w, http://via.placeholder.com/300x300 300w, http://via.placeholder.com/768x768 768w, http://via.placeholder.com/1024x1024 1024w, http://via.placeholder.com/100x100 100w" sizes="100vw"></a>
+			</div>
+		</figure>
+		<figure class="gallery-item">
+			<div class="gallery-icon landscape">
+				<a href="http://via.placeholder.com/150x150"><img width="150" height="150" src="http://via.placeholder.com/150x150" class="attachment-thumbnail size-thumbnail" alt="" srcset="http://via.placeholder.com/150x150 150w, http://via.placeholder.com/300x300 300w, http://via.placeholder.com/768x768 768w, http://via.placeholder.com/1024x1024 1024w, http://via.placeholder.com/100x100 100w" sizes="100vw"></a>
+			</div>
+		</figure>
+		<figure class="gallery-item">
+			<div class="gallery-icon landscape">
+				<a href="http://via.placeholder.com/150x150"><img width="150" height="150" src="http://via.placeholder.com/150x150" class="attachment-thumbnail size-thumbnail" alt="" srcset="http://via.placeholder.com/150x150 150w, http://via.placeholder.com/300x300 300w, http://via.placeholder.com/768x768 768w, http://via.placeholder.com/1024x1024 1024w, http://via.placeholder.com/100x100 100w" sizes="100vw"></a>
+			</div>
+		</figure>
+		<figure class="gallery-item">
+			<div class="gallery-icon landscape">
+				<a href="http://via.placeholder.com/150x150"><img width="150" height="150" src="http://via.placeholder.com/150x150" class="attachment-thumbnail size-thumbnail" alt="" srcset="http://via.placeholder.com/150x150 150w, http://via.placeholder.com/300x300 300w, http://via.placeholder.com/768x768 768w, http://via.placeholder.com/1024x1024 1024w, http://via.placeholder.com/100x100 100w" sizes="100vw"></a>
+			</div>
+		</figure>
+	</div>
+	<p>Gallery example 4</p>
+	<div id="gallery-4" class="gallery galleryid-1 gallery-columns-4 gallery-size-thumbnail">
+		<figure class="gallery-item">
+			<div class="gallery-icon landscape">
+				<a href="http://via.placeholder.com/150x150"><img width="150" height="150" src="http://via.placeholder.com/150x150" class="attachment-thumbnail size-thumbnail" alt="" srcset="http://via.placeholder.com/150x150 150w, http://via.placeholder.com/300x300 300w, http://via.placeholder.com/768x768 768w, http://via.placeholder.com/1024x1024 1024w, http://via.placeholder.com/100x100 100w" sizes="100vw"></a>
+			</div>
+		</figure>
+		<figure class="gallery-item">
+			<div class="gallery-icon portrait">
+				<a href="http://via.placeholder.com/150x150"><img width="150" height="150" src="http://via.placeholder.com/150x150" class="attachment-thumbnail size-thumbnail" alt="" srcset="http://via.placeholder.com/150x150 150w, http://via.placeholder.com/300x300 300w, http://via.placeholder.com/768x768 768w, http://via.placeholder.com/1024x1024 1024w, http://via.placeholder.com/100x100 100w" sizes="100vw"></a>
+			</div>
+		</figure>
+		<figure class="gallery-item">
+			<div class="gallery-icon landscape">
+				<a href="http://via.placeholder.com/150x150"><img width="150" height="150" src="http://via.placeholder.com/150x150" class="attachment-thumbnail size-thumbnail" alt="" srcset="http://via.placeholder.com/150x150 150w, http://via.placeholder.com/300x300 300w, http://via.placeholder.com/768x768 768w, http://via.placeholder.com/1024x1024 1024w, http://via.placeholder.com/100x100 100w" sizes="100vw"></a>
+			</div>
+		</figure>
+		<figure class="gallery-item">
+			<div class="gallery-icon landscape">
+				<a href="http://via.placeholder.com/150x150"><img width="150" height="150" src="http://via.placeholder.com/150x150" class="attachment-thumbnail size-thumbnail" alt="" srcset="http://via.placeholder.com/150x150 150w, http://via.placeholder.com/300x300 300w, http://via.placeholder.com/768x768 768w, http://via.placeholder.com/1024x1024 1024w, http://via.placeholder.com/100x100 100w" sizes="100vw"></a>
+			</div>
+		</figure>
+		<figure class="gallery-item">
+			<div class="gallery-icon landscape">
+				<a href="http://via.placeholder.com/150x150"><img width="150" height="150" src="http://via.placeholder.com/150x150" class="attachment-thumbnail size-thumbnail" alt="" srcset="http://via.placeholder.com/150x150 150w, http://via.placeholder.com/300x300 300w, http://via.placeholder.com/768x768 768w, http://via.placeholder.com/1024x1024 1024w, http://via.placeholder.com/100x100 100w" sizes="100vw"></a>
+			</div>
+		</figure>
+		<figure class="gallery-item">
+			<div class="gallery-icon landscape">
+				<a href="http://via.placeholder.com/150x150"><img width="150" height="150" src="http://via.placeholder.com/150x150" class="attachment-thumbnail size-thumbnail" alt="" srcset="http://via.placeholder.com/150x150 150w, http://via.placeholder.com/300x300 300w, http://via.placeholder.com/768x768 768w, http://via.placeholder.com/1024x1024 1024w, http://via.placeholder.com/100x100 100w" sizes="100vw"></a>
+			</div>
+		</figure>
+		<figure class="gallery-item">
+			<div class="gallery-icon landscape">
+				<a href="http://via.placeholder.com/150x150"><img width="150" height="150" src="http://via.placeholder.com/150x150" class="attachment-thumbnail size-thumbnail" alt="" srcset="http://via.placeholder.com/150x150 150w, http://via.placeholder.com/300x300 300w, http://via.placeholder.com/768x768 768w, http://via.placeholder.com/1024x1024 1024w, http://via.placeholder.com/100x100 100w" sizes="100vw"></a>
+			</div>
+		</figure>
+	</div>
+	<p>Gallery example 5</p>
+	<div id="gallery-5" class="gallery galleryid-1 gallery-columns-5 gallery-size-thumbnail">
+		<figure class="gallery-item">
+			<div class="gallery-icon landscape">
+				<a href="http://via.placeholder.com/150x150"><img width="150" height="150" src="http://via.placeholder.com/150x150" class="attachment-thumbnail size-thumbnail" alt="" srcset="http://via.placeholder.com/150x150 150w, http://via.placeholder.com/300x300 300w, http://via.placeholder.com/768x768 768w, http://via.placeholder.com/1024x1024 1024w, http://via.placeholder.com/100x100 100w" sizes="100vw"></a>
+			</div>
+		</figure>
+		<figure class="gallery-item">
+			<div class="gallery-icon portrait">
+				<a href="http://via.placeholder.com/150x150"><img width="150" height="150" src="http://via.placeholder.com/150x150" class="attachment-thumbnail size-thumbnail" alt="" srcset="http://via.placeholder.com/150x150 150w, http://via.placeholder.com/300x300 300w, http://via.placeholder.com/768x768 768w, http://via.placeholder.com/1024x1024 1024w, http://via.placeholder.com/100x100 100w" sizes="100vw"></a>
+			</div>
+		</figure>
+		<figure class="gallery-item">
+			<div class="gallery-icon landscape">
+				<a href="http://via.placeholder.com/150x150"><img width="150" height="150" src="http://via.placeholder.com/150x150" class="attachment-thumbnail size-thumbnail" alt="" srcset="http://via.placeholder.com/150x150 150w, http://via.placeholder.com/300x300 300w, http://via.placeholder.com/768x768 768w, http://via.placeholder.com/1024x1024 1024w, http://via.placeholder.com/100x100 100w" sizes="100vw"></a>
+			</div>
+		</figure>
+		<figure class="gallery-item">
+			<div class="gallery-icon landscape">
+				<a href="http://via.placeholder.com/150x150"><img width="150" height="150" src="http://via.placeholder.com/150x150" class="attachment-thumbnail size-thumbnail" alt="" srcset="http://via.placeholder.com/150x150 150w, http://via.placeholder.com/300x300 300w, http://via.placeholder.com/768x768 768w, http://via.placeholder.com/1024x1024 1024w, http://via.placeholder.com/100x100 100w" sizes="100vw"></a>
+			</div>
+		</figure>
+		<figure class="gallery-item">
+			<div class="gallery-icon landscape">
+				<a href="http://via.placeholder.com/150x150"><img width="150" height="150" src="http://via.placeholder.com/150x150" class="attachment-thumbnail size-thumbnail" alt="" srcset="http://via.placeholder.com/150x150 150w, http://via.placeholder.com/300x300 300w, http://via.placeholder.com/768x768 768w, http://via.placeholder.com/1024x1024 1024w, http://via.placeholder.com/100x100 100w" sizes="100vw"></a>
+			</div>
+		</figure>
+		<figure class="gallery-item">
+			<div class="gallery-icon landscape">
+				<a href="http://via.placeholder.com/150x150"><img width="150" height="150" src="http://via.placeholder.com/150x150" class="attachment-thumbnail size-thumbnail" alt="" srcset="http://via.placeholder.com/150x150 150w, http://via.placeholder.com/300x300 300w, http://via.placeholder.com/768x768 768w, http://via.placeholder.com/1024x1024 1024w, http://via.placeholder.com/100x100 100w" sizes="100vw"></a>
+			</div>
+		</figure>
+		<figure class="gallery-item">
+			<div class="gallery-icon landscape">
+				<a href="http://via.placeholder.com/150x150"><img width="150" height="150" src="http://via.placeholder.com/150x150" class="attachment-thumbnail size-thumbnail" alt="" srcset="http://via.placeholder.com/150x150 150w, http://via.placeholder.com/300x300 300w, http://via.placeholder.com/768x768 768w, http://via.placeholder.com/1024x1024 1024w, http://via.placeholder.com/100x100 100w" sizes="100vw"></a>
+			</div>
+		</figure>
+	</div>
+	<p>Gallery example 6</p>
+	<div id="gallery-6" class="gallery galleryid-1 gallery-columns-6 gallery-size-thumbnail">
+		<figure class="gallery-item">
+			<div class="gallery-icon landscape">
+				<a href="http://via.placeholder.com/150x150"><img width="150" height="150" src="http://via.placeholder.com/150x150" class="attachment-thumbnail size-thumbnail" alt="" srcset="http://via.placeholder.com/150x150 150w, http://via.placeholder.com/300x300 300w, http://via.placeholder.com/768x768 768w, http://via.placeholder.com/1024x1024 1024w, http://via.placeholder.com/100x100 100w" sizes="100vw"></a>
+			</div>
+		</figure>
+		<figure class="gallery-item">
+			<div class="gallery-icon portrait">
+				<a href="http://via.placeholder.com/150x150"><img width="150" height="150" src="http://via.placeholder.com/150x150" class="attachment-thumbnail size-thumbnail" alt="" srcset="http://via.placeholder.com/150x150 150w, http://via.placeholder.com/300x300 300w, http://via.placeholder.com/768x768 768w, http://via.placeholder.com/1024x1024 1024w, http://via.placeholder.com/100x100 100w" sizes="100vw"></a>
+			</div>
+		</figure>
+		<figure class="gallery-item">
+			<div class="gallery-icon landscape">
+				<a href="http://via.placeholder.com/150x150"><img width="150" height="150" src="http://via.placeholder.com/150x150" class="attachment-thumbnail size-thumbnail" alt="" srcset="http://via.placeholder.com/150x150 150w, http://via.placeholder.com/300x300 300w, http://via.placeholder.com/768x768 768w, http://via.placeholder.com/1024x1024 1024w, http://via.placeholder.com/100x100 100w" sizes="100vw"></a>
+			</div>
+		</figure>
+		<figure class="gallery-item">
+			<div class="gallery-icon landscape">
+				<a href="http://via.placeholder.com/150x150"><img width="150" height="150" src="http://via.placeholder.com/150x150" class="attachment-thumbnail size-thumbnail" alt="" srcset="http://via.placeholder.com/150x150 150w, http://via.placeholder.com/300x300 300w, http://via.placeholder.com/768x768 768w, http://via.placeholder.com/1024x1024 1024w, http://via.placeholder.com/100x100 100w" sizes="100vw"></a>
+			</div>
+		</figure>
+		<figure class="gallery-item">
+			<div class="gallery-icon landscape">
+				<a href="http://via.placeholder.com/150x150"><img width="150" height="150" src="http://via.placeholder.com/150x150" class="attachment-thumbnail size-thumbnail" alt="" srcset="http://via.placeholder.com/150x150 150w, http://via.placeholder.com/300x300 300w, http://via.placeholder.com/768x768 768w, http://via.placeholder.com/1024x1024 1024w, http://via.placeholder.com/100x100 100w" sizes="100vw"></a>
+			</div>
+		</figure>
+		<figure class="gallery-item">
+			<div class="gallery-icon landscape">
+				<a href="http://via.placeholder.com/150x150"><img width="150" height="150" src="http://via.placeholder.com/150x150" class="attachment-thumbnail size-thumbnail" alt="" srcset="http://via.placeholder.com/150x150 150w, http://via.placeholder.com/300x300 300w, http://via.placeholder.com/768x768 768w, http://via.placeholder.com/1024x1024 1024w, http://via.placeholder.com/100x100 100w" sizes="100vw"></a>
+			</div>
+		</figure>
+		<figure class="gallery-item">
+			<div class="gallery-icon landscape">
+				<a href="http://via.placeholder.com/150x150"><img width="150" height="150" src="http://via.placeholder.com/150x150" class="attachment-thumbnail size-thumbnail" alt="" srcset="http://via.placeholder.com/150x150 150w, http://via.placeholder.com/300x300 300w, http://via.placeholder.com/768x768 768w, http://via.placeholder.com/1024x1024 1024w, http://via.placeholder.com/100x100 100w" sizes="100vw"></a>
+			</div>
+		</figure>
+	</div>
+</div>
+<!-- entry -->
+<!-- Comment List -->
+<div class="comments">
+	<h3 id="comments">6 Responses to "Hello world!"</h3>
+	<div class="commentlist">
+		<div id="comment-5" class="comment byuser comment-author-admin bypostauthor even thread-even depth-1">
+			<article id="div-comment-5" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="https://0.gravatar.com/avatar/64e1b8d34f425d19e1ee2ea7236d3028?s=34&amp;d=mm&amp;r=g" srcset="https://0.gravatar.com/avatar/64e1b8d34f425d19e1ee2ea7236d3028?s=68&amp;d=mm&amp;r=g 2x" class="avatar avatar-34 photo" height="34" width="34"> <b class="fn">admin</b> <span class="says">says:</span> </div>
+					<!-- .comment-author -->
+					<div class="comment-metadata">
+						<a href="#">
+							<time datetime="2016-03-01T12:47:58+00:00">
+								March 1, 2016 at 12:47 pm </time>
+						</a>
+						<span class="edit-link"><a class="comment-edit-link" href="#">Edit</a></span>
+					</div>
+					<!-- .comment-metadata -->
+				</footer>
+				<!-- .comment-meta -->
+				<div class="comment-content">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo dolore velit culpa, quas inventore
+						aliquam.<br> Lorem ipsum dolor sit amet.</p>
+				</div>
+				<!-- .comment-content -->
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="#" onclick="" aria-label="Reply to admin">Reply</a></div>
+			</article>
+			<!-- .comment-body -->
+		</div>
+		<!-- #comment-## -->
+		<div id="comment-6" class="comment byuser comment-author-admin bypostauthor odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-6" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="https://0.gravatar.com/avatar/64e1b8d34f425d19e1ee2ea7236d3028?s=34&amp;d=mm&amp;r=g" srcset="https://0.gravatar.com/avatar/64e1b8d34f425d19e1ee2ea7236d3028?s=68&amp;d=mm&amp;r=g 2x" class="avatar avatar-34 photo" height="34" width="34"> <b class="fn">admin</b> <span class="says">says:</span> </div>
+					<!-- .comment-author -->
+					<div class="comment-metadata">
+						<a href="#">
+							<time datetime="2016-03-01T12:48:06+00:00">
+								March 1, 2016 at 12:48 pm </time>
+						</a>
+						<span class="edit-link"><a class="comment-edit-link" href="#">Edit</a></span>
+					</div>
+					<!-- .comment-metadata -->
+				</footer>
+				<!-- .comment-meta -->
+				<div class="comment-content">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo dolore velit culpa, quas inventore
+						aliquam.<br> Lorem ipsum dolor sit amet.1</p>
+				</div>
+				<!-- .comment-content -->
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="#" onclick="" aria-label="Reply to admin">Reply</a></div>
+			</article>
+			<!-- .comment-body -->
+		</div>
+		<!-- #comment-## -->
+		<div id="comment-7" class="comment byuser comment-author-admin bypostauthor even thread-even depth-1 parent">
+			<article id="div-comment-7" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="https://0.gravatar.com/avatar/64e1b8d34f425d19e1ee2ea7236d3028?s=34&amp;d=mm&amp;r=g" srcset="https://0.gravatar.com/avatar/64e1b8d34f425d19e1ee2ea7236d3028?s=68&amp;d=mm&amp;r=g 2x" class="avatar avatar-34 photo" height="34" width="34"> <b class="fn">admin</b> <span class="says">says:</span> </div>
+					<!-- .comment-author -->
+					<div class="comment-metadata">
+						<a href="#">
+							<time datetime="2016-03-01T12:48:14+00:00">
+								March 1, 2016 at 12:48 pm </time>
+						</a>
+						<span class="edit-link"><a class="comment-edit-link" href="https://builtwith.care/wp/cedarcreek/wp-admin/comment.php?action=editcomment&amp;c=7">Edit</a></span>
+					</div>
+					<!-- .comment-metadata -->
+				</footer>
+				<!-- .comment-meta -->
+				<div class="comment-content">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo dolore velit culpa, quas inventore
+						aliquam.<br> Lorem ipsum dolor sit met. 2</p>
+				</div>
+				<!-- .comment-content -->
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="#" onclick="" aria-label="Reply to admin">Reply</a></div>
+			</article>
+			<!-- .comment-body -->
+			<div id="comment-8" class="comment byuser comment-author-admin bypostauthor odd alt depth-2 parent">
+				<article id="div-comment-8" class="comment-body">
+					<footer class="comment-meta">
+						<div class="comment-author vcard">
+							<img alt="" src="https://0.gravatar.com/avatar/64e1b8d34f425d19e1ee2ea7236d3028?s=34&amp;d=mm&amp;r=g" srcset="https://0.gravatar.com/avatar/64e1b8d34f425d19e1ee2ea7236d3028?s=68&amp;d=mm&amp;r=g 2x" class="avatar avatar-34 photo" height="34" width="34"> <b class="fn">admin</b> <span class="says">says:</span> </div>
+						<!-- .comment-author -->
+						<div class="comment-metadata">
+							<a href="#">
+								<time datetime="2016-03-01T12:48:18+00:00">
+									March 1, 2016 at 12:48 pm </time>
+							</a>
+							<span class="edit-link"><a class="comment-edit-link" href="#">Edit</a></span>
+						</div>
+						<!-- .comment-metadata -->
+					</footer>
+					<!-- .comment-meta -->
+					<div class="comment-content">
+						<p>Lorem ipsum dolor sit amLorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo dolore
+							velit culpa, quas inventore aliquam.<br> Lorem ipsum dolor sit amet.et, consectetur adipisicing elit.
+							Explicabo dolore velit culpa, quas inventore
+							aliquam. <br> Lorem ipsum dolor sit amet.</p>
+					</div>
+					<!-- .comment-content -->
+					<div class="reply"><a rel="nofollow" class="comment-reply-link" href="#" onclick="" aria-label="Reply to admin">Reply</a></div>
+				</article>
+				<!-- .comment-body -->
+				<div id="comment-9" class="comment byuser comment-author-admin bypostauthor even depth-3">
+					<article id="div-comment-9" class="comment-body">
+						<footer class="comment-meta">
+							<div class="comment-author vcard">
+								<img alt="" src="https://0.gravatar.com/avatar/64e1b8d34f425d19e1ee2ea7236d3028?s=34&amp;d=mm&amp;r=g" srcset="https://0.gravatar.com/avatar/64e1b8d34f425d19e1ee2ea7236d3028?s=68&amp;d=mm&amp;r=g 2x" class="avatar avatar-34 photo" height="34" width="34"> <b class="fn">admin</b> <span class="says">says:</span> </div>
+							<!-- .comment-author -->
+							<div class="comment-metadata">
+								<a href="#">
+									<time datetime="2016-03-01T12:48:23+00:00">
+										March 1, 2016 at 12:48 pm </time>
+								</a>
+								<span class="edit-link"><a class="comment-edit-link" href="#">Edit</a></span>
+							</div>
+							<!-- .comment-metadata -->
+						</footer>
+						<!-- .comment-meta -->
+						<div class="comment-content">
+							<p>Lorem ipsum dolodr sit amet, consectetur adipisicing elit. Explicabo dolore velit culpa, quas
+								inventore aliquam.<br> Lorem ipsum dolor sit met.</p>
+						</div>
+						<!-- .comment-content -->
+						<div class="reply"><a rel="nofollow" class="comment-reply-link" href="#" onclick="" aria-label="Reply to admin">Reply</a></div>
+					</article>
+					<!-- .comment-body -->
+				</div>
+				<!-- #comment-## -->
+			</div>
+			<!-- #comment-## -->
+		</div>
+		<!-- #comment-## -->
+		<div id="comment-10" class="comment byuser comment-author-admin bypostauthor odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-10" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="https://0.gravatar.com/avatar/64e1b8d34f425d19e1ee2ea7236d3028?s=34&amp;d=mm&amp;r=g" srcset="https://0.gravatar.com/avatar/64e1b8d34f425d19e1ee2ea7236d3028?s=68&amp;d=mm&amp;r=g 2x" class="avatar avatar-34 photo" height="34" width="34"> <b class="fn">admin</b> <span class="says">says:</span> </div>
+					<!-- .comment-author -->
+					<div class="comment-metadata">
+						<a href="#">
+							<time datetime="2016-03-01T12:48:28+00:00">
+								March 1, 2016 at 12:48 pm </time>
+						</a>
+						<span class="edit-link"><a class="comment-edit-link" href="#">Edit</a></span>
+					</div>
+					<!-- .comment-metadata -->
+				</footer>
+				<!-- .comment-meta -->
+				<div class="comment-content">
+					<p>Lorem ipsum dolor sit am set, consectetur adipisicing elit. Explicabo dolore velit culpa, quas
+						inventore
+						aliquam.<br> Lorem ipsum dolor sit met.</p>
+				</div>
+				<!-- .comment-content -->
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="#" onclick="" aria-label="Reply to admin">Reply</a></div>
+			</article>
+			<!-- .comment-body -->
+		</div>
+		<!-- #comment-## -->
+	</div>
+</div>
+<!-- Comment Form -->
+<div id="respond" class="comment-respond">
+	<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="#" style="display:none;">Cancel
+				reply</a></small></h3>
+
+	<form action="wordpress/wordpress-reliablepsd/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate="">
+		<p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields
+			are marked <span class="required">*</span></p>
+		<p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" required="required"></p>
+		<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" required="required"></p>
+		<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="url" value="" size="30" maxlength="200"></p>
+		<p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes"><label for="wp-comment-cookies-consent">Save my name, email, and website in
+				this
+				browser for the next time I comment.</label></p>
+		<p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea></p>
+		<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment">
+			<input type="hidden" name="comment_post_ID" value="42" id="comment_post_ID">
+			<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+		</p>
+	</form>
+</div>
+<!-- #respond -->
+<!-- Comment Form (logged) -->
+<div class="comment-respond">
+	<h3 class="comment-reply-title" id="reply-title">Leave a Reply <small><a style="display:none;" href="#" id="cancel-comment-reply-link" rel="nofollow">Cancel reply</a></small></h3>
+	<form class="comment-form" id="commentform" method="post" action="https://twitter.staging.com/wp-comments-post.php">
+		<p class="logged-in-as">Logged in as <a href="https://twitter.staging.com/wp-admin/profile.php">admin</a>. <a title="Log out of this account" href="https://twitter.staging.com/wp-login.php?action=logout&amp;redirect_to=http%3A%2F%2Ftwitter.staging.com%2F%3Fp%3D1&amp;_wpnonce=7b75421b19">Log
+				out?</a></p>
+		<p class="comment-form-comment"><label for="comment">Comment</label> <textarea aria-required="true" rows="8" cols="45" name="comment" id="comment"></textarea></p>
+		<p class="form-allowed-tags">You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and
+			attributes:
+			<code>&lt;a href="" title=""&gt; &lt;abbr title=""&gt; &lt;acronym title=""&gt; &lt;b&gt; &lt;blockquote cite=""&gt; &lt;cite&gt; &lt;code&gt; &lt;deldatetime=""&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=""&gt; &lt;strike&gt; &lt;strong&gt;</code>
+		</p>
+		<p class="form-submit">
+			<input value="Post Comment" id="submit" name="submit" type="submit">
+			<input id="comment_post_ID" value="1" name="comment_post_ID" type="hidden">
+			<input value="0" id="comment_parent" name="comment_parent" type="hidden">
+		</p>
+		<input value="0cbd77c2aa" name="_wp_unfiltered_html_comment" id="_wp_unfiltered_html_comment_disabled" type="hidden">
+	</form>
+</div>
+<!-- Blog -->
+<h1 class="page-title">Category: Uncategorized</h1>
+<div class="breadcrumb">
+	<div class="breadcrumb-trail"> <a href="#" title="Wordpress" rel="home" class="trail-begin">Home</a> <span class="sep">/</span> Uncategorized</div>
+</div>
+<div class="posts-list">
+	<div class="post type-page status-publish hentry">
+		<div class="title">
+			<h3><a href="#" rel="bookmark">Post 1</a></h3>
+		</div>
+		<!-- /title -->
+		<div class="postmetadata">
+			<p>Category: <a href="#" rel="category tag">Uncategorized</a> | <a href="#respond">Write Comment</a> | <a class="post-edit-link" href="#">Edit</a><br>Posted by admin | March 31, 2016</p>
+		</div>
+		<div class="entry">
+			<p>Header one Header two Header three Header four Header five Header six Lorem ipsum dolor sit amet,
+				consectetur
+				adipisicing elit. Sapiente, minus, provident, possimus, aperiam ipsum fugit eos natus est ducimus quasi in
+				libero repudiandae et mollitia perspiciatis adipisci ex. Perferendis, odit! Lorem ipsum dolor sit amet,
+				consectetur adipisicing elit. Sapiente, minus, provident, possimus, aperiam…</p>
+		</div>
+		<!-- /entry -->
+	</div>
+	<!-- /post -->
+	<div class="post page type-page status-publish hentry">
+		<div class="title">
+			<h3><a href="#" rel="bookmark">Page with text</a></h3>
+		</div>
+		<!-- /title -->
+		<div class="entry">
+			<p>Header one Header two Header three Header four Header five Header six Lorem ipsum dolor sit amet,
+				consectetur
+				adipisicing elit. Sapiente, minus, provident, possimus, aperiam ipsum fugit eos natus est ducimus quasi in
+				libero repudiandae et mollitia perspiciatis adipisci ex. Perferendis, odit! Lorem ipsum dolor sit amet,
+				consectetur adipisicing elit. Sapiente, minus, provident, possimus, aperiam…</p>
+		</div>
+		<!-- /entry -->
+	</div>
+	<!-- /post -->
+	<div class="post page type-page status-publish hentry">
+		<div class="title">
+			<h3><a href="#" rel="bookmark">Page No text</a></h3>
+		</div>
+		<!-- /title -->
+		<div class="entry">
+		</div>
+		<!-- /entry -->
+	</div>
+	<!-- /post -->
+	<div class="post page type-page status-publish hentry">
+		<div class="title">
+			<h3><a href="#" rel="bookmark">Page 2 No text</a></h3>
+		</div>
+		<!-- /title -->
+		<div class="entry">
+		</div>
+		<!-- /entry -->
+	</div>
+	<!-- /post -->
+	<div class="post type-page status-publish hentry">
+		<div class="title">
+			<h3><a href="#" rel="bookmark">Post 2</a></h3>
+		</div>
+		<!-- /title -->
+		<div class="postmetadata">
+			<p>Category: <a href="#" rel="category tag">Uncategorized</a> | <a href="#respond">Write Comment</a> | <a class="post-edit-link" href="#">Edit</a><br>Posted by admin | March 31, 2016</p>
+		</div>
+		<div class="entry">
+			<p>Header one Header two Header three Header four Header five Header six Lorem ipsum dolor sit amet,
+				consectetur
+				adipisicing elit. Sapiente, minus, provident, possimus, aperiam ipsum fugit eos natus est ducimus quasi in
+				libero repudiandae et mollitia perspiciatis adipisci ex. Perferendis, odit! Lorem ipsum dolor sit amet,
+				consectetur adipisicing elit. Sapiente, minus, provident, possimus, aperiam…</p>
+		</div>
+		<!-- /entry -->
+	</div>
+	<!-- /post -->
+	<div class="post page type-page status-publish hentry">
+		<div class="title">
+			<h3><a href="https://builtwith.care/wp/adventure-media-group/contact-us/" rel="bookmark">Contact us</a></h3>
+		</div>
+		<!-- /title -->
+		<div class="entry">
+		</div>
+		<!-- /entry -->
+	</div>
+	<!-- /post -->
+</div>
+<!-- /posts-list -->
+<div class="pagination">
+	<div class="al"><a href="https://builtwith.care/wp/adventure-media-group/page/3/?s=s"><span>←</span>
+			Previous</a></div>
+	<div class="ar"><a href="https://builtwith.care/wp/adventure-media-group/?s=s">Next <span>→</span></a></div>
+</div>
+<!-- /pagination -->
+<div class="pagination pagination-full">
+	<a class="prev page-numbers" href="https://localhost.com/wordpress/category/uncategorized/"><span>←</span>
+		Previous</a>
+	<a class="page-numbers" href="https://localhost.com/wordpress/category/uncategorized/">1</a>
+	<span class="page-numbers current">2</span>
+	<a class="page-numbers" href="https://localhost.com/wordpress/category/uncategorized/page/3/">3</a>
+	<a class="next page-numbers" href="https://localhost.com/wordpress/category/uncategorized/page/3/">Next
+		<span>→</span></a>
+</div>
+<!-- /pagination -->
+<div class="post page">
+	<div class="title">
+		<h2>Nothing Found</h2>
+	</div>
+	<div class="entry">
+		<p>Sorry, but nothing matched your search terms. Please try again with some different keywords.</p>
+		<div id="search_block">
+			<form method="get" action="#">
+				<fieldset>
+					<input type="text" placeholder="Search" value="sasd" name="s" class="text">
+					<input type="submit" value="Go" class="submit">
+				</fieldset>
+			</form>
+		</div>
+		<!-- /search_block -->
+	</div>
+	<!-- /entry -->
+</div>
+<!-- /post -->
+<div class="post page">
+	<div class="title">
+		<h2>Error 404 - Page not found!</h2>
+	</div>
+	<div class="entry">
+		<p>The page you trying to reach does not exist, or has been moved. Please use the menus or the search box to
+			find
+			what you are looking for.</p>
+	</div>
+	<!-- /entry -->
+</div>
+<!-- /post -->
+
+					<!-- { include 'src/template/wp-test-page/wp-test-page-forminator.html' } -->
+				</div>
+			</div>
+		</main>
+		<footer class="page-footer">
+	<div class="container">
+		<h3 style="padding: 50px 0;margin-bottom: 0;text-align: center;text-transform: uppercase;">Footer</h3>
+	</div>
+</footer>
+
+		<div id="wpadminbar" class="nojq nojs"> <a class="screen-reader-shortcut" href="#wp-toolbar" tabindex="1">Skip to toolbar</a>
+	<div class="quicklinks" id="wp-toolbar" role="navigation" aria-label="Toolbar" tabindex="0">
+		<ul id="wp-admin-bar-root-default" class="ab-top-menu">
+			<li id="wp-admin-bar-wp-logo" class="menupop"><a class="ab-item" aria-haspopup="true" href="wp-admin/about.php"><span class="ab-icon"></span><span class="screen-reader-text">About WordPress</span></a>
+				<div class="ab-sub-wrapper">
+					<ul id="wp-admin-bar-wp-logo-default" class="ab-submenu">
+						<li id="wp-admin-bar-about"><a class="ab-item" href="wp-admin/about.php">About WordPress</a> </li>
+					</ul>
+					<ul id="wp-admin-bar-wp-logo-external" class="ab-sub-secondary ab-submenu">
+						<li id="wp-admin-bar-wporg"><a class="ab-item" href="https://wordpress.org/">WordPress.org</a> </li>
+						<li id="wp-admin-bar-documentation"><a class="ab-item" href="https://codex.wordpress.org/">Documentation</a> </li>
+						<li id="wp-admin-bar-support-forums"><a class="ab-item" href="https://wordpress.org/support/">Support Forums</a> </li>
+						<li id="wp-admin-bar-feedback"><a class="ab-item" href="https://wordpress.org/support/forum/requests-and-feedback">Feedback</a> </li>
+					</ul>
+				</div>
+			</li>
+			<li id="wp-admin-bar-site-name" class="menupop"><a class="ab-item" aria-haspopup="true" href="wp-admin/">Reliable PSD Wiki</a>
+				<div class="ab-sub-wrapper">
+					<ul id="wp-admin-bar-site-name-default" class="ab-submenu">
+						<li id="wp-admin-bar-dashboard"><a class="ab-item" href="wp-admin/">Dashboard</a> </li>
+					</ul>
+					<ul id="wp-admin-bar-appearance" class="ab-submenu">
+						<li id="wp-admin-bar-themes"><a class="ab-item" href="wp-admin/themes.php">Themes</a> </li>
+						<li id="wp-admin-bar-widgets"><a class="ab-item" href="wp-admin/widgets.php">Widgets</a> </li>
+						<li id="wp-admin-bar-menus"><a class="ab-item" href="wp-admin/nav-menus.php">Menus</a> </li>
+					</ul>
+				</div>
+			</li>
+			<li id="wp-admin-bar-customize" class="hide-if-no-customize"><a class="ab-item" href="wp-admin/customize.php?url=https%3A%2F%2Fwww.reliablepsd.com%2Fwiki%2F">Customize</a> </li>
+			<li id="wp-admin-bar-comments"><a class="ab-item" href="wp-admin/edit-comments.php"><span class="ab-icon"></span><span class="ab-label awaiting-mod pending-count count-0" aria-hidden="true">0</span><span class="screen-reader-text">0 comments awaiting moderation</span></a> </li>
+			<li id="wp-admin-bar-new-content" class="menupop"><a class="ab-item" aria-haspopup="true" href="wp-admin/post-new.php"><span class="ab-icon"></span><span class="ab-label">New</span></a>
+				<div class="ab-sub-wrapper">
+					<ul id="wp-admin-bar-new-content-default" class="ab-submenu">
+						<li id="wp-admin-bar-new-post"><a class="ab-item" href="wp-admin/post-new.php">Post</a> </li>
+						<li id="wp-admin-bar-new-media"><a class="ab-item" href="wp-admin/media-new.php">Media</a> </li>
+						<li id="wp-admin-bar-new-page"><a class="ab-item" href="wp-admin/post-new.php?post_type=page">Page</a> </li>
+						<li id="wp-admin-bar-new-question_tpl"><a class="ab-item" href="wp-admin/post-new.php?post_type=question_tpl">Question Templates</a> </li>
+						<li id="wp-admin-bar-new-project_question"><a class="ab-item" href="wp-admin/post-new.php?post_type=project_question">Project Questions</a> </li>
+						<li id="wp-admin-bar-new-proposal-post-2018"><a class="ab-item" href="wp-admin/post-new.php?post_type=proposal-post-2018">Proposal (NEW)</a> </li>
+						<li id="wp-admin-bar-new-salary"><a class="ab-item" href="wp-admin/post-new.php?post_type=salary">Salary</a> </li>
+						<li id="wp-admin-bar-new-payment"><a class="ab-item" href="wp-admin/post-new.php?post_type=payment">Payment</a> </li>
+						<li id="wp-admin-bar-new-vacation"><a class="ab-item" href="wp-admin/post-new.php?post_type=vacation">Vacation</a> </li>
+						<li id="wp-admin-bar-new-user"><a class="ab-item" href="wp-admin/user-new.php">User</a> </li>
+					</ul>
+				</div>
+			</li>
+			<li id="wp-admin-bar-edit"><a class="ab-item" href="wp-admin/post.php?post=2&amp;action=edit">Edit Page</a> </li>
+			<li id="wp-admin-bar-new_draft"><a class="ab-item" href="wp-admin/admin.php?action=duplicate_post_save_as_new_post_draft&amp;post=2&amp;_wpnonce=586eb235f3">Copy to a new draft</a> </li>
+		</ul>
+		<ul id="wp-admin-bar-top-secondary" class="ab-top-secondary ab-top-menu">
+			<li id="wp-admin-bar-search" class="admin-bar-search">
+				<div class="ab-item ab-empty-item" tabindex="-1">
+					<form action="" method="get" id="adminbarsearch"><input class="adminbar-input" name="s" id="adminbar-search" type="text" value="" maxlength="150"><label for="adminbar-search" class="screen-reader-text">Search</label><input type="submit" class="adminbar-button" value="Search"></form>
+				</div>
+			</li>
+			<li id="wp-admin-bar-my-account" class="menupop with-avatar"><a class="ab-item" aria-haspopup="true" href="wp-admin/profile.php">Howdy, <span class="display-name">Admin</span><img alt="" src="https://secure.gravatar.com/avatar/40598fa88407737b932564af32d5ea66?s=26&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/40598fa88407737b932564af32d5ea66?s=52&amp;d=mm&amp;r=g 2x" class="avatar avatar-26 photo" height="26" width="26"></a>
+				<div class="ab-sub-wrapper">
+					<ul id="wp-admin-bar-user-actions" class="ab-submenu">
+						<li id="wp-admin-bar-user-info"><a class="ab-item" tabindex="-1" href="wp-admin/profile.php"><img alt="" src="https://secure.gravatar.com/avatar/40598fa88407737b932564af32d5ea66?s=64&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/40598fa88407737b932564af32d5ea66?s=128&amp;d=mm&amp;r=g 2x" class="avatar avatar-64 photo" height="64" width="64"><span class="display-name">Admin</span><span class="username">admin</span></a> </li>
+						<li id="wp-admin-bar-edit-profile"><a class="ab-item" href="wp-admin/profile.php">Edit My Profile</a> </li>
+						<li id="wp-admin-bar-logout"><a class="ab-item" href="wp-login.php?action=logout&amp;_wpnonce=70540c8b4c">Log Out</a> </li>
+					</ul>
+				</div>
+			</li>
+			<li id="wp-admin-bar-tm-suspend"><a class="ab-item" href="#">Suspend Transients</a> </li>
+		</ul>
+	</div> <a class="screen-reader-shortcut" href="wp-login.php?action=logout&amp;_wpnonce=70540c8b4c">Log Out</a> </div>
+</div>
+
+	
+	<script src="js/jquery.min.js"></script>
+
+
+<script src="js/jquery.main.js" defer=""></script>
+
+	<!-- { include 'src/template/wp-test-page/includes-forminator.html' } -->
+	<!-- <link rel="stylesheet" href="https://builtwith.care/hg/reliable-projects/wordpress-reliablepsd/wp-content/plugins/ultimate-branding/inc/modules/front-end/assets/css/cookie-notice.css"> -->
+<!-- cookie-notice.css start -->
+<style type="text/css">
+#branda-cookie-notice {
+	display: block;
+	position: fixed;
+	min-width: 100%;
+	height: auto;
+	z-index: 100000;
+	font-size: 13px;
+	left: 0;
+	text-align: center;
+}
+#branda-cookie-notice.ub-position-top {
+	top: 0;
+}
+#branda-cookie-notice.ub-position-top .cookie-notice-revoke-container {
+	top: 0;
+	bottom: auto;
+}
+#branda-cookie-notice.ub-position-bottom {
+	bottom: 0;
+}
+#branda-cookie-notice .cookie-notice-container {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+#branda-cookie-notice .cookie-notice-container .branda-cn-container {
+	display: flex;
+	align-items: baseline;
+	justify-content: center;
+	padding: 10px 0;
+}
+#branda-cookie-notice .cookie-notice-container .branda-cn-container .branda-cn-column {
+	display: block;
+	padding: 10px 5px;
+	line-height: 1;
+}
+#branda-cookie-notice .cookie-notice-container .branda-cn-container .branda-cn-column:first-child {
+	padding-left: 2em;
+}
+#branda-cookie-notice .cookie-notice-container .branda-cn-container .branda-cn-column:last-child {
+	padding-right: 2em;
+}
+#branda-cookie-notice .cookie-notice-container .branda-cn-container .branda-cn-column:not(:first-child) {
+	align-self: center;
+}
+#branda-cookie-notice .cookie-notice-container .branda-cn-container .branda-cn-column a.ub-cn-set-cookie {
+	padding: 5px 10px;
+	margin: 0;
+	white-space: nowrap;
+	text-decoration: none;
+	display: inline;
+}
+#branda-cookie-notice .cookie-notice-container .branda-cn-container .branda-cn-column a.ub-cn-privacy-policy {
+	word-break: keep-all;
+}
+#branda-cookie-notice .cookie-notice-revoke-container {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	z-index: 1;
+	visibility: hidden;
+}
+
+.admin-bar #ub-cookie-notice.ub-position-top {
+	top: 32px;
+}
+@media screen and (max-width: 782px) {
+	.admin-bar #ub-cookie-notice.ub-position-top {
+		top: 46px;
+	}
+}
+@media screen and (max-width: 600px) {
+	.admin-bar #ub-cookie-notice.ub-position-top {
+		top: 0;
+	}
+}
+</style>
+<style type="text/css" id="branda-cookie-notice-css">
+	#branda-cookie-notice {
+		color: #fff;
+		background-color: rgba(0, 133, 186, 1);
+	}
+
+	#branda-cookie-notice a,
+	#branda-cookie-notice a:link {
+		color: #ffffff;
+	}
+
+	#branda-cookie-notice a:visited {
+		color: #ffffff;
+	}
+
+	#branda-cookie-notice a:hover {
+		color: #ffffff;
+	}
+
+	#branda-cookie-notice a:active {
+		color: #ffffff;
+	}
+
+	#branda-cookie-notice a:focus {
+		color: #ffffff;
+	}
+
+	#branda-cookie-notice .button,
+	#branda-cookie-notice .button:link {
+		color: #ffffff;
+		border-color: #006799;
+		background-color: #0085ba;
+		border-style: solid;
+		border-width: 1px;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		border-radius: 5px;
+	}
+
+	#branda-cookie-notice .button:visited {}
+
+	#branda-cookie-notice .button:hover {
+		color: #ffffff;
+		border-color: #006799;
+		background-color: #008ec2;
+	}
+
+	#branda-cookie-notice .button:active {
+		color: #ffffff;
+		border-color: #006799;
+		background-color: #0073aa;
+	}
+
+	#branda-cookie-notice .button:focus {
+		color: #ffffff;
+		border-color: #5b9dd9;
+		background-color: #008ec2;
+	}
+</style>
+<!-- cookie-notice.css end -->
+<script type="text/javascript" id="branda-cookie-notice-front-js-extra">
+/* <![CDATA[ */
+var ub_cookie_notice = {"id":"#branda-cookie-notice","cookie":{"domain":"","name":"Branda_Cookie_Notice_1","path":"\/hg\/reliable-projects\/wordpress-reliablepsd\/","secure":"on","timezone":0,"value":2592000},"reloading":"off","animation":null,"ajaxurl":"https:\/\/builtwith.care\/hg\/reliable-projects\/wordpress-reliablepsd\/wp-admin\/admin-ajax.php","logged":"no","user_id":"0","nonce":"de2d47fe6c"};
+/* ]]> */
+</script>
+<!-- <script type="text/javascript" defer src="https://builtwith.care/hg/reliable-projects/wordpress-reliablepsd/wp-content/plugins/ultimate-branding/inc/modules/front-end/assets/js/cookie-notice-front.js" id="branda-cookie-notice-front-js"></script> -->
+<!-- cookie-notice-front.js start -->
+<script>
+	( function ( $ ) {
+		/**
+		 * bind
+		 */
+		$( document ).ready( function () {
+				var value;
+				$( ub_cookie_notice.id + ' .ub-cn-set-cookie' ).on( 'click', function ( e ) {
+						e.preventDefault();
+						$( this ).setUBCookieNotice();
+				} );
+				/**
+				 * it ws already shown
+				 */
+				value = $.fn.BrandaGetCookieValue( ub_cookie_notice.cookie.name + '_close' );
+				if ( 'hide' === value ) {
+						$( ub_cookie_notice.id ).hide();
+				}
+		} );
+
+		/**
+		 * get cookie value
+		 */
+		$.fn.BrandaGetCookieValue = function( cname ) {
+				var name = cname + "=";
+				var decodedCookie = decodeURIComponent(document.cookie);
+				var ca = decodedCookie.split(';');
+				for(var i = 0; i <ca.length; i++) {
+						var c = ca[i];
+						while (c.charAt(0) == ' ') {
+								c = c.substring(1);
+						}
+						if (c.indexOf(name) == 0) {
+								return c.substring(name.length, c.length);
+						}
+				}
+				return "";
+		}
+
+		/**
+		 * set Cookie Notice
+		 */
+		$.fn.setUBCookieNotice = function () {
+				var notice = $( ub_cookie_notice.id );
+				var expires = new Date();
+				var value = parseInt( expires.getTime() );
+				var cookie = '';
+				/**
+				 * set time
+				 */
+				value = parseInt( expires.getTime() );
+				/**
+				 * add time
+				 */
+				value += parseInt( ub_cookie_notice.cookie.value ) * 1000;
+				/**
+				 * add time zone
+				 */
+				value += parseInt( ub_cookie_notice.cookie.timezone ) * 1000;
+				/**
+				 * set time
+				 */
+				expires.setTime( value );
+				/**
+				 * add cookie timestamp
+				 */
+				cookie = ub_cookie_notice.cookie.name + '=' + value/1000 + ';';
+				cookie += ' expires=' + expires.toUTCString() + ';';
+				if ( ub_cookie_notice.cookie.domain ) {
+						cookie += ' domain=' + ub_cookie_notice.cookie.domain + ';';
+				}
+				/**
+				 * Add cookie now (fix cache issue)
+				 */
+				cookie += ' path=' + ub_cookie_notice.cookie.path + ';';
+				if ( 'on' === ub_cookie_notice.cookie.secure ) {
+						cookie += ' secure;'
+				}
+				document.cookie = cookie;
+				cookie = ub_cookie_notice.cookie.name + '_close=hide;';
+				cookie += ' expires=;';
+				if ( ub_cookie_notice.cookie.domain ) {
+						cookie += ' domain=' + ub_cookie_notice.cookie.domain + ';';
+				}
+				cookie += ' path=' + ub_cookie_notice.cookie.path + ';';
+				if ( 'on' === ub_cookie_notice.cookie.secure ) {
+						cookie += ' secure;'
+				}
+				document.cookie = cookie;
+				/**
+				 * set user meta
+				 */
+				if ( undefined !== ub_cookie_notice.logged && 'yes' === ub_cookie_notice.logged ) {
+						var data = {
+								'action': 'ub_cookie_notice',
+								'user_id': ub_cookie_notice.user_id,
+								'nonce': ub_cookie_notice.nonce
+						};
+						$.post( ub_cookie_notice.ajaxurl, data );
+				} else {
+						// Dimiss the notice for visitor.
+						var data = {
+								'action': 'ub_dismiss_visitor_notice',
+								'nonce': ub_cookie_notice.nonce
+						};
+						$.post( ub_cookie_notice.ajaxurl, data );
+				}
+				/**
+				 * reload
+				 */
+				if ( undefined !== ub_cookie_notice.reloading && 'on' === ub_cookie_notice.reloading ) {
+						document.location.reload( true );
+						return;
+				}
+				/**
+				 * hide
+				 */
+				var animation = undefined !== ub_cookie_notice.animation? ub_cookie_notice.animation:'none';
+				switch( animation ) {
+						case 'fade':
+								notice.fadeOut( 400 );
+								break;
+						case 'slide':
+								notice.slideUp( 400 );
+								break;
+						default:
+								notice.hide();
+				}
+		};
+} )( jQuery );
+</script>
+<!-- cookie-notice-front.js end -->
+<div id="branda-cookie-notice" role="banner" class="ub-position-bottom
+	ub-style-none">
+	<div class="cookie-notice-container">
+		<div class="branda-cn-container"><span id="ub-cn-notice-text" class="branda-cn-column">We use cookies to ensure that we give you the best
+				experience on our website. If you continue to use this site we will assume
+				that you are happy with it.</span><span class="branda-cn-column"><a href="#" class="button ub-cn-set-cookie">Accept</a></span><span class="branda-cn-column"><a href="#" class="ub-cn-privacy-policy">Privacy
+					Policy</a></span></div>
+	</div>
+</div>
+
+
+
+</body></html>

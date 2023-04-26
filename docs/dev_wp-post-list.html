@@ -1,0 +1,582 @@
+<!DOCTYPE html><html lang="en"><head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1, width=device-width, height=device-height, viewport-fit=cover">
+	<link media="all" rel="stylesheet" href="css/root.css">
+	<link media="all" rel="stylesheet" href="css/style.css">
+	<title>dev_wp-post-list page</title>
+</head>
+
+
+<body class="admin-bar">
+	<link rel="stylesheet" id="dashicons-css" href="https://brightgrovestg.wpengine.com/wp-includes/css/dashicons.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="admin-bar-css" href="https://brightgrovestg.wpengine.com/wp-includes/css/admin-bar.min.css" type="text/css" media="all">
+<style type="text/css" media="print">
+	#wpadminbar {
+		display: none;
+	}
+</style>
+<style type="text/css" media="screen">
+html {
+	margin-top: 32px !important;
+}
+
+@media(max-width: 1023px) {
+	html {
+		margin-top: 0 !important;
+	}
+}
+
+* html body {
+	margin-top: 32px !important;
+}
+
+@media screen and (max-width: 782px) {
+	html {
+		margin-top: 0 !important;
+	}
+
+	* html body {
+		margin-top: 0 !important;
+	}
+}
+</style>
+
+	<div class="wrapper">
+		<header class="page-header">
+	<div class="header-menu-wrapper">
+		<div class="container">
+			<a href="#" class="logo">
+				<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 460.2 103.2"> <path d="M0 3.2c0-1.1.9-2.1 2.1-2.1h32.5c13.1 0 23.7 10.6 23.7 23.5 0 10-6.6 18.1-16.1 21.9l14.9 27.6c.8 1.4 0 3.2-1.8 3.2H40.8c-.9 0-1.5-.5-1.7-1L24.6 47.4h-7.5v27.7c0 1.1-1 2.1-2.1 2.1H2.1c-1.2 0-2.1-1-2.1-2.1V3.2zm33.2 30.4c4.5 0 8.3-4.1 8.3-8.7s-3.8-8.3-8.3-8.3H17.1v17h16.1zM68.1 3.2c0-1.1.9-2.1 2.1-2.1h45c1.2 0 2.1 1 2.1 2.1V15c0 1.1-.9 2.1-2.1 2.1H85v13.5h24.8c1.1 0 2.1 1 2.1 2.1v11.9c0 1.2-1 2.1-2.1 2.1H85v14.7h30.1c1.2 0 2.1 1 2.1 2.1v11.9c0 1.1-.9 2.1-2.1 2.1h-45c-1.2 0-2.1-1-2.1-2.1V3.2zm59.8 0c0-1.1.9-2.1 2.1-2.1h12.9c1.1 0 2.1 1 2.1 2.1v58.1h25.9c1.2 0 2.1 1 2.1 2.1v11.9c0 1.1-.9 2.1-2.1 2.1H130c-1.2 0-2.1-1-2.1-2.1V3.2zm55.6 0c0-1.1 1-2.1 2.1-2.1h13.1c1.1 0 2.1 1 2.1 2.1v72c0 1.1-1 2.1-2.1 2.1h-13.1c-1.1 0-2.1-1-2.1-2.1v-72zm63.4 30h-.1l-18.6 41.4c-.5 1.3-1.7 2.6-3.9 2.6h-12c-1.6 0-2.5-1.4-1.8-2.8l34-73.2c.3-.7 1.1-1.2 1.8-1.2h1.1c.8 0 1.5.5 1.8 1.2l34 73.2c.7 1.4-.2 2.8-1.8 2.8h-12.1c-2 0-2.8-.7-3.8-2.7l-18.6-41.3zm46.2-30c0-1.1.9-2.1 2.1-2.1h25.3c12.8 0 23.4 8.8 23.4 20.2 0 8.4-7.5 14.5-12.6 17.2 5.8 2.4 14.6 7.7 14.6 17.7 0 12.2-10.8 21-23.7 21h-27c-1.2 0-2.1-1-2.1-2.1V3.2zM318.5 32c4.1 0 7.6-3.5 7.6-7.8 0-4.4-3.5-7.4-7.6-7.4H310V32h8.5zm1.5 29.7c4.2 0 7.8-3.5 7.8-7.9s-4.7-7.6-8.9-7.6h-8.8v15.6h9.9zm35.5-58.5c0-1.1.9-2.1 2.1-2.1h12.9c1.1 0 2.1 1 2.1 2.1v58.1h25.9c1.2 0 2.1 1 2.1 2.1v11.9c0 1.1-.9 2.1-2.1 2.1h-40.9c-1.2 0-2.1-1-2.1-2.1V3.2zm55.5 0c0-1.1.9-2.1 2.1-2.1h45c1.2 0 2.1 1 2.1 2.1V15c0 1.1-.9 2.1-2.1 2.1H428v13.5h24.8c1.1 0 2.1 1 2.1 2.1v11.9c0 1.2-1 2.1-2.1 2.1H428v14.7h30.1c1.2 0 2.1 1 2.1 2.1v11.9c0 1.1-.9 2.1-2.1 2.1h-45c-1.2 0-2.1-1-2.1-2.1V3.2zM281.5 88.4h-69.2c-1.2 0-2.1 1-2.1 2.1v10.7c0 1.1.9 2.1 2.1 2.1h69.2c1.2 0 2.1-1 2.1-2.1V90.4c0-1-.9-2-2.1-2z" fill="#e25262"></path> </svg>
+			</a>
+
+			<div class="nav-drop">
+				<nav class="nav">
+					<ul class="header-menu">
+						<li class="current-menu-item">
+							<a href="#">Item 1</a>
+							<ul>
+								<li><a href="#">Item 2-1</a></li>
+								<li><a href="#">Item 2-2</a></li>
+								<li><a href="#">Item 2-3</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#">Item 2</a>
+							<ul>
+								<li>
+									<a href="#">Item 2-1</a>
+									<ul>
+										<li>
+											<a href="#">Item 3-1</a>
+											<ul>
+												<li><a href="#">Item 4-1</a></li>
+												<li><a href="#">Item 4-2</a></li>
+												<li><a href="#">Item 4-3</a></li>
+											</ul>
+										</li>
+										<li><a href="#">Item 3-2</a></li>
+										<li><a href="#">Item 3-3</a></li>
+									</ul>
+								</li>
+								<li>
+									<a href="#">Item 2-2</a>
+									<ul>
+										<li><a href="#">Item 2-1</a></li>
+										<li><a href="#">Item 2-2</a></li>
+										<li><a href="#">Item 2-3</a></li>
+									</ul>
+								</li>
+								<li>
+									<a href="#">Item 2-3</a>
+									<ul>
+										<li><a href="#">Item 2-1</a></li>
+										<li><a href="#">Item 2-2</a></li>
+										<li><a href="#">Item 2-3</a></li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li class="has-mega-menu">
+							<a href="#">Mega 3</a>
+							<ul class="mega-menu">
+								<li>
+									<div class="col">
+										<h2>Heading 1</h2>
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum elit velit, ultricies eget porta ac.</p>
+										<ul>
+											<li><a href="#">Regular link 1</a></li>
+											<li><a href="#">Regular link 2</a></li>
+										</ul>
+									</div>
+									<div class="col">
+										<h2>Heading 2</h2>
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum elit velit, ultricies eget porta ac.</p>
+										<ul>
+											<li><a href="#">Regular link 1</a></li>
+											<li><a href="#">Regular link 2</a></li>
+										</ul>
+									</div>
+									<div class="col">
+										<h2>Heading 3</h2>
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.Vestibulum elit velit, ultricies eget porta ac.</p>
+										<ul>
+											<li><a href="#">Regular link 1</a></li>
+											<li><a href="#">Regular link 2</a></li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#">Item 4</a>
+							<ul>
+								<li><a href="#">Item 2-1</a></li>
+								<li>
+									<a href="#">Item 2-2</a>
+									<ul>
+										<li><a href="#">Item 2-1</a></li>
+										<li><a href="#">Item 2-2</a></li>
+										<li><a href="#">Item 2-3</a></li>
+									</ul>
+								</li>
+								<li><a href="#">Item 2-3</a></li>
+							</ul>
+						</li>
+					</ul>
+				</nav>
+			</div>
+			<button class="nav-opener"><span></span></button>
+		</div>
+	</div>
+</header>
+
+		<main class="main">
+			<div class="container">
+				<aside id="sidebar">
+					<div class="widget widget_recent_posts">
+						<h3>Recent Posts</h3>
+						<ul>
+							<li>
+								<a href="#!">
+									Lorem ipsum dolor sit met.
+								</a>
+								<a href="#!" class="date">August 29, 2016</a>
+							</li>
+							<li>
+								<a href="#!">
+									Lorem ipsum dolor sit met.
+								</a>
+								<a href="#!" class="date">August 29, 2016</a>
+							</li>
+							<li>
+								<a href="#!">
+									Lorem ipsum dolor sit met.
+								</a>
+								<a href="#!" class="date">August 29, 2016</a>
+							</li>
+							<li>
+								<a href="#!">
+									Lorem ipsum dolor sit met.
+								</a>
+								<a href="#!" class="date">August 29, 2016</a>
+							</li>
+						</ul>
+					</div>
+
+					<div class="widget widget_recent_comments">
+						<h3>Recent Comments</h3>
+						<ul id="recentcomments">
+							<li class="recentcomments">
+								<a class="url" rel="external nofollow" href="https://wordpress.org/">John
+									Doe on</a>
+								<a href="#">Lorem Ipsum Dolor Sit</a>
+							</li>
+							<li class="recentcomments">
+								<a class="url" rel="external nofollow" href="https://wordpress.org/">
+									John Doe on</a>
+								<a href="#">Lorem Ipsum Dolor Sit</a>
+							</li>
+							<li class="recentcomments">
+								<a class="url" rel="external nofollow" href="https://wordpress.org/">
+									John Doe on</a>
+								<a href="#">Lorem Ipsum Dolor Sit</a>
+							</li>
+						</ul>
+					</div>
+
+					<div class="widget widget_archive">
+						<h3>Archives</h3>
+						<ul>
+							<li>
+								<a href="#!">
+									August 2016
+								</a>
+							</li>
+							<li>
+								<a href="#!">
+									July 2016
+								</a>
+							</li>
+							<li>
+								<a href="#!">
+									June 2016
+								</a>
+							</li>
+							<li>
+								<a href="#!">
+									May 2016
+								</a>
+							</li>
+							<li>
+								<a href="#!">
+									April 2016
+								</a>
+							</li>
+						</ul>
+					</div>
+
+					<div class="widget widget_categories">
+						<h3>Categories</h3>
+						<ul>
+							<li class="cat-item cat-item-1">
+								<a href="#">Uncategorized</a>
+							</li>
+							<li class="cat-item cat-item-2">
+								<a href="#">Lifestyle</a>
+							</li>
+							<li class="cat-item cat-item-1">
+								<a href="#">Travel</a>
+							</li>
+							<li class="cat-item cat-item-2">
+								<a href="#">Cooking</a>
+							</li>
+							<li class="cat-item cat-item-2">
+								<a href="#">Pets</a>
+							</li>
+						</ul>
+					</div>
+				</aside>
+
+				<div id="content">
+					<div class="entry">
+						<div class="row-post row-col">
+							<article class="post">
+								<div class="post-img">
+									<a href="#!">
+										<img src="http://via.placeholder.com/640x360" srcset="http://via.placeholder.com/640x360 @2x" alt="image description">
+									</a>
+								</div>
+								<div class="post-content">
+									<header class="entry-header">
+										<div class="entry-category">
+											<span>In <a href="#!">Uncategorized</a></span>
+										</div>
+										<div class="entry-title">
+											<h3>
+												<a href="#!">
+													Lorem Ipsum Dolor Sit
+												</a>
+											</h3>
+										</div>
+										<div class="meta">
+											<span>
+												by
+												<a href="#!">
+													Admin
+												</a>
+												on August 29, 2016
+											</span>
+										</div>
+									</header>
+									<div class="entry-content">
+										<p>
+											Consectetur elit. Sapiente, minus, provident, aperiam ipsum fugit eos ...
+										</p>
+									</div>
+								</div>
+							</article>
+
+							<article class="post">
+								<div class="post-img">
+									<a href="#!">
+										<img src="http://via.placeholder.com/640x360" srcset="http://via.placeholder.com/640x360 @2x" alt="image description">
+									</a>
+								</div>
+								<div class="post-content">
+									<header class="entry-header">
+										<div class="entry-category">
+											<span>In <a href="#!">Uncategorized</a></span>
+										</div>
+										<div class="entry-title">
+											<h3>
+												<a href="#!">
+													Lorem Ipsum Dolor Sit
+												</a>
+											</h3>
+										</div>
+										<div class="meta">
+											<span>
+												by
+												<a href="#!">
+													Admin
+												</a>
+												on August 29, 2016
+											</span>
+										</div>
+									</header>
+									<div class="entry-content">
+										<p>
+											Consectetur elit. Sapiente, minus, provident, aperiam ipsum fugit eos ...
+										</p>
+									</div>
+								</div>
+							</article>
+
+							<article class="post">
+								<div class="post-img">
+									<a href="#!">
+										<img src="http://via.placeholder.com/640x360" srcset="http://via.placeholder.com/640x360 @2x" alt="image description">
+									</a>
+								</div>
+								<div class="post-content">
+									<header class="entry-header">
+										<div class="entry-category">
+											<span>In <a href="#!">Uncategorized</a></span>
+										</div>
+										<div class="entry-title">
+											<h3>
+												<a href="#!">
+													Lorem Ipsum Dolor Sit
+												</a>
+											</h3>
+										</div>
+										<div class="meta">
+											<span>
+												by
+												<a href="#!">
+													Admin
+												</a>
+												on August 29, 2016
+											</span>
+										</div>
+									</header>
+									<div class="entry-content">
+										<p>
+											Consectetur elit. Sapiente, minus, provident, aperiam ipsum fugit eos ...
+										</p>
+									</div>
+								</div>
+							</article>
+
+							<article class="post">
+								<div class="post-img">
+									<a href="#!">
+										<img src="http://via.placeholder.com/640x360" srcset="http://via.placeholder.com/640x360 @2x" alt="image description">
+									</a>
+								</div>
+								<div class="post-content">
+									<header class="entry-header">
+										<div class="entry-category">
+											<span>In <a href="#!">Uncategorized</a></span>
+										</div>
+										<div class="entry-title">
+											<h3>
+												<a href="#!">
+													Lorem Ipsum Dolor Sit
+												</a>
+											</h3>
+										</div>
+										<div class="meta">
+											<span>
+												by
+												<a href="#!">
+													Admin
+												</a>
+												on August 29, 2016
+											</span>
+										</div>
+									</header>
+									<div class="entry-content">
+										<p>
+											Consectetur elit. Sapiente, minus, provident, aperiam ipsum fugit eos ...
+										</p>
+									</div>
+								</div>
+							</article>
+
+							<article class="post">
+								<div class="post-img">
+									<a href="#!">
+										<img src="http://via.placeholder.com/640x360" srcset="http://via.placeholder.com/640x360 @2x" alt="image description">
+									</a>
+								</div>
+								<div class="post-content">
+									<header class="entry-header">
+										<div class="entry-category">
+											<span>In <a href="#!">Uncategorized</a></span>
+										</div>
+										<div class="entry-title">
+											<h3>
+												<a href="#!">
+													Lorem Ipsum Dolor Sit
+												</a>
+											</h3>
+										</div>
+										<div class="meta">
+											<span>
+												by
+												<a href="#!">
+													Admin
+												</a>
+												on August 29, 2016
+											</span>
+										</div>
+									</header>
+									<div class="entry-content">
+										<p>
+											Consectetur elit. Sapiente, minus, provident, aperiam ipsum fugit eos ...
+										</p>
+									</div>
+								</div>
+							</article>
+
+							<article class="post">
+								<div class="post-img">
+									<a href="#!">
+										<img src="http://via.placeholder.com/640x360" srcset="http://via.placeholder.com/640x360 @2x" alt="image description">
+									</a>
+								</div>
+								<div class="post-content">
+									<header class="entry-header">
+										<div class="entry-category">
+											<span>In <a href="#!">Uncategorized</a></span>
+										</div>
+										<div class="entry-title">
+											<h3>
+												<a href="#!">
+													Lorem Ipsum Dolor Sit
+												</a>
+											</h3>
+										</div>
+										<div class="meta">
+											<span>
+												by
+												<a href="#!">
+													Admin
+												</a>
+												on August 29, 2016
+											</span>
+										</div>
+									</header>
+									<div class="entry-content">
+										<p>
+											Consectetur elit. Sapiente, minus, provident, aperiam ipsum fugit eos ...
+										</p>
+									</div>
+								</div>
+							</article>
+						</div>
+
+						<div class="pagination">
+							<div class="al">
+								<a href="#!">
+									<span>←</span>
+									Previous
+								</a>
+							</div>
+							<div class="ar">
+								<a href="#!">
+									Next
+									<span>→</span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer class="page-footer">
+	<div class="container">
+		<h3 style="padding: 50px 0;margin-bottom: 0;text-align: center;text-transform: uppercase;">Footer</h3>
+	</div>
+</footer>
+
+		<div id="wpadminbar" class="nojq nojs"> <a class="screen-reader-shortcut" href="#wp-toolbar" tabindex="1">Skip to toolbar</a>
+	<div class="quicklinks" id="wp-toolbar" role="navigation" aria-label="Toolbar" tabindex="0">
+		<ul id="wp-admin-bar-root-default" class="ab-top-menu">
+			<li id="wp-admin-bar-wp-logo" class="menupop"><a class="ab-item" aria-haspopup="true" href="wp-admin/about.php"><span class="ab-icon"></span><span class="screen-reader-text">About WordPress</span></a>
+				<div class="ab-sub-wrapper">
+					<ul id="wp-admin-bar-wp-logo-default" class="ab-submenu">
+						<li id="wp-admin-bar-about"><a class="ab-item" href="wp-admin/about.php">About WordPress</a> </li>
+					</ul>
+					<ul id="wp-admin-bar-wp-logo-external" class="ab-sub-secondary ab-submenu">
+						<li id="wp-admin-bar-wporg"><a class="ab-item" href="https://wordpress.org/">WordPress.org</a> </li>
+						<li id="wp-admin-bar-documentation"><a class="ab-item" href="https://codex.wordpress.org/">Documentation</a> </li>
+						<li id="wp-admin-bar-support-forums"><a class="ab-item" href="https://wordpress.org/support/">Support Forums</a> </li>
+						<li id="wp-admin-bar-feedback"><a class="ab-item" href="https://wordpress.org/support/forum/requests-and-feedback">Feedback</a> </li>
+					</ul>
+				</div>
+			</li>
+			<li id="wp-admin-bar-site-name" class="menupop"><a class="ab-item" aria-haspopup="true" href="wp-admin/">Reliable PSD Wiki</a>
+				<div class="ab-sub-wrapper">
+					<ul id="wp-admin-bar-site-name-default" class="ab-submenu">
+						<li id="wp-admin-bar-dashboard"><a class="ab-item" href="wp-admin/">Dashboard</a> </li>
+					</ul>
+					<ul id="wp-admin-bar-appearance" class="ab-submenu">
+						<li id="wp-admin-bar-themes"><a class="ab-item" href="wp-admin/themes.php">Themes</a> </li>
+						<li id="wp-admin-bar-widgets"><a class="ab-item" href="wp-admin/widgets.php">Widgets</a> </li>
+						<li id="wp-admin-bar-menus"><a class="ab-item" href="wp-admin/nav-menus.php">Menus</a> </li>
+					</ul>
+				</div>
+			</li>
+			<li id="wp-admin-bar-customize" class="hide-if-no-customize"><a class="ab-item" href="wp-admin/customize.php?url=https%3A%2F%2Fwww.reliablepsd.com%2Fwiki%2F">Customize</a> </li>
+			<li id="wp-admin-bar-comments"><a class="ab-item" href="wp-admin/edit-comments.php"><span class="ab-icon"></span><span class="ab-label awaiting-mod pending-count count-0" aria-hidden="true">0</span><span class="screen-reader-text">0 comments awaiting moderation</span></a> </li>
+			<li id="wp-admin-bar-new-content" class="menupop"><a class="ab-item" aria-haspopup="true" href="wp-admin/post-new.php"><span class="ab-icon"></span><span class="ab-label">New</span></a>
+				<div class="ab-sub-wrapper">
+					<ul id="wp-admin-bar-new-content-default" class="ab-submenu">
+						<li id="wp-admin-bar-new-post"><a class="ab-item" href="wp-admin/post-new.php">Post</a> </li>
+						<li id="wp-admin-bar-new-media"><a class="ab-item" href="wp-admin/media-new.php">Media</a> </li>
+						<li id="wp-admin-bar-new-page"><a class="ab-item" href="wp-admin/post-new.php?post_type=page">Page</a> </li>
+						<li id="wp-admin-bar-new-question_tpl"><a class="ab-item" href="wp-admin/post-new.php?post_type=question_tpl">Question Templates</a> </li>
+						<li id="wp-admin-bar-new-project_question"><a class="ab-item" href="wp-admin/post-new.php?post_type=project_question">Project Questions</a> </li>
+						<li id="wp-admin-bar-new-proposal-post-2018"><a class="ab-item" href="wp-admin/post-new.php?post_type=proposal-post-2018">Proposal (NEW)</a> </li>
+						<li id="wp-admin-bar-new-salary"><a class="ab-item" href="wp-admin/post-new.php?post_type=salary">Salary</a> </li>
+						<li id="wp-admin-bar-new-payment"><a class="ab-item" href="wp-admin/post-new.php?post_type=payment">Payment</a> </li>
+						<li id="wp-admin-bar-new-vacation"><a class="ab-item" href="wp-admin/post-new.php?post_type=vacation">Vacation</a> </li>
+						<li id="wp-admin-bar-new-user"><a class="ab-item" href="wp-admin/user-new.php">User</a> </li>
+					</ul>
+				</div>
+			</li>
+			<li id="wp-admin-bar-edit"><a class="ab-item" href="wp-admin/post.php?post=2&amp;action=edit">Edit Page</a> </li>
+			<li id="wp-admin-bar-new_draft"><a class="ab-item" href="wp-admin/admin.php?action=duplicate_post_save_as_new_post_draft&amp;post=2&amp;_wpnonce=586eb235f3">Copy to a new draft</a> </li>
+		</ul>
+		<ul id="wp-admin-bar-top-secondary" class="ab-top-secondary ab-top-menu">
+			<li id="wp-admin-bar-search" class="admin-bar-search">
+				<div class="ab-item ab-empty-item" tabindex="-1">
+					<form action="" method="get" id="adminbarsearch"><input class="adminbar-input" name="s" id="adminbar-search" type="text" value="" maxlength="150"><label for="adminbar-search" class="screen-reader-text">Search</label><input type="submit" class="adminbar-button" value="Search"></form>
+				</div>
+			</li>
+			<li id="wp-admin-bar-my-account" class="menupop with-avatar"><a class="ab-item" aria-haspopup="true" href="wp-admin/profile.php">Howdy, <span class="display-name">Admin</span><img alt="" src="https://secure.gravatar.com/avatar/40598fa88407737b932564af32d5ea66?s=26&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/40598fa88407737b932564af32d5ea66?s=52&amp;d=mm&amp;r=g 2x" class="avatar avatar-26 photo" height="26" width="26"></a>
+				<div class="ab-sub-wrapper">
+					<ul id="wp-admin-bar-user-actions" class="ab-submenu">
+						<li id="wp-admin-bar-user-info"><a class="ab-item" tabindex="-1" href="wp-admin/profile.php"><img alt="" src="https://secure.gravatar.com/avatar/40598fa88407737b932564af32d5ea66?s=64&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/40598fa88407737b932564af32d5ea66?s=128&amp;d=mm&amp;r=g 2x" class="avatar avatar-64 photo" height="64" width="64"><span class="display-name">Admin</span><span class="username">admin</span></a> </li>
+						<li id="wp-admin-bar-edit-profile"><a class="ab-item" href="wp-admin/profile.php">Edit My Profile</a> </li>
+						<li id="wp-admin-bar-logout"><a class="ab-item" href="wp-login.php?action=logout&amp;_wpnonce=70540c8b4c">Log Out</a> </li>
+					</ul>
+				</div>
+			</li>
+			<li id="wp-admin-bar-tm-suspend"><a class="ab-item" href="#">Suspend Transients</a> </li>
+		</ul>
+	</div> <a class="screen-reader-shortcut" href="wp-login.php?action=logout&amp;_wpnonce=70540c8b4c">Log Out</a> </div>
+</div>
+
+	
+	<script src="js/jquery.min.js"></script>
+
+
+<script src="js/jquery.main.js" defer=""></script>
+
+
+
+
+</body></html>

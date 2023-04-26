@@ -1,7 +1,7 @@
 /* Gulp config */
 const folder = {
 	src: "src/",
-	build: "build/",
+	build: "docs/",
 	dist: "markup/"
 }
 
