@@ -1,0 +1,290 @@
+<!-- <link rel="stylesheet" href="https://builtwith.care/hg/reliable-projects/wordpress-reliablepsd/wp-content/plugins/ultimate-branding/inc/modules/front-end/assets/css/cookie-notice.css"> -->
+<!-- cookie-notice.css start -->
+<style type="text/css">
+#branda-cookie-notice {
+	display: block;
+	position: fixed;
+	min-width: 100%;
+	height: auto;
+	z-index: 100000;
+	font-size: 13px;
+	left: 0;
+	text-align: center;
+}
+#branda-cookie-notice.ub-position-top {
+	top: 0;
+}
+#branda-cookie-notice.ub-position-top .cookie-notice-revoke-container {
+	top: 0;
+	bottom: auto;
+}
+#branda-cookie-notice.ub-position-bottom {
+	bottom: 0;
+}
+#branda-cookie-notice .cookie-notice-container {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+#branda-cookie-notice .cookie-notice-container .branda-cn-container {
+	display: flex;
+	align-items: baseline;
+	justify-content: center;
+	padding: 10px 0;
+}
+#branda-cookie-notice .cookie-notice-container .branda-cn-container .branda-cn-column {
+	display: block;
+	padding: 10px 5px;
+	line-height: 1;
+}
+#branda-cookie-notice .cookie-notice-container .branda-cn-container .branda-cn-column:first-child {
+	padding-left: 2em;
+}
+#branda-cookie-notice .cookie-notice-container .branda-cn-container .branda-cn-column:last-child {
+	padding-right: 2em;
+}
+#branda-cookie-notice .cookie-notice-container .branda-cn-container .branda-cn-column:not(:first-child) {
+	align-self: center;
+}
+#branda-cookie-notice .cookie-notice-container .branda-cn-container .branda-cn-column a.ub-cn-set-cookie {
+	padding: 5px 10px;
+	margin: 0;
+	white-space: nowrap;
+	text-decoration: none;
+	display: inline;
+}
+#branda-cookie-notice .cookie-notice-container .branda-cn-container .branda-cn-column a.ub-cn-privacy-policy {
+	word-break: keep-all;
+}
+#branda-cookie-notice .cookie-notice-revoke-container {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	z-index: 1;
+	visibility: hidden;
+}
+
+.admin-bar #ub-cookie-notice.ub-position-top {
+	top: 32px;
+}
+@media screen and (max-width: 782px) {
+	.admin-bar #ub-cookie-notice.ub-position-top {
+		top: 46px;
+	}
+}
+@media screen and (max-width: 600px) {
+	.admin-bar #ub-cookie-notice.ub-position-top {
+		top: 0;
+	}
+}
+</style>
+<style type="text/css" id="branda-cookie-notice-css">
+	#branda-cookie-notice {
+		color: #fff;
+		background-color: rgba(0, 133, 186, 1);
+	}
+
+	#branda-cookie-notice a,
+	#branda-cookie-notice a:link {
+		color: #ffffff;
+	}
+
+	#branda-cookie-notice a:visited {
+		color: #ffffff;
+	}
+
+	#branda-cookie-notice a:hover {
+		color: #ffffff;
+	}
+
+	#branda-cookie-notice a:active {
+		color: #ffffff;
+	}
+
+	#branda-cookie-notice a:focus {
+		color: #ffffff;
+	}
+
+	#branda-cookie-notice .button,
+	#branda-cookie-notice .button:link {
+		color: #ffffff;
+		border-color: #006799;
+		background-color: #0085ba;
+		border-style: solid;
+		border-width: 1px;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		border-radius: 5px;
+	}
+
+	#branda-cookie-notice .button:visited {}
+
+	#branda-cookie-notice .button:hover {
+		color: #ffffff;
+		border-color: #006799;
+		background-color: #008ec2;
+	}
+
+	#branda-cookie-notice .button:active {
+		color: #ffffff;
+		border-color: #006799;
+		background-color: #0073aa;
+	}
+
+	#branda-cookie-notice .button:focus {
+		color: #ffffff;
+		border-color: #5b9dd9;
+		background-color: #008ec2;
+	}
+</style>
+<!-- cookie-notice.css end -->
+<script type="text/javascript" id="branda-cookie-notice-front-js-extra">
+/* <![CDATA[ */
+var ub_cookie_notice = {"id":"#branda-cookie-notice","cookie":{"domain":"","name":"Branda_Cookie_Notice_1","path":"\/hg\/reliable-projects\/wordpress-reliablepsd\/","secure":"on","timezone":0,"value":2592000},"reloading":"off","animation":null,"ajaxurl":"https:\/\/builtwith.care\/hg\/reliable-projects\/wordpress-reliablepsd\/wp-admin\/admin-ajax.php","logged":"no","user_id":"0","nonce":"de2d47fe6c"};
+/* ]]> */
+</script>
+<!-- <script type="text/javascript" defer src="https://builtwith.care/hg/reliable-projects/wordpress-reliablepsd/wp-content/plugins/ultimate-branding/inc/modules/front-end/assets/js/cookie-notice-front.js" id="branda-cookie-notice-front-js"></script> -->
+<!-- cookie-notice-front.js start -->
+<script>
+	( function ( $ ) {
+		/**
+		 * bind
+		 */
+		$( document ).ready( function () {
+				var value;
+				$( ub_cookie_notice.id + ' .ub-cn-set-cookie' ).on( 'click', function ( e ) {
+						e.preventDefault();
+						$( this ).setUBCookieNotice();
+				} );
+				/**
+				 * it ws already shown
+				 */
+				value = $.fn.BrandaGetCookieValue( ub_cookie_notice.cookie.name + '_close' );
+				if ( 'hide' === value ) {
+						$( ub_cookie_notice.id ).hide();
+				}
+		} );
+
+		/**
+		 * get cookie value
+		 */
+		$.fn.BrandaGetCookieValue = function( cname ) {
+				var name = cname + "=";
+				var decodedCookie = decodeURIComponent(document.cookie);
+				var ca = decodedCookie.split(';');
+				for(var i = 0; i <ca.length; i++) {
+						var c = ca[i];
+						while (c.charAt(0) == ' ') {
+								c = c.substring(1);
+						}
+						if (c.indexOf(name) == 0) {
+								return c.substring(name.length, c.length);
+						}
+				}
+				return "";
+		}
+
+		/**
+		 * set Cookie Notice
+		 */
+		$.fn.setUBCookieNotice = function () {
+				var notice = $( ub_cookie_notice.id );
+				var expires = new Date();
+				var value = parseInt( expires.getTime() );
+				var cookie = '';
+				/**
+				 * set time
+				 */
+				value = parseInt( expires.getTime() );
+				/**
+				 * add time
+				 */
+				value += parseInt( ub_cookie_notice.cookie.value ) * 1000;
+				/**
+				 * add time zone
+				 */
+				value += parseInt( ub_cookie_notice.cookie.timezone ) * 1000;
+				/**
+				 * set time
+				 */
+				expires.setTime( value );
+				/**
+				 * add cookie timestamp
+				 */
+				cookie = ub_cookie_notice.cookie.name + '=' + value/1000 + ';';
+				cookie += ' expires=' + expires.toUTCString() + ';';
+				if ( ub_cookie_notice.cookie.domain ) {
+						cookie += ' domain=' + ub_cookie_notice.cookie.domain + ';';
+				}
+				/**
+				 * Add cookie now (fix cache issue)
+				 */
+				cookie += ' path=' + ub_cookie_notice.cookie.path + ';';
+				if ( 'on' === ub_cookie_notice.cookie.secure ) {
+						cookie += ' secure;'
+				}
+				document.cookie = cookie;
+				cookie = ub_cookie_notice.cookie.name + '_close=hide;';
+				cookie += ' expires=;';
+				if ( ub_cookie_notice.cookie.domain ) {
+						cookie += ' domain=' + ub_cookie_notice.cookie.domain + ';';
+				}
+				cookie += ' path=' + ub_cookie_notice.cookie.path + ';';
+				if ( 'on' === ub_cookie_notice.cookie.secure ) {
+						cookie += ' secure;'
+				}
+				document.cookie = cookie;
+				/**
+				 * set user meta
+				 */
+				if ( undefined !== ub_cookie_notice.logged && 'yes' === ub_cookie_notice.logged ) {
+						var data = {
+								'action': 'ub_cookie_notice',
+								'user_id': ub_cookie_notice.user_id,
+								'nonce': ub_cookie_notice.nonce
+						};
+						$.post( ub_cookie_notice.ajaxurl, data );
+				} else {
+						// Dimiss the notice for visitor.
+						var data = {
+								'action': 'ub_dismiss_visitor_notice',
+								'nonce': ub_cookie_notice.nonce
+						};
+						$.post( ub_cookie_notice.ajaxurl, data );
+				}
+				/**
+				 * reload
+				 */
+				if ( undefined !== ub_cookie_notice.reloading && 'on' === ub_cookie_notice.reloading ) {
+						document.location.reload( true );
+						return;
+				}
+				/**
+				 * hide
+				 */
+				var animation = undefined !== ub_cookie_notice.animation? ub_cookie_notice.animation:'none';
+				switch( animation ) {
+						case 'fade':
+								notice.fadeOut( 400 );
+								break;
+						case 'slide':
+								notice.slideUp( 400 );
+								break;
+						default:
+								notice.hide();
+				}
+		};
+} )( jQuery );
+</script>
+<!-- cookie-notice-front.js end -->
+<div id="branda-cookie-notice" role="banner" class="ub-position-bottom
+	ub-style-none">
+	<div class="cookie-notice-container">
+		<div class="branda-cn-container"><span id="ub-cn-notice-text"
+				class="branda-cn-column">We use cookies to ensure that we give you the best
+				experience on our website. If you continue to use this site we will assume
+				that you are happy with it.</span><span class="branda-cn-column"><a href="#"
+					class="button ub-cn-set-cookie">Accept</a></span><span
+				class="branda-cn-column"><a href="#" class="ub-cn-privacy-policy">Privacy
+					Policy</a></span></div>
+	</div>
+</div>

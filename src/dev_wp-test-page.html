@@ -1,0 +1,27 @@
+---
+title: dev_wp-post-list page
+---
+{% import 'src/template/macrosAndVariable.html' as global %}
+{% include 'src/template/head.html' %}
+
+<body class="admin-bar">
+	{% include 'src/template/wp-test-page/wp-test-page-head.html' %}
+	<div class="wrapper">
+		{% include 'src/template/header.html' %}
+		<main class="main">
+			<div class="container">
+				{% include 'src/template/wp-test-page/wp-test-page-main-sidebar.html' %}
+				<div id="content">
+					{% include 'src/template/wp-test-page/wp-test-page-main.html' %}
+					<!-- { include 'src/template/wp-test-page/wp-test-page-forminator.html' } -->
+				</div>
+			</div>
+		</main>
+		{% include 'src/template/footer.html' %}
+		{% include 'src/template/wp-test-page/wp-test-page-admin-bar.html' %}
+	</div>
+	{% include 'src/template/includes.html' %}
+	<!-- { include 'src/template/wp-test-page/includes-forminator.html' } -->
+	{% include 'src/template/wp-test-page/wp-cookie-notice.html' %}
+</body>
+</html>

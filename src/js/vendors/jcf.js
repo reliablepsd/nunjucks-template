@@ -1342,6 +1342,7 @@
 		createOptionsList: function(container) {
 			var self = this,
 				list = document.createElement('ul');
+				list.classList.add("jcf-list-ul");
 
 			$.each(container.children, function(index, currentNode) {
 				var item = self.createOptionContainer(currentNode),
