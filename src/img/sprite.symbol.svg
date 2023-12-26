@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <symbol fill="currentColor" viewBox="0 0 30 30" id="arrow-right" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20.2,5.1L30,15l-9.9,9.9l-1.6-1.6l7.2-7.1L0,16.1l0-2.3l25.6,0.1l-7.1-7.2L20.2,5.1z"/>
+    </symbol>
+</svg>

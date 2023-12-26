@@ -1,6 +1,8 @@
 var $ = jQuery.noConflict();
 jQuery(function() {
-	isElementExist(".nav-drop", initSmartMenu);
+	isElementExist(".menu-drop", initSmartMenu);
+	isElementExist(".header", initHeaderOffset);
+	isElementExist(".header", initScrollClass);
 	jcfInit();
 });
 
@@ -27,6 +29,10 @@ function jcfInit() {
 	var customCheckbox = jQuery('input[type="checkbox"]');
 	var customRadio = jQuery('input[type="radio"]');
 
+	customSelect.each(function () {
+		$(this).find('option').first().addClass("placeholder")
+	})
+
 	// all option see https://github.com/w3co/jcf
 	jcf.setOptions('Select', {
 		wrapNative: false,
@@ -48,23 +54,74 @@ function jcfInit() {
 
 // smart menu init
 function initSmartMenu() {
-	var distanceBetweenMenuAndNav = jQuery(".header-menu-wrapper").offset().top + jQuery(".header-menu-wrapper").innerHeight() - jQuery(".nav").offset().top - jQuery(".nav").innerHeight();
-	jQuery(".header-menu").smartmenus({
+	jQuery(".menu").smartmenus({
 		collapsibleBehavior: "accordion",
-		mainMenuSubOffsetY: distanceBetweenMenuAndNav
+		hideTimeout: 0,
+		showTimeout: 0
 	});
 
 	// changed date attribute to a class (need to reverse last item menu)
-	jQuery('.header-menu').children().last().addClass('nav-sm-reverse');
+	jQuery('.menu').children().last().addClass('menu-sm-reverse');
 
 	jQuery("body").mobileNav({
-		menuActiveClass: "nav-active",
-		menuOpener: ".nav-opener",
+		menuActiveClass: "menu-active",
+		menuOpener: ".menu-opener",
 		hideOnClickOutside: true,
-		menuDrop: ".nav-drop"
-	}), "ontouchstart" in document.documentElement ||
-			jQuery(window).on("resize orientationchange", function() {
-				jQuery("body").removeClass("nav-active"), $.SmartMenus.hideAll();
+		menuDrop: ".menu-drop"
+	}), "ontouchstart" in document.documentElement || jQuery(window).on("resize orientationchange", function() {
+		jQuery("body").removeClass("menu-active"), $.SmartMenus.hideAll();
+	});
+}
+
+function initHeaderOffset() {
+	let container = jQuery(".offset-header");
+	let header = jQuery(".header");
+	let adjustDebounced = debounce(function () {
+		adjustHeightOffset();
+	}, 250);
+
+	function adjustHeightOffset() {
+		headerHeight = header.outerHeight();
+		container.css("padding-top", headerHeight);
+	}
+
+	adjustHeightOffset();
+
+	jQuery(window).on("resize", adjustDebounced);
+}
+
+function initScrollClass() {
+	var $window = jQuery(window);
+	var lastScrollTop = 0;
+	var $header = jQuery('.header');
+
+	if ($window.scrollTop() <= 0) {
+		$header.removeClass('_sticked');
+	}
+
+	$window.scroll(function () {
+		var windowTop = $window.scrollTop();
+
+		if (!jQuery('body').hasClass("nav-active")) {
+
+			if (windowTop > 1) {
+				$header.addClass('_sticked');
+			} else {
+				$header.removeClass('_sticked');
+				$header.removeClass('_showed');
+			}
+
+			if ($header.hasClass('_sticked')) {
+				if (windowTop < lastScrollTop) {
+					$header.addClass('_showed');
+				} else {
+					$header.removeClass('_showed');
+				}
+			}
+		}
+
+		lastScrollTop = windowTop;
+
 	});
 }
 
@@ -77,7 +134,26 @@ function initSmartMenu() {
 //-------- -------- -------- --------
 
 // custom helper function for debounce - how to work see https://codepen.io/Hyubert/pen/abZmXjm
-// vendors/debounce.js
+/*
+* Debounce
+* need for once call function
+*
+* @param { function } - callback function
+* @param { number } - timeout time (ms)
+* @return { function }
+*/
+function debounce(func, timeout) {
+	var timeoutID,
+		timeout = timeout || 200;
+	return function() {
+		var scope = this,
+			args = arguments;
+		clearTimeout(timeoutID);
+		timeoutID = setTimeout(function() {
+			func.apply(scope, Array.prototype.slice.call(args));
+		}, timeout);
+	};
+}
 
 // library smartmenus (if you dont have menu in the project - just remove)
 /*
