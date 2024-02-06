@@ -1,9 +1,13 @@
 var $ = jQuery.noConflict();
-jQuery(function() {
+jQuery(function () {
 	isElementExist(".menu-drop", initSmartMenu);
 	isElementExist(".header", initHeaderOffset);
 	isElementExist(".header", initScrollClass);
 	jcfInit();
+});
+
+jQuery(window).on("load", () => {
+	initAOS();
 });
 
 //-------- -------- -------- --------
@@ -17,15 +21,54 @@ function isElementExist(_el, _cb) {
 	if (document.body.contains(elem)) {
 		try {
 			_cb();
-		} catch(e) {
+		} catch (e) {
 			console.log(e);
 		}
 	}
 }
 
+function initAOS() {
+	// Documentation here: https://github.com/michalsnik/aos/tree/v2
+	const CONFIG = {
+		easing: "ease-out-quart",
+		offset: 0,
+		duration: 600,
+		once: true,
+	};
+
+	let delayCounter = 0;
+	const DELAY_STEP = 400; // can be any number (milliseconds)
+
+	const $aosBlocks = $("[data-aos]");
+
+	if (!$aosBlocks) return;
+
+	const inViewportBlocks = $aosBlocks.filter((_, el) => isElemVisible(el));
+
+	if (inViewportBlocks.length) {
+		// Apply sequenced animation delay for all blocks in viewport on load
+		inViewportBlocks.each((_, el) => {
+			const delayInSeconds = delayCounter ? delayCounter / 1000 : 0;
+
+			$(el).css("transition-delay", `${delayInSeconds}s`);
+
+			delayCounter += DELAY_STEP;
+		});
+	}
+
+	AOS.init(CONFIG);
+
+	function isElemVisible(el) {
+		const { top, bottom } = el.getBoundingClientRect();
+		const vHeight = window.innerHeight || document.documentElement.clientHeight;
+
+		return (top > 0 || bottom > 0) && top < vHeight;
+	}
+}
+
 // initialize custom form elements (checkbox, radio, select) https://github.com/w3co/jcf
 function jcfInit() {
-	var customSelect = jQuery('select');
+	var customSelect = jQuery("select");
 	var customCheckbox = jQuery('input[type="checkbox"]');
 	var customRadio = jQuery('input[type="radio"]');
 
@@ -34,22 +77,21 @@ function jcfInit() {
 	})
 
 	// all option see https://github.com/w3co/jcf
-	jcf.setOptions('Select', {
+	jcf.setOptions("Select", {
 		wrapNative: false,
 		wrapNativeOnMobile: false,
 		fakeDropInBody: false,
-		maxVisibleItems: 6
+		maxVisibleItems: 6,
 	});
 
-	jcf.setOptions('Checkbox', {});
+	jcf.setOptions("Checkbox", {});
 
-	jcf.setOptions('Radio', {});
+	jcf.setOptions("Radio", {});
 
 	// init only after option
 	jcf.replace(customSelect);
 	jcf.replace(customCheckbox);
 	jcf.replace(customRadio);
-
 }
 
 // smart menu init
@@ -141,6 +183,9 @@ function initScrollClass() {
 
 // jcf library select, radio, checkbox modules
 //= vendors/jcf.js
+
+// aos library for animations on scroll
+//= vendors/aos.min.js
 
 //-------- -------- -------- --------
 //-------- included js libs end

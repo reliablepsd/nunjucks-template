@@ -12,5 +12,24 @@
 @import "base/common";
 @import "base/header";
 @import "base/footer";
+@import "vendors/aos.min";
 // If the project is on wp
 @import "base/wp-reset";
+
+.hero{
+    padding-block: 50px 80px;
+
+    &-grid{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+
+        &__text{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            font-size: 18px;
+            line-height: 1.5;
+        }
+    }
+}
