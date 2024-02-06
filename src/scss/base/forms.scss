@@ -5,25 +5,16 @@ fieldset {
 	border: none;
 	display: block;
 	padding: 0;
-	margin: 0 0 var(--vertical-rhythm) 0;
-	color: var(--base-text-color);
+	margin: 0 0 var(--vertical-rhythm);
 }
 
 label {
 	display: block;
-	font-weight: 700;
+	font-weight: 500;
 	font-size: var(--label-fz);
-	line-height: 1.2;
+	line-height: var(--label-lh);
 	color: var(--label-color);
-	margin: 0 0 8px;
-
-	a {
-		text-decoration: underline;
-
-		&:hover {
-			text-decoration: none;
-		}
-	}
+	margin: 0 0 var(--vertical-rhythm);
 }
 
 input[type="text"],
@@ -36,31 +27,28 @@ input[type="number"],
 input[type="date"],
 input[type="file"],
 textarea {
-	// $btn-padding-y | $btn-padding-x | $btn-font-size | $btn-radius | $btn-border-width | $btn-line-height
-	@include button-size(
-		var(--btn-y) var(--input-x),
-		var(--btn-fz),
-		var(--btn-r),
-		var(--btn-b),
-		normal
-	);
-	//color button mixin $background | $color | $border
-	@include input-variant(
-		var(--input-bg-color),
-		var(--input-color),
-		var(--input-border-color)
-	);
-	border-style: solid;
-	border-width: 1px;
-	text-align: left;
 	-webkit-appearance: none;
 	outline: none;
 	max-width: 100%;
 	width: 100%;
+	padding: var(--input-y) var(--input-x);
+	margin: 0;
+	border: var(--input-border) solid var(--input-border-color);
+	border-radius: var(--input-radius);
+	background: var(--input-bg-color);
+	font-size: var(--input-fz);
+	line-height: var(--input-lh);
+	font-weight: 500;
+	color: var(--input-color);
+	text-align: left;
+
+	@include placeholder {
+		color: var(--input-placeholder-color);
+		opacity: 1;
+		transition: opacity 0.15s linear;
+	}
 
 	&:focus {
-		border-width: 1px;
-		border-style: solid;
 		border-color: var(--input-focus-border-color);
 
 		@include placeholder {
@@ -68,10 +56,8 @@ textarea {
 		}
 	}
 
-	@include placeholder {
-		color: var(--input-placeholder-color);
-		opacity: 1;
-		transition: opacity 0.15s linear;
+	.error & {
+		color: var(--color-red);
 	}
 }
 
@@ -79,7 +65,7 @@ textarea {
 	resize: none;
 	vertical-align: top;
 	width: 100%;
-	height: 250px;
+	height: 200px;
 }
 
 /* button, */
@@ -88,28 +74,12 @@ input[type='reset'],
 // input[type='file'],
 input[type='submit'],
 button[type='submit'] {
-	// $btn-padding-y | $btn-padding-x | $btn-font-size | $btn-radius | $btn-border-width | $btn-line-height
-	@include button-size(
-		var(--btn-y) var(--input-x),
-		var(--btn-fz),
-		var(--btn-r),
-		var(--btn-b),
-		1.2
-	);
-	//color button mixin $background | $color | $border | $hover-background | $hover-color | $hover-border
-	@include button-variant(
-		--accent-color,
-		#fff,
-		--accent-color,
-		transparent,
-		var(--base-text-color)
-	);
-	border-style: solid;
 	-webkit-appearance: none;
-	cursor: pointer;
-	text-align: center;
-	font-weight: bold;
-	transition: all 0.3s;
+	@extend .button;
+
+	&.button-secondary {
+		@extend .button-secondary;
+	}
 }
 
 input[type="reset"] {
@@ -124,493 +94,6 @@ input[type="file"] {
 // removes the icon in the search type field
 input[type="search"]::-webkit-search-cancel-button {
 	-webkit-appearance: none;
-}
-
-// Form warnings & messages
-.forminator-error-message {
-	display: block;
-	@include button-size(
-		5px var(--input-x),
-		var(--label-fz),
-		var(--btn-r),
-		var(--btn-b),
-		normal
-	);
-	background-color: var(--error-bg-color);
-	margin-top: 5px;
-}
-
-.forminator-error,
-.forminator-error-message,
-.forminator-required {
-	color: var(--error-color);
-}
-
-.forminator-description {
-	font-size: var(--label-fz);
-	color: var(--label-color);
-	display: flex;
-	margin-top: 5px;
-
-	span {
-		margin-left: auto;
-	}
-}
-
-.forminator-response-message {
-	&:not(:last-child) {
-		margin-bottom: var(--vertical-rhythm);
-	}
-
-	&.forminator-accessible {
-		width: 1px !important;
-		height: 1px !important;
-		overflow: hidden !important;
-		position: absolute !important;
-		white-space: nowrap !important;
-		margin: -1px !important;
-		padding: 0 !important;
-		border: 0 !important;
-		clip: rect(0 0 0 0) !important;
-		-webkit-clip-path: inset(50%) !important;
-		clip-path: inset(50%) !important;
-	}
-}
-
-// Form grid
-.forminator-row {
-	display: flex;
-	margin: 0 calc(var(--form-col-gutter) * -1) var(--form-row-margin);
-
-	@include media("<tablet") {
-		display: block;
-	}
-
-	&:last-child {
-		margin-bottom: 0;
-	}
-}
-
-.forminator-col {
-	min-width: 0;
-	flex: 1;
-	padding: 0 var(--form-col-gutter);
-
-	&:not(:last-child) {
-		@include media("<tablet") {
-			margin-bottom: var(--form-row-margin);
-		}
-	}
-
-	&.forminator-col-4{
-		.forminator-row{
-			&[data-multiple="true"] {
-				display: block;
-
-				.forminator-col {
-					&:not(:last-child) {
-						margin-bottom: var(--form-row-margin);
-					}
-				}
-			}
-		}
-	}
-}
-
-.forminator-input {
-	$this: &;
-	width: 100%;
-	display: block;
-	max-width: unset;
-	min-width: unset;
-
-	&-with-icon {
-		position: relative;
-
-		.forminator-icon-calendar {
-			position: absolute;
-			top: 50%;
-			left: 10px;
-			font-size: 15px;
-			line-height: 1;
-			color: var(--input-color);
-			transform: translateY(-50%);
-
-			&:before {
-				display: inline-block;
-				vertical-align: top;
-			}
-		}
-
-		.forminator-datepicker {
-			padding-left: 35px;
-		}
-	}
-
-	&-with-suffix {
-		position: relative;
-
-		#{$this} {
-			padding-right: 60px;
-		}
-
-		.forminator-suffix {
-			font-size: var(--label-fz);
-			position: absolute;
-			top: 50%;
-			right: 0;
-			padding: 0 10px;
-			transform: translateY(-50%);
-		}
-	}
-}
-
-.intl-tel-input {
-	&.forminator-phone {
-		display: block;
-	}
-}
-
-.forminator {
-	&-option,
-	&-checkbox,
-	&-radio {
-		display: flex;
-		align-items: center;
-		pointer-events: none;
-		user-select: none;
-
-		&-inline {
-			display: inline-flex;
-
-			&:not(:last-child) {
-				margin-right: 1em;
-			}
-		}
-
-		.jcf-checkbox,
-		.jcf-radio {
-			align-self: flex-start;
-		}
-
-		span {
-			pointer-events: all;
-		}
-	}
-
-	&-multiselect {
-		padding: 8px;
-		border: 1px solid var(--input-border-color);
-
-		.forminator-option {
-			font-weight: 400;
-			// $btn-padding-y | $btn-padding-x | $btn-font-size | $btn-radius | $btn-border-width | $btn-line-height
-			@include button-size(
-				var(--btn-y) calc(var(--input-x) - 8px),
-				var(--btn-fz),
-				var(--btn-r),
-				var(--btn-b),
-				normal
-			);
-
-			//color button mixin $background | $color | $border
-			@include input-variant(
-				var(--input-bg-color),
-				var(--input-color),
-				var(--input-border-color)
-			);
-			pointer-events: all;
-			border-radius: var(--input-radius);
-
-			&:last-of-type {
-				margin-bottom: 0;
-			}
-
-			&.jcf-label-active {
-				color: white;
-				background-color: var(--brand-color);
-			}
-		}
-
-		.jcf-checkbox {
-			display: none;
-		}
-	}
-
-	&-signature {
-		$this: &;
-
-		position: relative;
-		font-size: var(--btn-fz);
-		background-color: var(--input-bg-color);
-		border: 1px solid var(--input-border-color);
-		border-radius: var(--input-radius);
-		padding: var(--btn-y) var(--input-x);
-
-		#{$this}--container {
-			& + div {
-				position: absolute !important;
-				top: 7px;
-				right: 7px;
-				width: 20px !important;
-				height: 20px !important;
-				margin: 0 !important;
-
-				img {
-					width: auto;
-					height: auto;
-				}
-			}
-		}
-	}
-
-	&-button-submit {
-		@extend .btn;
-	}
-}
-
-.forminator-calendar {
-	border: 1px solid var(--form-theme-color);
-	border-radius: var(--input-radius);
-	background-color: #fbfbfb;
-	overflow: hidden;
-
-	.ui-datepicker {
-		&-header {
-			display: flex;
-			background-color: #e6e6e6;
-			padding: 10px;
-		}
-
-		&-prev,
-		&-next {
-			display: block;
-			position: relative;
-			width: 28px;
-			height: 28px;
-			background-color: var(--form-theme-color);
-			border-radius: var(--input-radius);
-			cursor: pointer;
-
-			.ui-icon {
-				font-size: 0;
-				line-height: 0;
-
-				&:before {
-					content: "";
-					position: absolute;
-					top: 50%;
-					left: 50%;
-					width: 7px;
-					height: 13px;
-					background-size: 100% auto;
-					margin: -6.5px 0 0 -3.5px;
-				}
-			}
-		}
-
-		&-prev {
-			order: 0;
-
-			.ui-icon {
-				&:before {
-					background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI0LjAuMiwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHdpZHRoPSIyNzkuMnB4IiBoZWlnaHQ9IjUxMnB4IiB2aWV3Qm94PSIwIDAgMjc5LjIgNTEyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAyNzkuMiA1MTI7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4KCS5zdDB7ZmlsbDojRkZGRkZGO30KPC9zdHlsZT4KPHBhdGggY2xhc3M9InN0MCIgZD0iTTI3Mi40LDUwNS4yYzkuMS05LjEsOS4xLTIzLjgsMC0zMi45TDU2LjEsMjU2TDI3Mi40LDM5LjdjOS4xLTkuMSw5LjEtMjMuOCwwLTMyLjljLTkuMS05LjEtMjMuOC05LjEtMzIuOSwwCglMNi44LDIzOS41QzIuNCwyNDMuOSwwLDI0OS44LDAsMjU2YzAsNi4yLDIuNSwxMi4xLDYuOCwxNi41bDIzMi43LDIzMi43QzI0OC42LDUxNC4zLDI2My4zLDUxNC4zLDI3Mi40LDUwNS4yeiIvPgo8L3N2Zz4K");
-				}
-			}
-		}
-
-		&-next {
-			order: 2;
-
-			.ui-icon {
-				&:before {
-					background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI0LjAuMiwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHdpZHRoPSIyNzkuMnB4IiBoZWlnaHQ9IjUxMnB4IiB2aWV3Qm94PSIwIDAgMjc5LjIgNTEyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAyNzkuMiA1MTI7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4KCS5zdDB7ZmlsbDojRkZGRkZGO30KPC9zdHlsZT4KPHBhdGggY2xhc3M9InN0MCIgZD0iTTYuOCw2LjhjLTkuMSw5LjEtOS4xLDIzLjgsMCwzMi45TDIyMy4xLDI1Nkw2LjgsNDcyLjNjLTkuMSw5LjEtOS4xLDIzLjgsMCwzMi45czIzLjgsOS4xLDMyLjksMGwyMzIuNy0yMzIuNwoJYzQuNC00LjQsNi44LTEwLjMsNi44LTE2LjVzLTIuNS0xMi4xLTYuOC0xNi41TDM5LjcsNi44QzMwLjYtMi4zLDE1LjktMi4zLDYuOCw2Ljh6Ii8+Cjwvc3ZnPgo=");
-				}
-			}
-		}
-
-		&-title {
-			order: 1;
-			display: flex;
-			flex: 1;
-			padding: 0 10px;
-			margin: 0 -5px;
-		}
-
-		&-month,
-		&-year {
-			cursor: pointer;
-			appearance: none;
-			display: block;
-			color: var(--input-color);
-			border: 1px solid var(--form-theme-color);
-			border-radius: var(--input-radius);
-			flex: 1;
-			font-size: 13px;
-			line-height: normal;
-			height: 28px;
-			padding: 0 5px;
-			margin: 0 5px;
-		}
-
-		&-calendar {
-			font-size: 13px;
-			margin-bottom: 0;
-
-			thead {
-				background-color: #f8f8f8;
-			}
-
-			tbody {
-				background-color: #fdfdfd;
-
-				tr {
-					&:first-child {
-						td {
-							padding-top: 15px;
-						}
-					}
-
-					&:last-child {
-						td {
-							padding-bottom: 15px;
-						}
-					}
-				}
-			}
-
-			th,
-			td {
-				text-align: center;
-				background-color: transparent;
-				border: none;
-				padding: 5px;
-
-				&:first-child {
-					padding-left: 10px;
-				}
-
-				&:last-child {
-					padding-right: 10px;
-				}
-			}
-
-			td {
-				font-size: 1em;
-			}
-
-			th {
-				font-size: 0.92em;
-				color: #333;
-			}
-
-			.ui-state-default {
-				display: inline-flex;
-				align-items: center;
-				justify-content: center;
-				width: 28px;
-				height: 28px;
-				background-color: #e6e6e6;
-				border: 1px solid #e6e6e6;
-				color: #777;
-				padding: 2px;
-				border-radius: var(--input-radius);
-
-				&.ui-state-active {
-					color: white;
-					background-color: var(--form-theme-color);
-					border-color: var(--form-theme-color);
-				}
-
-				&.ui-state-highlight {
-					border-color: var(--form-theme-color);
-					color: var(--form-theme-color);
-				}
-			}
-		}
-	}
-}
-
-.forminator {
-	&-uploaded {
-		&-files {
-			display: flex;
-			flex-wrap: wrap;
-			padding: 20px 0 0;
-			margin: -10px;
-		}
-
-		&-file {
-			flex: 0 0 120px;
-			padding: 10px;
-
-			@include media("<phone-sm") {
-				width: 33.3333%;
-				flex: 1 1 auto;
-			}
-
-			&--content {
-				position: relative;
-			}
-
-			&--title,
-			&--size {
-				font-size: var(--label-fz);
-				word-break: break-all;
-				margin-bottom: 0.5em;
-
-				&:last-child {
-					margin-bottom: 0;
-				}
-			}
-
-			&--title{
-				font-weight: 700;
-				font-size: var(--label-fz);
-			}
-
-			&--size{
-				font-size: calc(var(--label-fz) * 0.9);
-			}
-
-			&--delete {
-				position: absolute;
-				top: 5px;
-				right: 5px;
-				padding: 0;
-				height: auto;
-				width: 18px;
-				height: 18px;
-				font-size: 16px;
-				line-height: 1;
-				border: none;
-				border-radius: 100%;
-				overflow: hidden;
-				background-color: transparent;
-
-				.forminator-icon-close {
-					display: inline-block;
-					vertical-align: top;
-					color: white;
-					// background-color: #000;
-					// border: 1px solid #000;
-
-					&:before {
-						display: inline-block;
-						vertical-align: top;
-					}
-				}
-			}
-		}
-	}
-
-	&-img-preview {
-		width: 100%;
-		height: auto;
-		padding-top: 100%;
-		background-size: cover;
-		background-position: 50% 50%;
-	}
 }
 
 /* custom checkbox styles */
@@ -709,18 +192,18 @@ input[type="search"]::-webkit-search-cancel-button {
 	display: inline-block;
 	vertical-align: top;
 	position: relative;
-	border: 1px solid var(--input-border-color);
-	background: #fff;
+	border: var(--input-border) solid var(--input-border-color);
+	border-width: 0 0 1px;
+	border-radius: var(--input-radius);
+	background: var(--input-bg-color);
 	min-width: 0;
 	width: 100%;
-	@include button-size(
-		var(--btn-y) var(--input-x),
-		var(--btn-fz),
-		var(--input-radius),
-		var(--btn-b),
-		1.2
-	);
-	padding-right: 24px;
+	padding: var(--input-y) var(--input-x);
+	padding-right: 50px;
+	font-size: var(--input-fz);
+	line-height: var(--input-lh);
+	font-weight: 500;
+	color: var(--input-color);
 
 	&.jcf-drop-active{
 		.jcf-select-opener{

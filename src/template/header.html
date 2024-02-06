@@ -1,6 +1,6 @@
-<header class="page-header">
-	<div class="header-menu-wrapper">
-		<div class="container">
+<header class="header">
+	<div class="container">
+		<div class="header-holder">
 			<a href="#" class="logo">
 				<svg viewBox="0 0 161 40" id="logo">
 					<path
@@ -35,113 +35,120 @@
 					></path>
 				</svg>
 			</a>
+			<button class="menu-opener"><span></span></button>
+		</div>
 
-			<div class="nav-drop">
-				<nav class="nav">
-					<ul class="header-menu">
-						<li class="current-menu-item">
-							<a href="#">Item 1</a>
-							<ul>
-								<li><a href="#">Item 2-1</a></li>
-								<li><a href="#">Item 2-2</a></li>
-								<li><a href="#">Item 2-3</a></li>
-							</ul>
-						</li>
-						<li>
-							<a href="#">Item 2</a>
-							<ul>
-								<li>
-									<a href="#">Item 2-1</a>
-									<ul>
-										<li>
-											<a href="#">Item 3-1</a>
-											<ul>
-												<li><a href="#">Item 4-1</a></li>
-												<li><a href="#">Item 4-2</a></li>
-												<li><a href="#">Item 4-3</a></li>
-											</ul>
-										</li>
-										<li><a href="#">Item 3-2</a></li>
-										<li><a href="#">Item 3-3</a></li>
-									</ul>
-								</li>
-								<li>
-									<a href="#">Item 2-2</a>
-									<ul>
-										<li><a href="#">Item 2-1</a></li>
-										<li><a href="#">Item 2-2</a></li>
-										<li><a href="#">Item 2-3</a></li>
-									</ul>
-								</li>
-								<li>
-									<a href="#">Item 2-3</a>
-									<ul>
-										<li><a href="#">Item 2-1</a></li>
-										<li><a href="#">Item 2-2</a></li>
-										<li><a href="#">Item 2-3</a></li>
-									</ul>
-								</li>
-							</ul>
-						</li>
-						<li class="has-mega-menu">
-							<a href="#">Mega 3</a>
-							<ul class="mega-menu">
-								<li>
-									<div class="col">
-										<h2>Heading 1</h2>
-										<p>
-											Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-											Vestibulum elit velit, ultricies eget porta ac.
-										</p>
+		<div class="menu-drop">
+			<nav class="menu-drop__wrap">
+				<ul class="menu">
+					<li class="current-menu-item">
+						<a href="#">Item 1</a>
+						<ul>
+							<li><a href="#">Item 2-1</a></li>
+							<li>
+								<a href="#">Item 2-2</a>
+								<ul>
+									<li><a href="#">Item 4-1</a></li>
+									<li><a href="#">Item 4-2</a></li>
+									<li><a href="#">Item 4-3</a></li>
+								</ul>
+							</li>
+							<li><a href="#">Item 2-3</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="#">Item 2</a>
+						<ul>
+							<li>
+								<a href="#">Item 2-1</a>
+								<ul>
+									<li>
+										<a href="#">Item 3-1</a>
 										<ul>
-											<li><a href="#">Regular link 1</a></li>
-											<li><a href="#">Regular link 2</a></li>
+											<li><a href="#">Item 4-1</a></li>
+											<li><a href="#">Item 4-2</a></li>
+											<li><a href="#">Item 4-3</a></li>
 										</ul>
-									</div>
-									<div class="col">
-										<h2>Heading 2</h2>
-										<p>
-											Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-											Vestibulum elit velit, ultricies eget porta ac.
-										</p>
-										<ul>
-											<li><a href="#">Regular link 1</a></li>
-											<li><a href="#">Regular link 2</a></li>
-										</ul>
-									</div>
-									<div class="col">
-										<h2>Heading 3</h2>
-										<p>
-											Lorem ipsum dolor sit amet, consectetur adipiscing
-											elit.Vestibulum elit velit, ultricies eget porta ac.
-										</p>
-										<ul>
-											<li><a href="#">Regular link 1</a></li>
-											<li><a href="#">Regular link 2</a></li>
-										</ul>
-									</div>
-								</li>
-							</ul>
-						</li>
-						<li>
-							<a href="#">Item 4</a>
-							<ul>
-								<li><a href="#">Item 2-1</a></li>
-								<li>
-									<a href="#">Item 2-2</a>
+									</li>
+									<li><a href="#">Item 3-2</a></li>
+									<li><a href="#">Item 3-3</a></li>
+								</ul>
+							</li>
+							<li>
+								<a href="#">Item 2-2</a>
+								<ul>
+									<li><a href="#">Item 2-1</a></li>
+									<li><a href="#">Item 2-2</a></li>
+									<li><a href="#">Item 2-3</a></li>
+								</ul>
+							</li>
+							<li>
+								<a href="#">Item 2-3</a>
+								<ul>
+									<li><a href="#">Item 2-1</a></li>
+									<li><a href="#">Item 2-2</a></li>
+									<li><a href="#">Item 2-3</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li class="has-mega-menu">
+						<a href="#">Mega 3</a>
+						<ul class="mega-menu">
+							<li>
+								<div class="col">
+									<h2>Heading 1</h2>
+									<p>
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Vestibulum elit velit, ultricies eget porta ac.
+									</p>
 									<ul>
-										<li><a href="#">Item 2-1</a></li>
-										<li><a href="#">Item 2-2</a></li>
-										<li><a href="#">Item 2-3</a></li>
+										<li><a href="#">Regular link 1</a></li>
+										<li><a href="#">Regular link 2</a></li>
 									</ul>
-								</li>
-								<li><a href="#">Item 2-3</a></li>
-							</ul>
-						</li>
-					</ul>
-				</nav>
-			</div>
-			<button class="nav-opener"><span></span></button>
+								</div>
+								<div class="col">
+									<h2>Heading 2</h2>
+									<p>
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Vestibulum elit velit, ultricies eget porta ac.
+									</p>
+									<ul>
+										<li><a href="#">Regular link 1</a></li>
+										<li><a href="#">Regular link 2</a></li>
+									</ul>
+								</div>
+								<div class="col">
+									<h2>Heading 3</h2>
+									<p>
+										Lorem ipsum dolor sit amet, consectetur adipiscing
+										elit.Vestibulum elit velit, ultricies eget porta ac.
+									</p>
+									<ul>
+										<li><a href="#">Regular link 1</a></li>
+										<li><a href="#">Regular link 2</a></li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="#">Item 4</a>
+						<ul>
+							<li><a href="#">Item 2-1</a></li>
+							<li>
+								<a href="#">Item 2-2</a>
+								<ul>
+									<li><a href="#">Item 2-1</a></li>
+									<li><a href="#">Item 2-2</a></li>
+									<li><a href="#">Item 2-3</a></li>
+								</ul>
+							</li>
+							<li><a href="#">Item 2-3</a></li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
 		</div>
 	</div>
 </header>
