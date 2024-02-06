@@ -51,24 +51,6 @@
 		top: 0;
 		opacity: 1;
 	}
-
-	.admin-bar & {
-		@include media('>=desktop') {
-			top: 32px !important;
-		}
-
-		&._sticked {
-			@include media('>=desktop') {
-				top: -160px !important;
-			}
-		}
-
-		&._showed {
-			@include media('>=desktop') {
-				top: 32px !important;
-			}
-		}
-	}
 }
 
 .menu-drop {
