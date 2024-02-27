@@ -2959,7 +2959,7 @@ body[data-aos-easing=ease-in-out-quart] [data-aos] {
 }
 
 .hero {
-	padding-block: 50px 80px;
+	padding-block: 50px;
 }
 .hero-grid {
 	display: grid;
@@ -2979,6 +2979,12 @@ body[data-aos-easing=ease-in-out-quart] [data-aos] {
 	        justify-content: center;
 	font-size: 18px;
 	line-height: 1.5;
+}
+.hero-grid__text *:last-child {
+	margin-bottom: 0;
+}
+.hero-grid__image img {
+	width: 100%;
 }
 @media (max-width: 1365px) {
 	html {
@@ -3122,6 +3128,9 @@ body[data-aos-easing=ease-in-out-quart] [data-aos] {
 	.row-col .post-img {
 		width: 100%;
 		margin-bottom: 15px;
+	}
+	.hero-grid {
+		grid-template-columns: repeat(1, 1fr);
 	}
 }
 @media (max-width: 666px) {
