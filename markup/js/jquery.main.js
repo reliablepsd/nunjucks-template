@@ -130,6 +130,12 @@ function initHeaderOffset() {
 	adjustHeightOffset();
 
 	jQuery(window).on("resize", adjustDebounced);
+
+	jQuery(window).scroll(function () {
+		if (jQuery(window).scrollTop() <= 0) {
+			adjustDebounced();
+		}
+	})
 }
 
 function initScrollClass() {
