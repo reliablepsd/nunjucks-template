@@ -1,7 +1,7 @@
 :root {
 	--rem-base: 10px;
 	--base-font-size: 16px;
-	--base-line-height: 1.2;
+	--base-line-height: 150%;
 	--vertical-rhythm: calc(var(--base-line-height) * 1em);
 	--font-open-sans: "Open Sans";
 	--base-main-font: var(--font-open-sans);
@@ -17,7 +17,9 @@
 	--color-gray-400: #999;
 	--color-red: #f00;
 	--brand-color: #000;
-	--accent-color: #f00;
+	--accent-color: #226fc2;
+	--accent-blog-color: var(--accent-color);
+	--caption-color: #b0aeae;
 	--base-text-color: var(--color-black);
 	--base-link-color: var(--brand-color);
 	--h1-h6-color: var(--base-text-color);
@@ -46,7 +48,7 @@
 	--error-bg-color: var(--color-red);
 	--form-col-gutter: 30px;
 	--form-row-margin: var(--form-col-gutter) * 1.5;
-	--h1: 3.5rem;
+	--h1: 4rem;
 	--h2: 2.8rem;
 	--h3: 2.2rem;
 	--h4: 2rem;
@@ -59,12 +61,12 @@
 		--input-y: 12px;
 	}
 	:root {
-		--h1: 25px;
-		--h2: 23px;
-		--h3: 20px;
-		--h4: 18px;
+		--h1: 3rem;
+		--h2: 2.4rem;
+		--h3: 2rem;
+		--h4: 1.8rem;
 		--h5: 17px;
-		--h6: 16px;
+		--h6: 15px;
 	}
 }
 @media (max-width: 666px) {

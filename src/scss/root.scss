@@ -9,7 +9,7 @@
 
 	// --- Body style
 	--base-font-size: 16px;
-	--base-line-height: 150%;
+	--base-line-height: 1.5;
 	--vertical-rhythm: calc(var(--base-line-height) * 1em);
 
 	// --- Font-family
@@ -38,7 +38,7 @@
 
 	// --- Colors base
 	--base-text-color: var(--color-black);
-	--base-link-color: var(--brand-color);
+	--base-link-color: var(--accent-color);
 	--h1-h6-color: var(--base-text-color);
 
 	// --- Animation
