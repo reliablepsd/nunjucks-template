@@ -9,7 +9,7 @@
 
 	// --- Body style
 	--base-font-size: 16px;
-	--base-line-height: 1.2;
+	--base-line-height: 150%;
 	--vertical-rhythm: calc(var(--base-line-height) * 1em);
 
 	// --- Font-family
@@ -32,7 +32,9 @@
 
 	// --- Colors theme
 	--brand-color: #000;
-	--accent-color: #f00;
+	--accent-color: #226FC2;
+	--accent-blog-color: var(--accent-color); // used in default blog templates
+	--caption-color: #B0AEAE; // used in default blog templates
 
 	// --- Colors base
 	--base-text-color: var(--color-black);
@@ -88,8 +90,6 @@
 		--input-x: 20px;
 		--input-y: 12px;
 	}
-
-	// === Using cycle on scss map
 
 	// --- Css variable for h1-h6 font-size
 	@each $name, $array in $h1-h6-font-size {

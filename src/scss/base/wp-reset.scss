@@ -1,54 +1,186 @@
-.main {
-	> .container {
-		padding-top: 100px;
-		padding-bottom: 100px;
+.section-entry {
+	.container.entry {
+		max-width: 1078px;
+		padding-inline: var(--gutter);
+		margin-inline: auto;
+	}
 
-		@include media('<desktop-md') {
-			display: flex;
-			flex-direction: column-reverse;
+	.page-site-header {
+		figure {
+			img {
+				width: 100%;
+			}
 		}
-		@include media('<desktop') {
-			padding-top: 80px;
-			padding-bottom: 80px;
+	}
+
+	.entry-header{
+		margin-bottom: 31px;
+	}
+
+	.entry-category{
+		font-weight: 700;
+		margin-bottom: 1.8rem;
+	}
+
+	.meta{
+		font-weight: 500;
+		margin-bottom: 0;
+	}
+
+	.entry-title{
+		margin-bottom: 2rem;
+
+		>*{
+			margin-bottom: 0;
 		}
-		@include media('<phone-md') {
-			padding-top: 60px;
-			padding-bottom: 60px;
+	}
+
+	.entry-category, .meta{
+		color: var(--caption-color);
+
+		a{
+			color: inherit;
+
+			&:hover{
+				color: var(--accent-blog-color);
+			}
 		}
 	}
 }
 
-.page-site-header {
-	width: 100%;
-	aspect-ratio: 16/9;
-	margin-bottom: 5rem;
+.entry-aligner,
+.entry-header {
+	padding-inline: 106px;
+}
 
-	@include media('<desktop-md') {
-		order: 1;
+.post-content-wrap{
+	position: relative;
+	display: flex;
+
+	.entry-aligner{
+		margin-left: -18px;
 	}
 
-	img {
-		@extend %stretch-img;
+	.b-social-wrap{
+		flex: 0;
+	}
+
+	.b-social{
+		position: sticky;
+		position: -webkit-sticky;
+		top: 20px;
+		left: 0;
 	}
 }
 
-#content {
+figure {
+	padding: 0;
+	margin: 0;
+
+	&.alignnone {
+		img {
+			width: 100%;
+		}
+	}
+
+	figcaption {
+		font-size: 0.875em;
+		line-height: normal;
+		text-align: right;
+		padding-top: 11px;
+		color: var(--caption-color);
+
+		a{
+			text-decoration: underline;
+			color: inherit;
+		}
+	}
+}
+
+.entry-content {
+	&::after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
+.ac {
+	border-radius: 4px;
 	overflow: hidden;
+	background-color: #f8f8f7;
+	padding: 30px;
 
-	@include media('<desktop-md') {
-		margin-bottom: 50px;
+	&-inner {
+		display: flex;
+	}
+
+	&-avatar {
+		flex: 0 0 85px;
+		border-radius: 150px;
+		overflow: hidden;
+		align-self: flex-start;
+		margin-right: 30px;
+	}
+
+	&-info {
+		font-size: 16px;
+		line-height: 1.4;
+
+		&__name {
+			font-size: 18px;
+			line-height: normal;
+			font-weight: 700;
+			margin-bottom: 0.2em;
+		}
+
+		&__desc {
+			> * {
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
 	}
 }
 
-#sidebar {
-	width: 300px;
-	float: right;
-	margin-left: 50px;
+.b-social {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 30px 15px;
 
-	@include media('<desktop-md') {
-		width: auto;
-		float: none;
-		margin-left: 0;
+	&._b-horizontal{
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	a {
+		display: block;
+		font-size: 0;
+		line-height: 0;
+		color: #767676;
+
+		&:hover{
+			color: var(--accent-blog-color);
+		}
+	}
+
+	&__icon {
+		font-size: 18px;
+		line-height: 1;
+		display: inline-block;
+		vertical-align: top;
+		width: 1em;
+		height: 1em;
+	}
+}
+
+.recent-posts{
+	.post{
+		.entry-header{
+			padding-inline: 0;
+		}
 	}
 }
 
@@ -69,7 +201,7 @@
 .entry-category,
 .breadcrumb,
 .meta,
-.post-img  {
+.post-img {
 	margin-bottom: 1rem;
 }
 
@@ -100,7 +232,7 @@
 	float: left;
 	margin: 0 var(--vertical-rhythm) var(--vertical-rhythm) 0;
 
-	@include media('<tablet') {
+	@include media("<tablet") {
 		display: block;
 		float: none;
 		margin: 0 auto var(--vertical-rhythm);
@@ -111,7 +243,7 @@
 	float: right;
 	margin: 0 0 var(--vertical-rhythm) var(--vertical-rhythm);
 
-	@include media('<tablet') {
+	@include media("<tablet") {
 		display: block;
 		float: none;
 		margin: 0 auto var(--vertical-rhythm);
@@ -128,14 +260,14 @@
 	}
 }
 
-.entry-header {
-	margin-bottom: 1.5em;
-}
+// .entry-header {
+// 	margin-bottom: 1.5em;
+// }
 
-.entry-category,
-.meta {
-	font-size: 1.4rem;
-}
+// .entry-category,
+// .meta {
+// 	font-size: 1.4rem;
+// }
 
 .row-post {
 	display: grid;
@@ -143,10 +275,10 @@
 	gap: 50px 40px;
 	margin-bottom: 50px;
 
-	@include media('<desktop') {
+	@include media("<desktop") {
 		gap: 50px 20px;
 	}
-	@include media('<tablet') {
+	@include media("<tablet") {
 		grid-template-columns: 100%;
 	}
 
@@ -196,7 +328,7 @@
 		display: flex;
 		gap: 20px;
 
-		@include media('<tablet') {
+		@include media("<tablet") {
 			display: block;
 		}
 
@@ -206,10 +338,10 @@
 			overflow: hidden;
 			margin-bottom: 0;
 
-			@include media('<desktop') {
+			@include media("<desktop") {
 				width: 250px;
 			}
-			@include media('<tablet') {
+			@include media("<tablet") {
 				width: 100%;
 				margin-bottom: 15px;
 			}

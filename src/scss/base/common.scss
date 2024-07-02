@@ -41,7 +41,7 @@ body {
 	min-height: 100%;
 	width: 100%;
 	position: relative;
-	overflow: hidden;
+	overflow: clip;
 }
 
 // fix bug on some flex block (see example with slider swiper)

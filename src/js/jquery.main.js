@@ -119,23 +119,22 @@ function initHeaderOffset() {
 	let container = jQuery(".offset-header");
 	let header = jQuery(".header");
 	let adjustDebounced = debounce(function () {
-		adjustHeightOffset();
+		if(headerHeight != header.outerHeight()){
+			adjustHeightOffset();
+		}
 	}, 250);
+
+	let headerHeight;
 
 	function adjustHeightOffset() {
 		headerHeight = header.outerHeight();
 		container.css("padding-top", headerHeight);
+		document.documentElement.style.setProperty("--offset-header", `${headerHeight}px`);
 	}
 
 	adjustHeightOffset();
 
 	jQuery(window).on("resize", adjustDebounced);
-
-	jQuery(window).scroll(function () {
-		if (jQuery(window).scrollTop() <= 0) {
-			adjustDebounced();
-		}
-	})
 }
 
 function initScrollClass() {
@@ -143,12 +142,13 @@ function initScrollClass() {
 	var lastScrollTop = 0;
 	var $header = jQuery('.header');
 
+
 	if ($window.scrollTop() <= 0) {
 		$header.removeClass('_sticked');
 	}
 
 	$window.scroll(function () {
-		var windowTop = $window.scrollTop();
+		let windowTop = $window.scrollTop();
 
 		if (!jQuery('body').hasClass("nav-active")) {
 
@@ -166,6 +166,7 @@ function initScrollClass() {
 					$header.removeClass('_showed');
 				}
 			}
+
 		}
 
 		lastScrollTop = windowTop;
