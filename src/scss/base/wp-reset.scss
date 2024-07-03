@@ -7,6 +7,18 @@
 	}
 }
 
+.main-blog {
+	padding-bottom: 80px;
+
+	@include media("<desktop-md") {
+		padding-bottom: 40px;
+	}
+
+	.container {
+		max-width: calc(1240px + var(--gutter) * 2);
+	}
+}
+
 .entry {
 	font-size: 16px;
 	line-height: 150%;
@@ -330,17 +342,43 @@ figure {
 	}
 }
 
-.recent-posts {
+.row-post {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	gap: 30px;
 
-	@include media("<tablet") {
+	@include media("<desktop") {
 		grid-template-columns: repeat(2, 1fr);
 	}
 
 	@include media("<phone-md") {
 		grid-template-columns: repeat(1, 1fr);
+	}
+
+	&._recent {
+		@include media("<desktop") {
+			grid-template-columns: repeat(3, 1fr);
+		}
+
+		@include media("<tablet") {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		@include media("<phone-md") {
+			grid-template-columns: repeat(1, 1fr);
+		}
+
+		.post {
+			&:last-child {
+				@include media(">=phone-md", "<tablet") {
+					display: none;
+				}
+			}
+		}
+	}
+
+	&:not(:last-child) {
+		margin-bottom: 90px;
 	}
 
 	.post {
@@ -352,12 +390,6 @@ figure {
 
 		@include media("<phone-md") {
 			font-size: 14px;
-		}
-
-		&:last-child {
-			@include media(">=phone-md", "<tablet") {
-				display: none;
-			}
 		}
 
 		.entry-header {
@@ -412,6 +444,11 @@ figure {
 	}
 
 	.entry-content {
+		display: -webkit-box;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+
 		> * {
 			&:last-child {
 				margin-bottom: 0;
@@ -506,20 +543,65 @@ figure {
 .blog-categories {
 	margin-bottom: 30px;
 
+	@include media("<tablet") {
+		margin-bottom: var(--gutter);
+	}
+
 	.jcf-select {
 		font-weight: 500;
 		font-size: 16px;
-		line-height: 1.2;
+		line-height: 1.25;
 		width: auto;
 		border-color: var(--accent-blog-color);
 		background-color: var(--color-white);
 		color: var(--accent-blog-color);
 		min-width: 126px;
 		text-align: left;
-		padding: 11px 16px 11px 16px;
+		padding: 11px 20px 11px 16px;
 
-		.jcf-select-drop {
-			min-width: 250px;
+		@include media("<phone") {
+			font-size: 15px;
+		}
+	}
+
+	.jcf-select-drop {
+		min-width: 250px;
+		padding-top: 3px;
+	}
+
+	.jcf-select-drop-content {
+		min-width: 250px;
+		border: 1px solid var(--accent-blog-color);
+		border-radius: 4px;
+		overflow: hidden;
+	}
+
+	.jcf-list {
+		font-size: inherit;
+		line-height: inherit;
+
+		ul {
+			margin: 0;
+
+			li {
+				margin: 0 !important;
+				padding: 0;
+
+				&:before {
+					display: none;
+				}
+			}
+		}
+
+		.jcf-option {
+			padding: 12px 16px;
+			color: var(--accent-blog-color);
+			transition: all var(--animation-duration) var(--animation-timing-function);
+
+			&:hover {
+				background-color: var(--accent-blog-color);
+				color: var(--color-white);
+			}
 		}
 	}
 }
@@ -601,122 +683,88 @@ figure {
 	}
 }
 
-.row-post {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	gap: 50px 40px;
-	margin-bottom: 50px;
-
-	@include media("<desktop") {
-		gap: 50px 20px;
-	}
-	@include media("<tablet") {
-		grid-template-columns: 100%;
-	}
-
-	.post {
-		&-img {
-			margin-bottom: 15px;
-			overflow: hidden;
-
-			a {
-				display: block;
-
-				&:hover img {
-					transform: scale(1.05);
-				}
-			}
-
-			img {
-				width: 100%;
-				transform-origin: center bottom;
-				transition: all 0.3s ease-in;
-			}
-		}
-
-		&-content {
-			.entry-content {
-				p {
-					&:last-child {
-						margin-bottom: 0;
-					}
-				}
-			}
-		}
-
-		@include media("<tablet") {
-			width: 100%;
-		}
-	}
-}
-
-.row-col {
-	display: grid;
-	grid-template-columns: 100%;
-	gap: 40px;
-	margin-bottom: 50px;
-
-	.post {
-		display: flex;
-		gap: 20px;
-
-		@include media("<tablet") {
-			display: block;
-		}
-
-		&-img {
-			flex-shrink: 0;
-			width: 350px;
-			overflow: hidden;
-			margin-bottom: 0;
-
-			@include media("<desktop") {
-				width: 250px;
-			}
-			@include media("<tablet") {
-				width: 100%;
-				margin-bottom: 15px;
-			}
-
-			a {
-				display: block;
-
-				&:hover img {
-					transform: scale(1.1);
-				}
-			}
-
-			img {
-				width: 100%;
-				transform-origin: center bottom;
-				transition: all 0.3s ease-in;
-			}
-		}
-
-		&-content {
-			.entry-content {
-				p {
-					&:last-child {
-						margin-bottom: 0;
-					}
-				}
-			}
-		}
-	}
-}
-
 .pagination {
+	font-size: 16px;
+	line-height: 1.2;
+	font-weight: 700;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	gap: 20px;
+
+	a {
+		color: var(--base-text-color);
+
+		&:hover {
+			color: var(--accent-blog-color);
+
+			span {
+				&:before,
+				&:after {
+					background-color: var(--accent-blog-color) !important;
+				}
+			}
+		}
+	}
+
+	.al {
+		a {
+			display: inline-flex;
+			align-items: center;
+
+			span {
+				font-size: 0;
+				line-height: 0;
+
+				&:before {
+					content: "";
+					display: block;
+					width: 8px;
+					height: 6px;
+					mask-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNiIgaGVpZ2h0PSI0IiB2aWV3Qm94PSIwIDAgNiA0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNNS4zIDQuNzY4MzdlLTA3TDYgMC43NTY3NTdMMyA0TDAgMC43NTY3NTdMMC43IDQuNzY4MzdlLTA3TDMgMi40ODY0OUw1LjMgNC43NjgzN2UtMDdaIiBmaWxsPSIjMjI2RkMyIi8+Cjwvc3ZnPgo=);
+					mask-size: 100% auto;
+					mask-repeat: no-repeat;
+					background-color: var(--base-text-color);
+					rotate: 90deg;
+					transition: background-color var(--animation-duration)
+						var(--animation-timing-function);
+				}
+			}
+		}
+	}
+
+	.ar {
+		a {
+			display: inline-flex;
+			align-items: center;
+
+			span {
+				font-size: 0;
+				line-height: 0;
+
+				&:after {
+					content: "";
+					display: block;
+					width: 8px;
+					height: 6px;
+					mask-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNiIgaGVpZ2h0PSI0IiB2aWV3Qm94PSIwIDAgNiA0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNNS4zIDQuNzY4MzdlLTA3TDYgMC43NTY3NTdMMyA0TDAgMC43NTY3NTdMMC43IDQuNzY4MzdlLTA3TDMgMi40ODY0OUw1LjMgNC43NjgzN2UtMDdaIiBmaWxsPSIjMjI2RkMyIi8+Cjwvc3ZnPgo=);
+					mask-size: 100% auto;
+					mask-repeat: no-repeat;
+					background-color: var(--base-text-color);
+					rotate: -90deg;
+					transition: background-color var(--animation-duration)
+						var(--animation-timing-function);
+				}
+			}
+		}
+	}
 
 	.al,
 	.ar {
 		> a {
 			display: flex;
 			align-items: center;
-			gap: 10px;
+			gap: 8px;
 		}
 	}
 }
@@ -732,5 +780,15 @@ figure {
 
 	label {
 		margin: 0;
+	}
+}
+
+.clearfix {
+	&:after {
+		content: " ";
+		visibility: hidden;
+		display: block;
+		height: 0;
+		clear: both;
 	}
 }
