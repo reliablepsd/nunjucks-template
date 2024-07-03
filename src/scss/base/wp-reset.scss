@@ -312,11 +312,19 @@ figure {
 			&:before {
 				left: auto;
 				right: calc(100% + 30px);
+
+				@include media("<phone-md") {
+					right: calc(100% + 15px);
+				}
 			}
 
 			&:after {
 				right: auto;
 				left: calc(100% + 30px);
+
+				@include media("<phone-md") {
+					left: calc(100% + 15px);
+				}
 			}
 		}
 	}
@@ -427,6 +435,10 @@ figure {
 		grid-template-columns: repeat(3, 1fr);
 		gap: 30px 15px;
 
+		&:last-child {
+			margin-bottom: 0;
+		}
+
 		p {
 			margin-bottom: 0;
 		}
@@ -443,6 +455,14 @@ figure {
 			width: 100%;
 			border-radius: 4px;
 			text-transform: none;
+		}
+
+		.comment-form-author,
+		.comment-form-email,
+		.comment-form-url {
+			@include media("<phone") {
+				grid-column: 1 / span 3;
+			}
 		}
 
 		.comment-form-comment {
@@ -479,6 +499,27 @@ figure {
 
 		textarea {
 			height: 115px;
+		}
+	}
+}
+
+.blog-categories {
+	margin-bottom: 30px;
+
+	.jcf-select {
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 1.2;
+		width: auto;
+		border-color: var(--accent-blog-color);
+		background-color: var(--color-white);
+		color: var(--accent-blog-color);
+		min-width: 126px;
+		text-align: left;
+		padding: 11px 16px 11px 16px;
+
+		.jcf-select-drop {
+			min-width: 250px;
 		}
 	}
 }
