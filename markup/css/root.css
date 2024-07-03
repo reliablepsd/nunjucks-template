@@ -1,7 +1,7 @@
 :root {
 	--rem-base: 10px;
 	--base-font-size: 16px;
-	--base-line-height: 150%;
+	--base-line-height: 1.5;
 	--vertical-rhythm: calc(var(--base-line-height) * 1em);
 	--font-open-sans: "Open Sans";
 	--base-main-font: var(--font-open-sans);
@@ -21,7 +21,7 @@
 	--accent-blog-color: var(--accent-color);
 	--caption-color: #b0aeae;
 	--base-text-color: var(--color-black);
-	--base-link-color: var(--brand-color);
+	--base-link-color: var(--accent-color);
 	--h1-h6-color: var(--base-text-color);
 	--animation-duration: 0.3s;
 	--animation-timing-function: ease;

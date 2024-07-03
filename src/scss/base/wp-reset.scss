@@ -1,18 +1,22 @@
 .main-post,
-.main-blog{
+.main-blog {
 	padding-top: 50px;
+
+	@include media("<desktop-md") {
+		padding-top: 35px;
+	}
 }
 
-.entry{
-	font-size: 17px;
+.entry {
+	font-size: 16px;
 	line-height: 150%;
 }
 
-.entry-content{
-	a{
+.entry-content {
+	a {
 		text-decoration: underline;
 
-		&:hover{
+		&:hover {
 			text-decoration: none;
 		}
 	}
@@ -20,78 +24,118 @@
 
 .section-entry {
 	.container.entry {
-		max-width: 1078px;
+		max-width: 1028px;
 		padding-inline: var(--gutter);
 		margin-inline: auto;
 	}
 
 	.page-site-header {
-		margin-bottom: 41px;
+		margin: 0 calc(var(--gutter) * -1) 41px;
+
+		@include media("<tablet") {
+			margin-bottom: 31px;
+		}
 
 		figure {
 			img {
 				width: 100%;
 			}
+
+			figcaption {
+				@include media("<desktop-md") {
+					padding-inline: 10px;
+				}
+
+				@include media("<desktop") {
+					padding-inline: var(--gutter);
+				}
+			}
 		}
 	}
 
-	.entry-header{
+	.entry-header {
 		margin-bottom: 31px;
 	}
 
-	.entry-category{
+	.entry-category {
 		font-weight: 700;
 		margin-bottom: 1.8rem;
 	}
 
-	.meta{
+	.meta {
 		font-weight: 500;
 		margin-bottom: 0;
 	}
 
-	.entry-title{
+	.entry-title {
 		margin-bottom: 2rem;
 
-		>*{
+		> * {
 			margin-bottom: 0;
 		}
 	}
 
-	.entry-category, .meta{
+	.entry-category,
+	.meta {
 		color: var(--caption-color);
 
-		a{
+		a {
 			color: inherit;
 
-			&:hover{
+			&:hover {
 				color: var(--accent-blog-color);
 			}
 		}
 	}
+
+	.entry-aligner {
+		margin-left: -18px;
+
+		@include media("<phone-sm") {
+			margin-left: 0;
+			padding-right: 30px;
+		}
+	}
+
+	.entry-aligner,
+	.entry-header {
+		padding-inline: 81px;
+
+		@include media("<desktop") {
+			padding-inline: 54px;
+		}
+
+		@include media("<phone") {
+			padding-inline: 40px;
+		}
+
+		@include media("<phone-sm") {
+			padding-inline: 0;
+		}
+	}
 }
 
-.entry-aligner,
-.entry-header {
-	padding-inline: 106px;
-}
-
-.post-content-wrap{
+.post-content-wrap {
 	position: relative;
 	display: flex;
 
-	.entry-aligner{
-		margin-left: -18px;
-	}
-
-	.b-social-wrap{
+	.b-social-wrap {
 		flex: 0;
+
+		@include media(">=phone-sm") {
+			order: -1;
+		}
+
+		@include media("<phone-sm") {
+			margin-left: 15px;
+		}
 	}
 
-	.b-social{
+	.b-social {
 		position: sticky;
-		position: -webkit-sticky;
-		top: 20px;
+		top: 10px;
 		left: 0;
+		z-index: 1;
 	}
 }
 
@@ -112,11 +156,11 @@ figure {
 		color: var(--caption-color);
 		padding-top: 11px;
 
-		a{
+		a {
 			color: inherit;
 			text-decoration: underline;
 
-			&:hover{
+			&:hover {
 				text-decoration: none;
 			}
 		}
@@ -132,13 +176,21 @@ figure {
 }
 
 .ac {
-	font-style: 16px;
+	font-size: 16px;
 	line-height: 1.4;
 	border-radius: 4px;
 	overflow: hidden;
 	color: var(--base-text-color);
 	background-color: #f8f8f7;
 	padding: 30px;
+
+	@include media("<phone") {
+		padding-inline: var(--gutter);
+	}
+
+	@include media("<phone-md") {
+		font-size: 15px;
+	}
 
 	&-inner {
 		display: flex;
@@ -150,17 +202,22 @@ figure {
 		overflow: hidden;
 		align-self: flex-start;
 		margin-right: 30px;
+
+		@include media("<phone") {
+			flex-basis: 62px;
+			margin-right: 15px;
+		}
 	}
 
 	&-info {
 		padding-top: 5px;
 
-		&:not(:last-child){
+		&:not(:last-child) {
 			margin-bottom: 20px;
 		}
 
 		&__name {
-			color: #2B2E38;
+			color: #2b2e38;
 			font-size: 1.125em;
 			line-height: normal;
 			font-weight: 700;
@@ -176,8 +233,8 @@ figure {
 		}
 	}
 
-	.post-content-wrap &{
-		&:not(:first-child){
+	.post-content-wrap & {
+		&:not(:first-child) {
 			margin-top: 33px;
 		}
 	}
@@ -190,7 +247,11 @@ figure {
 	gap: 20px;
 	margin: 0 -5px;
 
-	&._b-horizontal{
+	@include media("<phone") {
+		gap: 14px;
+	}
+
+	&._b-horizontal {
 		flex-direction: column;
 		align-items: flex-start;
 	}
@@ -202,7 +263,7 @@ figure {
 		color: #767676;
 		padding: 5px;
 
-		&:hover{
+		&:hover {
 			color: var(--accent-blog-color);
 		}
 	}
@@ -214,6 +275,211 @@ figure {
 		vertical-align: top;
 		width: 1em;
 		height: 1em;
+	}
+}
+
+.section-recent {
+	padding-block: 50px;
+
+	.container {
+		max-width: calc(1240px + (var(--gutter) * 2));
+	}
+
+	&__title {
+		overflow: clip;
+		font-size: 16px;
+		line-height: normal;
+		font-weight: 700;
+		color: var(--caption-color);
+		text-align: center;
+		margin-bottom: 57px;
+
+		span {
+			display: inline-block;
+			vertical-align: top;
+			position: relative;
+
+			&:before,
+			&:after {
+				content: "";
+				position: absolute;
+				top: 50%;
+				height: 1px;
+				width: 1000px;
+				background-color: #ddd;
+			}
+
+			&:before {
+				left: auto;
+				right: calc(100% + 30px);
+			}
+
+			&:after {
+				right: auto;
+				left: calc(100% + 30px);
+			}
+		}
+	}
+}
+
+.recent-posts {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 30px;
+
+	@include media("<tablet") {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@include media("<phone-md") {
+		grid-template-columns: repeat(1, 1fr);
+	}
+
+	.post {
+		font-size: 18px;
+
+		@include media("<desktop") {
+			font-size: 16px;
+		}
+
+		@include media("<phone-md") {
+			font-size: 14px;
+		}
+
+		&:last-child {
+			@include media(">=phone-md", "<tablet") {
+				display: none;
+			}
+		}
+
+		.entry-header {
+			padding-inline: 0;
+		}
+
+		&-img {
+			margin-bottom: 17px;
+
+			a,
+			img {
+				display: block;
+				width: 100%;
+			}
+		}
+	}
+
+	.entry-category {
+		color: var(--caption-color);
+		font-size: 0.888em;
+		line-height: 1.2;
+		font-weight: 700;
+		margin-bottom: 9px;
+
+		a {
+			color: var(--caption-color);
+			text-decoration: none;
+
+			&:hover {
+				color: var(--accent-blog-color);
+			}
+		}
+	}
+
+	.entry-title {
+		margin-bottom: 6px;
+
+		h3 {
+			font-size: 1.3333em;
+			line-height: 1.25;
+			margin-bottom: 0;
+		}
+
+		a {
+			text-decoration: none;
+			color: var(--base-text-color);
+
+			&:hover {
+				color: var(--accent-blog-color);
+			}
+		}
+	}
+
+	.entry-content {
+		> * {
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+.section-respond {
+	background-color: #f8f8f7;
+	padding-block: 60px 90px;
+
+	.block {
+		max-width: 816px;
+		width: 100%;
+		margin-inline: auto;
+	}
+
+	.comment-form {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 30px 15px;
+
+		p {
+			margin-bottom: 0;
+		}
+
+		label {
+			font-weight: 700;
+			font-size: 14px;
+			line-height: normal;
+			color: #2b2e38;
+			margin-bottom: 5px;
+		}
+
+		input.submit {
+			width: 100%;
+			border-radius: 4px;
+			text-transform: none;
+		}
+
+		.comment-form-comment {
+			order: -1;
+			grid-column: 1 / span 3;
+		}
+
+		.comment-notes {
+			grid-column: 1 / span 3;
+			order: -2;
+		}
+
+		.comment-form-cookies-consent {
+			grid-column: 1 / span 3;
+
+			label {
+				font-weight: 400;
+				user-select: none;
+			}
+		}
+
+		.form-submit {
+			grid-column: 1 / span 3;
+		}
+
+		textarea,
+		input[type="text"],
+		input[type="email"],
+		input[type="url"] {
+			border-radius: 4px;
+			border-color: #ddd;
+			background-color: white;
+		}
+
+		textarea {
+			height: 115px;
+		}
 	}
 }
 
@@ -269,6 +535,12 @@ figure {
 		float: none;
 		margin: 0 auto var(--vertical-rhythm);
 	}
+
+	img {
+		@include media("<tablet") {
+			width: 100%;
+		}
+	}
 }
 
 .alignright {
@@ -280,66 +552,10 @@ figure {
 		float: none;
 		margin: 0 auto var(--vertical-rhythm);
 	}
-}
 
-.block {
-	padding: 20px;
-	background: #f9f9f9;
-
-	#respond {
-		width: 100%;
-		margin: 0;
-	}
-}
-
-.section-recent{
-	padding-block: 50px;
-
-	.container{
-		max-width: calc(1240px + (var(--gutter)* 2));
-	}
-
-	&__title{
-		overflow: clip;
-		font-size: 16px;
-		line-height: normal;
-		font-weight: 700;
-		color: var(--caption-color);
-		text-align: center;
-		margin-bottom: 57px;
-
-		span{
-			display: inline-block;
-			vertical-align: top;
-			position: relative;
-
-			&:before,
-			&:after{
-				content: '';
-				position: absolute;
-				top: 50%;
-				height: 1px;
-				width: 1000px;
-				background-color: #ddd;
-			}
-
-			&:before{
-				left: auto;
-				right: calc(100% + 30px);
-			}
-
-			&:after{
-				right: auto;
-				left: calc(100% + 30px);
-			}
-		}
-	}
-}
-
-.recent-posts{
-	.post{
-		.entry-header{
-			padding-inline: 0;
+	img {
+		@include media("<tablet") {
+			width: 100%;
 		}
 	}
 }
