@@ -27,7 +27,7 @@ html {
 //-------------------- #body
 body {
 	color: var(--base-text-color);
-	font: 400 var(--base-font-size)/var(--base-line-height) var(--base-font);
+	font: 400 var(--base-font-size) / var(--base-line-height) var(--base-font);
 	min-width: 320px;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -95,7 +95,7 @@ h6,
 
 //------------------- #p
 p {
-	margin-bottom: 1.5em;
+	margin-bottom: var(--vertical-rhythm);
 	margin-top: 0;
 }
 
@@ -228,16 +228,49 @@ pre {
 //------------------- #blockquote
 blockquote {
 	font-size: 24px;
-	line-height: 1.2;
-	color: var(--base-text-color);
+	line-height: 137%;
+	color: var(--accent-blog-color);
 	background: transparent;
-	border-left: 6px solid #ECECEC;
-	padding: 10px 0 10px 20px;
-	margin: 0 0 1.2em;
+	border-left: 6px solid #ececec;
+	padding: 10px 0 10px 30px;
+	margin: 0 0 var(--vertical-rhythm);
 
-	@include media('<tablet') {
+	@include media("<tablet") {
 		font-size: 20px;
 		border-left-width: 4px;
+	}
+
+	@include media("<phone-md") {
+		font-size: 18px;
+	}
+
+	&:not([class]) {
+		p {
+			&:first-child {
+				font-weight: 700;
+				margin-bottom: 16px;
+
+				&::before {
+					content: "“";
+				}
+
+				&::after {
+					content: "”";
+				}
+			}
+
+			&:last-child {
+				color: var(--caption-color);
+				font-weight: 400;
+				font-size: 0.666em;
+				line-height: normal;
+				margin-bottom: 0;
+
+				@include media("<phone-md") {
+					font-size: 0.86em;
+				}
+			}
+		}
 	}
 
 	q,

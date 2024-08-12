@@ -11,7 +11,7 @@
 	padding: 12px 25px;
 	border: 1px solid transparent;
 	border-radius: 50px;
-	background: var(--color-black);
+	background: var(--accent-color);
 	transition: all var(--animation-duration) var(--animation-timing-function);
 	font-size: 16px;
 	line-height: 1.2;
@@ -27,9 +27,9 @@
 	}
 
 	&-secondary {
-		border-color: var(--color-black);
+		border-color: var(--accent-color);
 		background: none;
-		color: var(--color-black);
+		color: var(--accent-color);
 
 		&:hover {
 			background: var(--color-gray-200);
