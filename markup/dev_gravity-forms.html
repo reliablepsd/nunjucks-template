@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+	<meta charset="UTF-8">
+	<script type="text/javascript">
+		/* <![CDATA[ */
+		var gform;
+		gform || (document.addEventListener("gform_main_scripts_loaded", function() {
+			gform.scriptsLoaded = !0
+		}), window.addEventListener("DOMContentLoaded", function() {
+			gform.domLoaded = !0
+		}), gform = {
+			domLoaded: !1,
+			scriptsLoaded: !1,
+			initializeOnLoaded: function(o) {
+				gform.domLoaded && gform.scriptsLoaded ? o() : !gform.domLoaded && gform.scriptsLoaded ? window.addEventListener("DOMContentLoaded", o) : document.addEventListener("gform_main_scripts_loaded", o)
+			},
+			hooks: {
+				action: {},
+				filter: {}
+			},
+			addAction: function(o, n, r, t) {
+				gform.addHook("action", o, n, r, t)
+			},
+			addFilter: function(o, n, r, t) {
+				gform.addHook("filter", o, n, r, t)
+			},
+			doAction: function(o) {
+				gform.doHook("action", o, arguments)
+			},
+			applyFilters: function(o) {
+				return gform.doHook("filter", o, arguments)
+			},
+			removeAction: function(o, n) {
+				gform.removeHook("action", o, n)
+			},
+			removeFilter: function(o, n, r) {
+				gform.removeHook("filter", o, n, r)
+			},
+			addHook: function(o, n, r, t, i) {
+				null == gform.hooks[o][n] && (gform.hooks[o][n] = []);
+				var e = gform.hooks[o][n];
+				null == i && (i = n + "_" + e.length), gform.hooks[o][n].push({
+					tag: i,
+					callable: r,
+					priority: t = null == t ? 10 : t
+				})
+			},
+			doHook: function(n, o, r) {
+				var t;
+				if (r = Array.prototype.slice.call(r, 1), null != gform.hooks[n][o] && ((o = gform.hooks[n][o]).sort(function(o, n) {
+						return o.priority - n.priority
+					}), o.forEach(function(o) {
+						"function" != typeof(t = o.callable) && (t = window[t]), "action" == n ? t.apply(null, r) : r[0] = t.apply(null, r)
+					})), "filter" == n) return r[0]
+			},
+			removeHook: function(o, n, t, i) {
+				var r;
+				null != gform.hooks[o][n] && (r = (r = gform.hooks[o][n]).filter(function(o, n, r) {
+					return !!(null != i && i != o.tag || null != t && t != o.priority)
+				}), gform.hooks[o][n] = r)
+			}
+		});
+		/* ]]> */
+	</script>
+	<meta name="viewport" content="initial-scale=1, width=device-width, height=device-height, viewport-fit=cover">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="robots" content="noindex, nofollow">
+	<!-- This site is optimized with the Yoast SEO plugin v23.3 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Test Gravity Form Fields - Base Theme</title>
+	<meta property="og:locale" content="en_US">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Test Gravity Form Fields - Base Theme">
+	<meta property="og:url" content="https://basethemedevel.wpengine.com/test-gravity-form-fields/">
+	<meta property="og:site_name" content="Base Theme">
+	<meta property="article:modified_time" content="2024-08-07T23:07:16+00:00">
+	<meta name="twitter:card" content="summary_large_image">
+	<script type="application/ld+json" class="yoast-schema-graph">
+		{
+			"@context": "https://schema.org",
+			"@graph": [{
+				"@type": "WebPage",
+				"@id": "https://basethemedevel.wpengine.com/test-gravity-form-fields/",
+				"url": "https://basethemedevel.wpengine.com/test-gravity-form-fields/",
+				"name": "Test Gravity Form Fields - Base Theme",
+				"isPartOf": {
+					"@id": "https://basethemedevel.wpengine.com/#website"
+				},
+				"datePublished": "2024-07-10T10:52:50+00:00",
+				"dateModified": "2024-08-07T23:07:16+00:00",
+				"breadcrumb": {
+					"@id": "https://basethemedevel.wpengine.com/test-gravity-form-fields/#breadcrumb"
+				},
+				"inLanguage": "en-US",
+				"potentialAction": [{
+					"@type": "ReadAction",
+					"target": ["https://basethemedevel.wpengine.com/test-gravity-form-fields/"]
+				}]
+			}, {
+				"@type": "BreadcrumbList",
+				"@id": "https://basethemedevel.wpengine.com/test-gravity-form-fields/#breadcrumb",
+				"itemListElement": [{
+					"@type": "ListItem",
+					"position": 1,
+					"name": "Home",
+					"item": "https://basethemedevel.wpengine.com/"
+				}, {
+					"@type": "ListItem",
+					"position": 2,
+					"name": "Test Gravity Form Fields"
+				}]
+			}, {
+				"@type": "WebSite",
+				"@id": "https://basethemedevel.wpengine.com/#website",
+				"url": "https://basethemedevel.wpengine.com/",
+				"name": "Base Theme",
+				"description": "",
+				"potentialAction": [{
+					"@type": "SearchAction",
+					"target": {
+						"@type": "EntryPoint",
+						"urlTemplate": "https://basethemedevel.wpengine.com/?s={search_term_string}"
+					},
+					"query-input": "required name=search_term_string"
+				}],
+				"inLanguage": "en-US"
+			}]
+		}
+	</script>
+	<!-- / Yoast SEO plugin. -->
+	<link rel="alternate" type="application/rss+xml" title="Base Theme » Feed" href="https://basethemedevel.wpengine.com/feed/">
+	<link rel="alternate" type="application/rss+xml" title="Base Theme » Comments Feed" href="https://basethemedevel.wpengine.com/comments/feed/">
+	<style id="safe-svg-svg-icon-style-inline-css" type="text/css">
+		.safe-svg-cover {
+			text-align: center
+		}
+
+		.safe-svg-cover .safe-svg-inside {
+			display: inline-block;
+			max-width: 100%
+		}
+
+		.safe-svg-cover svg {
+			height: 100%;
+			max-height: 100%;
+			max-width: 100%;
+			width: 100%
+		}
+	</style>
+	<!-- <link rel='stylesheet' id='am_markup-template-markup-css-root-css-css' href='https://basethemedevel.wpengine.com/wp-content/themes/base-theme/markup-template/markup/css/root.css?ver=1724102028' type='text/css' media='all' />
+<link rel='stylesheet' id='am_markup-template-markup-css-style-css-css' href='https://basethemedevel.wpengine.com/wp-content/themes/base-theme/markup-template/markup/css/style.css?ver=1724102028&_v=20240903185734' type='text/css' media='all' /> -->
+	<link rel="stylesheet" href="css/root.css">
+	<link rel="stylesheet" href="css/style.css?_v=20240903185734">
+	<link rel="stylesheet" id="am_wp-assets-css-style-wp-css-css" href="https://basethemedevel.wpengine.com/wp-content/themes/base-theme/wp-assets/css/style-wp.css?ver=1707148218" type="text/css" media="all">
+	<link rel="stylesheet" id="gform_basic-css" href="https://basethemedevel.wpengine.com/wp-content/plugins/gravityforms/assets/css/dist/basic.min.css?ver=2.8.17" type="text/css" media="all">
+	<link rel="stylesheet" id="gform_theme_components-css" href="https://basethemedevel.wpengine.com/wp-content/plugins/gravityforms/assets/css/dist/theme-components.min.css?ver=2.8.17" type="text/css" media="all">
+	<link rel="stylesheet" id="gform_theme_ie11-css" href="https://basethemedevel.wpengine.com/wp-content/plugins/gravityforms/assets/css/dist/theme-ie11.min.css?ver=2.8.17" type="text/css" media="all">
+	<link rel="stylesheet" id="gform_theme-css" href="https://basethemedevel.wpengine.com/wp-content/plugins/gravityforms/assets/css/dist/theme.min.css?ver=2.8.17" type="text/css" media="all">
+	<link rel="stylesheet" id="dashicons-css" href="https://basethemedevel.wpengine.com/wp-includes/css/dashicons.min.css?ver=6.6.1" type="text/css" media="all">
+	<script type="text/javascript" src="https://basethemedevel.wpengine.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+	<script type="text/javascript" src="https://basethemedevel.wpengine.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
+	<script type="text/javascript" defer="defer" src="https://basethemedevel.wpengine.com/wp-content/plugins/gravityforms/js/jquery.json.min.js?ver=2.8.17" id="gform_json-js"></script>
+	<script type="text/javascript" id="gform_gravityforms-js-extra">
+		/* <![CDATA[ */
+		var gf_legacy = {
+			"is_legacy": ""
+		};
+		var gf_global = {
+			"gf_currency_config": {
+				"name": "U.S. Dollar",
+				"symbol_left": "$",
+				"symbol_right": "",
+				"symbol_padding": "",
+				"thousand_separator": ",",
+				"decimal_separator": ".",
+				"decimals": 2,
+				"code": "USD"
+			},
+			"base_url": "https:\/\/basethemedevel.wpengine.com\/wp-content\/plugins\/gravityforms",
+			"number_formats": [],
+			"spinnerUrl": "https:\/\/basethemedevel.wpengine.com\/wp-content\/plugins\/gravityforms\/images\/spinner.svg",
+			"version_hash": "c8c1199f003780466ac938c337805292",
+			"strings": {
+				"newRowAdded": "New row added.",
+				"rowRemoved": "Row removed",
+				"formSaved": "The form has been saved.  The content contains the link to return and complete the form."
+			}
+		};
+		var gform_i18n = {
+			"datepicker": {
+				"days": {
+					"monday": "Mo",
+					"tuesday": "Tu",
+					"wednesday": "We",
+					"thursday": "Th",
+					"friday": "Fr",
+					"saturday": "Sa",
+					"sunday": "Su"
+				},
+				"months": {
+					"january": "January",
+					"february": "February",
+					"march": "March",
+					"april": "April",
+					"may": "May",
+					"june": "June",
+					"july": "July",
+					"august": "August",
+					"september": "September",
+					"october": "October",
+					"november": "November",
+					"december": "December"
+				},
+				"firstDay": 0,
+				"iconText": "Select date"
+			}
+		};
+		var gf_legacy_multi = {
+			"1": ""
+		};
+		var gform_gravityforms = {
+			"strings": {
+				"invalid_file_extension": "This type of file is not allowed. Must be one of the following:",
+				"delete_file": "Delete this file",
+				"in_progress": "in progress",
+				"file_exceeds_limit": "File exceeds size limit",
+				"illegal_extension": "This type of file is not allowed.",
+				"max_reached": "Maximum number of files reached",
+				"unknown_error": "There was a problem while saving the file on the server",
+				"currently_uploading": "Please wait for the uploading to complete",
+				"cancel": "Cancel",
+				"cancel_upload": "Cancel this upload",
+				"cancelled": "Cancelled"
+			},
+			"vars": {
+				"images_url": "https:\/\/basethemedevel.wpengine.com\/wp-content\/plugins\/gravityforms\/images"
+			}
+		};
+		/* ]]> */
+	</script>
+	<script type="text/javascript" id="gform_gravityforms-js-before">
+		/* <![CDATA[ */
+
+		/* ]]> */
+	</script>
+	<script type="text/javascript" defer="defer" src="https://basethemedevel.wpengine.com/wp-content/plugins/gravityforms/js/gravityforms.min.js?ver=2.8.17" id="gform_gravityforms-js"></script>
+	<script type="text/javascript" defer="defer" src="https://basethemedevel.wpengine.com/wp-content/plugins/gravityforms/assets/js/dist/utils.min.js?ver=50c7bea9c2320e16728e44ae9fde5f26" id="gform_gravityforms_utils-js"></script>
+	<link rel="https://api.w.org/" href="https://basethemedevel.wpengine.com/wp-json/">
+	<link rel="alternate" title="JSON" type="application/json" href="https://basethemedevel.wpengine.com/wp-json/wp/v2/pages/379">
+	<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://basethemedevel.wpengine.com/xmlrpc.php?rsd">
+	<link rel="shortlink" href="https://basethemedevel.wpengine.com/?p=379">
+	<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://basethemedevel.wpengine.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fbasethemedevel.wpengine.com%2Ftest-gravity-form-fields%2F">
+	<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://basethemedevel.wpengine.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fbasethemedevel.wpengine.com%2Ftest-gravity-form-fields%2F&amp;format=xml">
+</head>
+
+<body class="page-template-default page page-id-379 chrome">
+	<div class="wrapper offset-header">
+		<main class="main">
+			<div class="container">
+				<div id="content" class="col_content">
+					<div class="breadcrumb">
+						<div class="breadcrumb-trail"> <a href="https://basethemedevel.wpengine.com/" title="Base Theme" rel="home" class="trail-begin">Home</a> <span class="sep">/</span> Test Gravity Form
+							Fields</div>
+					</div>
+					<div class="post post-379 page type-page status-publish hentry" id="post-379">
+						<div class="title">
+							<h1>Test Gravity Form Fields</h1>
+						</div><!-- /title -->
+						<div class="entry">
+							<div class="gf_browser_chrome gform_wrapper gravity-theme gform-theme--no-framework" data-form-theme="gravity-theme" data-form-index="0" id="gform_wrapper_1">
+								<div class="gform_heading">
+									<h2 class="gform_title">Test</h2>
+									<p class="gform_description"></p>
+								</div>
+								<form method="post" enctype="multipart/form-data" id="gform_1" action="/test-gravity-form-fields/" data-formid="1" novalidate="">
+									<div class="gform-body gform_body">
+										<div id="gform_fields_1" class="gform_fields top_label form_sublabel_below description_below validation_below">
+											<fieldset id="field_1_22" class="gfield gfield--type-name gfield--input-type-name gfield--width-full field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible" data-js-reload="field_1_22">
+												<legend class="gfield_label gform-field-label gfield_label_before_complex">
+													Name</legend>
+												<div class="ginput_complex ginput_container ginput_container--name no_prefix has_first_name no_middle_name has_last_name no_suffix gf_name_has_2 ginput_container_name gform-grid-row" id="input_1_22">
+													<span id="input_1_22_3_container" class="name_first gform-grid-col gform-grid-col--size-auto">
+														<input type="text" name="input_22.3" id="input_1_22_3" value="" aria-required="false">
+														<label for="input_1_22_3" class="gform-field-label gform-field-label--type-sub ">First</label>
+													</span>
+													<span id="input_1_22_6_container" class="name_last gform-grid-col gform-grid-col--size-auto">
+														<input type="text" name="input_22.6" id="input_1_22_6" value="" aria-required="false">
+														<label for="input_1_22_6" class="gform-field-label gform-field-label--type-sub ">Last</label>
+													</span>
+												</div>
+											</fieldset>
+											<div id="field_1_17" class="gfield gfield--type-text gfield--input-type-text gfield--width-half field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible" data-js-reload="field_1_17"><label class="gfield_label gform-field-label" for="input_1_17">Untitled</label>
+												<div class="ginput_container ginput_container_text"><input name="input_17" id="input_1_17" type="text" value="" class="large" aria-invalid="false"> </div>
+											</div>
+											<div id="field_1_1" class="gfield gfield--type-text gfield--input-type-text gfield--width-half field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible" data-js-reload="field_1_1"><label class="gfield_label gform-field-label" for="input_1_1">Untitled</label>
+												<div class="ginput_container ginput_container_text"><input name="input_1" id="input_1_1" type="text" value="" class="large" aria-invalid="false"> </div>
+											</div>
+											<div id="field_1_19" class="gfield gfield--type-text gfield--input-type-text gfield--width-third field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible" data-js-reload="field_1_19"><label class="gfield_label gform-field-label" for="input_1_19">Untitled</label>
+												<div class="ginput_container ginput_container_text"><input name="input_19" id="input_1_19" type="text" value="" class="large" aria-invalid="false"> </div>
+											</div>
+											<div id="field_1_20" class="gfield gfield--type-text gfield--input-type-text gfield--width-third field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible" data-js-reload="field_1_20"><label class="gfield_label gform-field-label" for="input_1_20">Untitled</label>
+												<div class="ginput_container ginput_container_text"><input name="input_20" id="input_1_20" type="text" value="" class="large" aria-invalid="false"> </div>
+											</div>
+											<div id="field_1_21" class="gfield gfield--type-text gfield--input-type-text gfield--width-third field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible" data-js-reload="field_1_21"><label class="gfield_label gform-field-label" for="input_1_21">Untitled</label>
+												<div class="ginput_container ginput_container_text"><input name="input_21" id="input_1_21" type="text" value="" class="large" aria-invalid="false"> </div>
+											</div>
+											<div id="field_1_23" class="gfield gfield--type-text gfield--input-type-text gfield--width-quarter field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible" data-js-reload="field_1_23"><label class="gfield_label gform-field-label" for="input_1_23">Untitled</label>
+												<div class="ginput_container ginput_container_text"><input name="input_23" id="input_1_23" type="text" value="" class="large" aria-invalid="false"> </div>
+											</div>
+											<div id="field_1_24" class="gfield gfield--type-text gfield--input-type-text gfield--width-quarter field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible" data-js-reload="field_1_24"><label class="gfield_label gform-field-label" for="input_1_24">Untitled</label>
+												<div class="ginput_container ginput_container_text"><input name="input_24" id="input_1_24" type="text" value="" class="large" aria-invalid="false"> </div>
+											</div>
+											<div id="field_1_25" class="gfield gfield--type-text gfield--input-type-text gfield--width-quarter field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible" data-js-reload="field_1_25"><label class="gfield_label gform-field-label" for="input_1_25">Untitled</label>
+												<div class="ginput_container ginput_container_text"><input name="input_25" id="input_1_25" type="text" value="" class="large" aria-invalid="false"> </div>
+											</div>
+											<div id="field_1_26" class="gfield gfield--type-text gfield--input-type-text gfield--width-quarter field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible" data-js-reload="field_1_26"><label class="gfield_label gform-field-label" for="input_1_26">Untitled</label>
+												<div class="ginput_container ginput_container_text"><input name="input_26" id="input_1_26" type="text" value="" class="large" aria-invalid="false"> </div>
+											</div>
+											<div id="field_1_18" class="gfield gfield--type-text gfield--input-type-text gfield--width-full field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible" data-js-reload="field_1_18"><label class="gfield_label gform-field-label" for="input_1_18">Untitled</label>
+												<div class="ginput_container ginput_container_text"><input name="input_18" id="input_1_18" type="text" value="" class="large" aria-invalid="false"> </div>
+											</div>
+											<div id="field_1_3" class="gfield gfield--type-textarea gfield--input-type-textarea gfield--width-full field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible" data-js-reload="field_1_3"><label class="gfield_label gform-field-label" for="input_1_3">Untitled</label>
+												<div class="ginput_container ginput_container_textarea"><textarea name="input_3" id="input_1_3" class="textarea large" aria-invalid="false" rows="10" cols="50"></textarea></div>
+											</div>
+											<div id="field_1_4" class="gfield gfield--type-select gfield--input-type-select gfield--width-full field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible" data-js-reload="field_1_4"><label class="gfield_label gform-field-label" for="input_1_4">Untitled</label>
+												<div class="ginput_container ginput_container_select"><select name="input_4" id="input_1_4" class="large gfield_select" aria-invalid="false">
+														<option value="First Choice">First Choice</option>
+														<option value="Second Choice">Second Choice</option>
+														<option value="Third Choice">Third Choice</option>
+													</select></div>
+											</div>
+											<div id="field_1_5" class="gfield gfield--type-number gfield--input-type-number gfield--width-full field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible" data-js-reload="field_1_5"><label class="gfield_label gform-field-label" for="input_1_5">Number</label>
+												<div class="ginput_container ginput_container_number"><input name="input_5" id="input_1_5" type="number" step="any" value="" class="large" aria-invalid="false"></div>
+											</div>
+											<fieldset id="field_1_7" class="gfield gfield--type-radio gfield--type-choice gfield--input-type-radio gfield--width-full field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible" data-js-reload="field_1_7">
+												<legend class="gfield_label gform-field-label">Untitled</legend>
+												<div class="ginput_container ginput_container_radio">
+													<div class="gfield_radio" id="input_1_7">
+														<div class="gchoice gchoice_1_7_0">
+															<input class="gfield-choice-input" name="input_7" type="radio" value="First Choice" id="choice_1_7_0" onchange="gformToggleRadioOther( this )">
+															<label for="choice_1_7_0" id="label_1_7_0" class="gform-field-label gform-field-label--type-inline">First
+																Choice</label>
+														</div>
+														<div class="gchoice gchoice_1_7_1">
+															<input class="gfield-choice-input" name="input_7" type="radio" value="Second Choice" id="choice_1_7_1" onchange="gformToggleRadioOther( this )">
+															<label for="choice_1_7_1" id="label_1_7_1" class="gform-field-label gform-field-label--type-inline">Second
+																Choice</label>
+														</div>
+														<div class="gchoice gchoice_1_7_2">
+															<input class="gfield-choice-input" name="input_7" type="radio" value="Third Choice" id="choice_1_7_2" onchange="gformToggleRadioOther( this )">
+															<label for="choice_1_7_2" id="label_1_7_2" class="gform-field-label gform-field-label--type-inline">Third
+																Choice</label>
+														</div>
+													</div>
+												</div>
+											</fieldset>
+											<fieldset id="field_1_6" class="gfield gfield--type-checkbox gfield--type-choice gfield--input-type-checkbox gfield--width-full field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible" data-js-reload="field_1_6">
+												<legend class="gfield_label gform-field-label gfield_label_before_complex">
+													Untitled</legend>
+												<div class="ginput_container ginput_container_checkbox">
+													<div class="gfield_checkbox" id="input_1_6">
+														<div class="gchoice gchoice_1_6_1">
+															<input class="gfield-choice-input" name="input_6.1" type="checkbox" value="First Choice" id="choice_1_6_1">
+															<label for="choice_1_6_1" id="label_1_6_1" class="gform-field-label gform-field-label--type-inline">First
+																Choice</label>
+														</div>
+														<div class="gchoice gchoice_1_6_2">
+															<input class="gfield-choice-input" name="input_6.2" type="checkbox" value="Second Choice" id="choice_1_6_2">
+															<label for="choice_1_6_2" id="label_1_6_2" class="gform-field-label gform-field-label--type-inline">Second
+																Choice</label>
+														</div>
+														<div class="gchoice gchoice_1_6_3">
+															<input class="gfield-choice-input" name="input_6.3" type="checkbox" value="Third Choice" id="choice_1_6_3">
+															<label for="choice_1_6_3" id="label_1_6_3" class="gform-field-label gform-field-label--type-inline">Third
+																Choice</label>
+														</div>
+													</div>
+												</div>
+											</fieldset>
+											<div id="field_1_8" class="gfield gfield--type-date gfield--input-type-date gfield--input-type-datepicker gfield--datepicker-no-icon gfield--width-full field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible" data-js-reload="field_1_8"><label class="gfield_label gform-field-label" for="input_1_8">Date</label>
+												<div class="ginput_container ginput_container_date">
+													<input name="input_8" id="input_1_8" type="text" value="" class="datepicker gform-datepicker mdy datepicker_no_icon gdatepicker-no-icon" placeholder="mm/dd/yyyy" aria-describedby="input_1_8_date_format" aria-invalid="false">
+													<span id="input_1_8_date_format" class="screen-reader-text">MM slash
+														DD slash YYYY</span>
+												</div>
+												<input type="hidden" id="gforms_calendar_icon_input_1_8" class="gform_hidden" value="https://basethemedevel.wpengine.com/wp-content/plugins/gravityforms/images/datepicker/datepicker.svg">
+											</div>
+											<fieldset id="field_1_9" class="gfield gfield--type-time gfield--input-type-time gfield--width-full field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible" data-js-reload="field_1_9">
+												<legend class="gfield_label gform-field-label gfield_label_before_complex">
+													Time</legend>
+												<div class="ginput_container ginput_complex gform-grid-row">
+													<div class="gfield_time_hour ginput_container ginput_container_time gform-grid-col" id="input_1_9">
+														<input type="number" maxlength="2" name="input_9[]" id="input_1_9_1" value="" min="0" max="12" step="1" placeholder="HH" aria-required="false">
+														<label class="gform-field-label gform-field-label--type-sub hour_label screen-reader-text" for="input_1_9_1">Hours</label>
+													</div>
+													<div class="below hour_minute_colon gform-grid-col">:</div>
+													<div class="gfield_time_minute ginput_container ginput_container_time gform-grid-col">
+														<input type="number" maxlength="2" name="input_9[]" id="input_1_9_2" value="" min="0" max="59" step="1" placeholder="MM" aria-required="false">
+														<label class="gform-field-label gform-field-label--type-sub minute_label screen-reader-text" for="input_1_9_2">Minutes</label>
+													</div>
+													<div class="gfield_time_ampm ginput_container ginput_container_time below gform-grid-col">
+														<select name="input_9[]" id="input_1_9_3">
+															<option value="am">AM</option>
+															<option value="pm">PM</option>
+														</select>
+														<label class="gform-field-label gform-field-label--type-sub am_pm_label screen-reader-text" for="input_1_9_3">AM/PM</label>
+													</div>
+												</div>
+											</fieldset>
+											<div id="field_1_10" class="gfield gfield--type-phone gfield--input-type-phone gfield--width-full field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible" data-js-reload="field_1_10"><label class="gfield_label gform-field-label" for="input_1_10">Phone</label>
+												<div class="ginput_container ginput_container_phone"><input name="input_10" id="input_1_10" type="tel" value="" class="large" aria-invalid="false"></div>
+											</div>
+											<div id="field_1_12" class="gfield gfield--type-website gfield--input-type-website gfield--width-full field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible" data-js-reload="field_1_12"><label class="gfield_label gform-field-label" for="input_1_12">Website</label>
+												<div class="ginput_container ginput_container_website">
+													<input name="input_12" id="input_1_12" type="url" value="" class="large" placeholder="https://" aria-invalid="false">
+												</div>
+											</div>
+											<div id="field_1_13" class="gfield gfield--type-email gfield--input-type-email gfield--width-full field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible" data-js-reload="field_1_13"><label class="gfield_label gform-field-label" for="input_1_13">Email</label>
+												<div class="ginput_container ginput_container_email">
+													<input name="input_13" id="input_1_13" type="email" value="" class="large" aria-invalid="false">
+												</div>
+											</div>
+											<div id="field_1_14" class="gfield gfield--type-fileupload gfield--input-type-fileupload gfield--width-full field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible" data-js-reload="field_1_14"><label class="gfield_label gform-field-label" for="input_1_14">File</label>
+												<div class="ginput_container ginput_container_fileupload"><input type="hidden" name="MAX_FILE_SIZE" value="52428800"><input name="input_14" id="input_1_14" type="file" class="large" aria-describedby="gfield_upload_rules_1_14" onchange="javascript:gformValidateFileSize( this, 52428800 );"><span class="gfield_description gform_fileupload_rules" id="gfield_upload_rules_1_14">Max. file size: 50 MB.</span>
+													<div class="gfield_description validation_message gfield_validation_message validation_message--hidden-on-empty" id="live_validation_message_1_14"></div>
+												</div>
+											</div>
+											<fieldset id="field_1_15" class="gfield gfield--type-list gfield--input-type-list gfield--width-full field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible" data-js-reload="field_1_15">
+												<legend class="gfield_label gform-field-label">List</legend>
+												<div class="ginput_container ginput_container_list ginput_list ">
+													<div class="gfield_list gfield_list_container">
+														<div class="gfield_list_groups">
+															<div class="gfield_list_row_odd gfield_list_group gform-grid-row">
+																<div class="gfield_list_group_item gfield_list_cell gfield_list_15_cell1 gform-grid-col">
+																	<input aria-invalid="false" aria-label="List, Row 1" data-aria-label-template="List, Row {0}" type="text" name="input_15[]" value="">
+																</div>
+																<div class="gfield_list_icons gform-grid-col"> <button type="button" class="add_list_item " aria-label="Add another row" onclick="gformAddListItem(this, 0)">Add</button>
+																	<button type="button" class="delete_list_item" aria-label="Remove row 1" data-aria-label-template="Remove row {0}" onclick="gformDeleteListItem(this, 0)" style="visibility:hidden;">Remove</button>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</fieldset>
+											<div id="field_1_16" class="gfield gfield--type-multiselect gfield--input-type-multiselect gfield--width-full field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible" data-js-reload="field_1_16"><label class="gfield_label gform-field-label" for="input_1_16">Untitled</label>
+												<div class="ginput_container ginput_container_multiselect"><select multiple="multiple" size="7" name="input_16[]" id="input_1_16" class="large gfield_select" aria-invalid="false">
+														<option value="First Choice">First Choice</option>
+														<option value="Second Choice">Second Choice</option>
+														<option value="Third Choice">Third Choice</option>
+													</select></div>
+											</div>
+											<fieldset id="field_1_11" class="gfield gfield--type-address gfield--input-type-address gfield--width-full field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible" data-js-reload="field_1_11">
+												<legend class="gfield_label gform-field-label gfield_label_before_complex">
+													Address</legend>
+												<div class="ginput_complex ginput_container has_street has_street2 has_city has_state has_zip has_country ginput_container_address gform-grid-row" id="input_1_11">
+													<span class="ginput_full address_line_1 ginput_address_line_1 gform-grid-col" id="input_1_11_1_container">
+														<input type="text" name="input_11.1" id="input_1_11_1" value="" aria-required="false">
+														<label for="input_1_11_1" id="input_1_11_1_label" class="gform-field-label gform-field-label--type-sub ">Street
+															Address</label>
+													</span><span class="ginput_full address_line_2 ginput_address_line_2 gform-grid-col" id="input_1_11_2_container">
+														<input type="text" name="input_11.2" id="input_1_11_2" value="" aria-required="false">
+														<label for="input_1_11_2" id="input_1_11_2_label" class="gform-field-label gform-field-label--type-sub ">Address
+															Line 2</label>
+													</span><span class="ginput_left address_city ginput_address_city gform-grid-col" id="input_1_11_3_container">
+														<input type="text" name="input_11.3" id="input_1_11_3" value="" aria-required="false">
+														<label for="input_1_11_3" id="input_1_11_3_label" class="gform-field-label gform-field-label--type-sub ">City</label>
+													</span><span class="ginput_right address_state ginput_address_state gform-grid-col" id="input_1_11_4_container">
+														<input type="text" name="input_11.4" id="input_1_11_4" value="" aria-required="false">
+														<label for="input_1_11_4" id="input_1_11_4_label" class="gform-field-label gform-field-label--type-sub ">State
+															/ Province / Region</label>
+													</span><span class="ginput_left address_zip ginput_address_zip gform-grid-col" id="input_1_11_5_container">
+														<input type="text" name="input_11.5" id="input_1_11_5" value="" aria-required="false">
+														<label for="input_1_11_5" id="input_1_11_5_label" class="gform-field-label gform-field-label--type-sub ">ZIP /
+															Postal Code</label>
+													</span><span class="ginput_right address_country ginput_address_country gform-grid-col" id="input_1_11_6_container">
+														<select name="input_11.6" id="input_1_11_6" aria-required="false">
+															<option value="" selected="selected"></option>
+															<option value="Afghanistan">Afghanistan</option>
+															<option value="Albania">Albania</option>
+															<option value="Algeria">Algeria</option>
+															<option value="American Samoa">American Samoa</option>
+															<option value="Andorra">Andorra</option>
+															<option value="Angola">Angola</option>
+															<option value="Anguilla">Anguilla</option>
+															<option value="Antarctica">Antarctica</option>
+															<option value="Antigua and Barbuda">Antigua and Barbuda
+															</option>
+															<option value="Argentina">Argentina</option>
+															<option value="Armenia">Armenia</option>
+															<option value="Aruba">Aruba</option>
+															<option value="Australia">Australia</option>
+															<option value="Austria">Austria</option>
+															<option value="Azerbaijan">Azerbaijan</option>
+															<option value="Bahamas">Bahamas</option>
+															<option value="Bahrain">Bahrain</option>
+															<option value="Bangladesh">Bangladesh</option>
+															<option value="Barbados">Barbados</option>
+															<option value="Belarus">Belarus</option>
+															<option value="Belgium">Belgium</option>
+															<option value="Belize">Belize</option>
+															<option value="Benin">Benin</option>
+															<option value="Bermuda">Bermuda</option>
+															<option value="Bhutan">Bhutan</option>
+															<option value="Bolivia">Bolivia</option>
+															<option value="Bonaire, Sint Eustatius and Saba">Bonaire,
+																Sint Eustatius and Saba</option>
+															<option value="Bosnia and Herzegovina">Bosnia and
+																Herzegovina</option>
+															<option value="Botswana">Botswana</option>
+															<option value="Bouvet Island">Bouvet Island</option>
+															<option value="Brazil">Brazil</option>
+															<option value="British Indian Ocean Territory">British
+																Indian Ocean Territory</option>
+															<option value="Brunei Darussalam">Brunei Darussalam</option>
+															<option value="Bulgaria">Bulgaria</option>
+															<option value="Burkina Faso">Burkina Faso</option>
+															<option value="Burundi">Burundi</option>
+															<option value="Cabo Verde">Cabo Verde</option>
+															<option value="Cambodia">Cambodia</option>
+															<option value="Cameroon">Cameroon</option>
+															<option value="Canada">Canada</option>
+															<option value="Cayman Islands">Cayman Islands</option>
+															<option value="Central African Republic">Central African
+																Republic</option>
+															<option value="Chad">Chad</option>
+															<option value="Chile">Chile</option>
+															<option value="China">China</option>
+															<option value="Christmas Island">Christmas Island</option>
+															<option value="Cocos Islands">Cocos Islands</option>
+															<option value="Colombia">Colombia</option>
+															<option value="Comoros">Comoros</option>
+															<option value="Congo">Congo</option>
+															<option value="Congo, Democratic Republic of the">Congo,
+																Democratic Republic of the</option>
+															<option value="Cook Islands">Cook Islands</option>
+															<option value="Costa Rica">Costa Rica</option>
+															<option value="Croatia">Croatia</option>
+															<option value="Cuba">Cuba</option>
+															<option value="Curaçao">Curaçao</option>
+															<option value="Cyprus">Cyprus</option>
+															<option value="Czechia">Czechia</option>
+															<option value="Côte d'Ivoire">Côte d'Ivoire
+															</option>
+															<option value="Denmark">Denmark</option>
+															<option value="Djibouti">Djibouti</option>
+															<option value="Dominica">Dominica</option>
+															<option value="Dominican Republic">Dominican Republic
+															</option>
+															<option value="Ecuador">Ecuador</option>
+															<option value="Egypt">Egypt</option>
+															<option value="El Salvador">El Salvador</option>
+															<option value="Equatorial Guinea">Equatorial Guinea</option>
+															<option value="Eritrea">Eritrea</option>
+															<option value="Estonia">Estonia</option>
+															<option value="Eswatini">Eswatini</option>
+															<option value="Ethiopia">Ethiopia</option>
+															<option value="Falkland Islands">Falkland Islands</option>
+															<option value="Faroe Islands">Faroe Islands</option>
+															<option value="Fiji">Fiji</option>
+															<option value="Finland">Finland</option>
+															<option value="France">France</option>
+															<option value="French Guiana">French Guiana</option>
+															<option value="French Polynesia">French Polynesia</option>
+															<option value="French Southern Territories">French Southern
+																Territories</option>
+															<option value="Gabon">Gabon</option>
+															<option value="Gambia">Gambia</option>
+															<option value="Georgia">Georgia</option>
+															<option value="Germany">Germany</option>
+															<option value="Ghana">Ghana</option>
+															<option value="Gibraltar">Gibraltar</option>
+															<option value="Greece">Greece</option>
+															<option value="Greenland">Greenland</option>
+															<option value="Grenada">Grenada</option>
+															<option value="Guadeloupe">Guadeloupe</option>
+															<option value="Guam">Guam</option>
+															<option value="Guatemala">Guatemala</option>
+															<option value="Guernsey">Guernsey</option>
+															<option value="Guinea">Guinea</option>
+															<option value="Guinea-Bissau">Guinea-Bissau</option>
+															<option value="Guyana">Guyana</option>
+															<option value="Haiti">Haiti</option>
+															<option value="Heard Island and McDonald Islands">Heard
+																Island and McDonald Islands</option>
+															<option value="Holy See">Holy See</option>
+															<option value="Honduras">Honduras</option>
+															<option value="Hong Kong">Hong Kong</option>
+															<option value="Hungary">Hungary</option>
+															<option value="Iceland">Iceland</option>
+															<option value="India">India</option>
+															<option value="Indonesia">Indonesia</option>
+															<option value="Iran">Iran</option>
+															<option value="Iraq">Iraq</option>
+															<option value="Ireland">Ireland</option>
+															<option value="Isle of Man">Isle of Man</option>
+															<option value="Israel">Israel</option>
+															<option value="Italy">Italy</option>
+															<option value="Jamaica">Jamaica</option>
+															<option value="Japan">Japan</option>
+															<option value="Jersey">Jersey</option>
+															<option value="Jordan">Jordan</option>
+															<option value="Kazakhstan">Kazakhstan</option>
+															<option value="Kenya">Kenya</option>
+															<option value="Kiribati">Kiribati</option>
+															<option value="Korea, Democratic People's Republic of">
+																Korea, Democratic People's Republic of</option>
+															<option value="Korea, Republic of">Korea, Republic of
+															</option>
+															<option value="Kuwait">Kuwait</option>
+															<option value="Kyrgyzstan">Kyrgyzstan</option>
+															<option value="Lao People's Democratic Republic">Lao
+																People's Democratic Republic</option>
+															<option value="Latvia">Latvia</option>
+															<option value="Lebanon">Lebanon</option>
+															<option value="Lesotho">Lesotho</option>
+															<option value="Liberia">Liberia</option>
+															<option value="Libya">Libya</option>
+															<option value="Liechtenstein">Liechtenstein</option>
+															<option value="Lithuania">Lithuania</option>
+															<option value="Luxembourg">Luxembourg</option>
+															<option value="Macao">Macao</option>
+															<option value="Madagascar">Madagascar</option>
+															<option value="Malawi">Malawi</option>
+															<option value="Malaysia">Malaysia</option>
+															<option value="Maldives">Maldives</option>
+															<option value="Mali">Mali</option>
+															<option value="Malta">Malta</option>
+															<option value="Marshall Islands">Marshall Islands</option>
+															<option value="Martinique">Martinique</option>
+															<option value="Mauritania">Mauritania</option>
+															<option value="Mauritius">Mauritius</option>
+															<option value="Mayotte">Mayotte</option>
+															<option value="Mexico">Mexico</option>
+															<option value="Micronesia">Micronesia</option>
+															<option value="Moldova">Moldova</option>
+															<option value="Monaco">Monaco</option>
+															<option value="Mongolia">Mongolia</option>
+															<option value="Montenegro">Montenegro</option>
+															<option value="Montserrat">Montserrat</option>
+															<option value="Morocco">Morocco</option>
+															<option value="Mozambique">Mozambique</option>
+															<option value="Myanmar">Myanmar</option>
+															<option value="Namibia">Namibia</option>
+															<option value="Nauru">Nauru</option>
+															<option value="Nepal">Nepal</option>
+															<option value="Netherlands">Netherlands</option>
+															<option value="New Caledonia">New Caledonia</option>
+															<option value="New Zealand">New Zealand</option>
+															<option value="Nicaragua">Nicaragua</option>
+															<option value="Niger">Niger</option>
+															<option value="Nigeria">Nigeria</option>
+															<option value="Niue">Niue</option>
+															<option value="Norfolk Island">Norfolk Island</option>
+															<option value="North Macedonia">North Macedonia</option>
+															<option value="Northern Mariana Islands">Northern Mariana
+																Islands</option>
+															<option value="Norway">Norway</option>
+															<option value="Oman">Oman</option>
+															<option value="Pakistan">Pakistan</option>
+															<option value="Palau">Palau</option>
+															<option value="Palestine, State of">Palestine, State of
+															</option>
+															<option value="Panama">Panama</option>
+															<option value="Papua New Guinea">Papua New Guinea</option>
+															<option value="Paraguay">Paraguay</option>
+															<option value="Peru">Peru</option>
+															<option value="Philippines">Philippines</option>
+															<option value="Pitcairn">Pitcairn</option>
+															<option value="Poland">Poland</option>
+															<option value="Portugal">Portugal</option>
+															<option value="Puerto Rico">Puerto Rico</option>
+															<option value="Qatar">Qatar</option>
+															<option value="Romania">Romania</option>
+															<option value="Russian Federation">Russian Federation
+															</option>
+															<option value="Rwanda">Rwanda</option>
+															<option value="Réunion">Réunion</option>
+															<option value="Saint Barthélemy">Saint Barthélemy</option>
+															<option value="Saint Helena, Ascension and Tristan da Cunha">
+																Saint Helena, Ascension and Tristan da Cunha</option>
+															<option value="Saint Kitts and Nevis">Saint Kitts and Nevis
+															</option>
+															<option value="Saint Lucia">Saint Lucia</option>
+															<option value="Saint Martin">Saint Martin</option>
+															<option value="Saint Pierre and Miquelon">Saint Pierre and
+																Miquelon</option>
+															<option value="Saint Vincent and the Grenadines">Saint
+																Vincent and the Grenadines</option>
+															<option value="Samoa">Samoa</option>
+															<option value="San Marino">San Marino</option>
+															<option value="Sao Tome and Principe">Sao Tome and Principe
+															</option>
+															<option value="Saudi Arabia">Saudi Arabia</option>
+															<option value="Senegal">Senegal</option>
+															<option value="Serbia">Serbia</option>
+															<option value="Seychelles">Seychelles</option>
+															<option value="Sierra Leone">Sierra Leone</option>
+															<option value="Singapore">Singapore</option>
+															<option value="Sint Maarten">Sint Maarten</option>
+															<option value="Slovakia">Slovakia</option>
+															<option value="Slovenia">Slovenia</option>
+															<option value="Solomon Islands">Solomon Islands</option>
+															<option value="Somalia">Somalia</option>
+															<option value="South Africa">South Africa</option>
+															<option value="South Georgia and the South Sandwich Islands">
+																South Georgia and the South Sandwich Islands</option>
+															<option value="South Sudan">South Sudan</option>
+															<option value="Spain">Spain</option>
+															<option value="Sri Lanka">Sri Lanka</option>
+															<option value="Sudan">Sudan</option>
+															<option value="Suriname">Suriname</option>
+															<option value="Svalbard and Jan Mayen">Svalbard and Jan
+																Mayen</option>
+															<option value="Sweden">Sweden</option>
+															<option value="Switzerland">Switzerland</option>
+															<option value="Syria Arab Republic">Syria Arab Republic
+															</option>
+															<option value="Taiwan">Taiwan</option>
+															<option value="Tajikistan">Tajikistan</option>
+															<option value="Tanzania, the United Republic of">Tanzania,
+																the United Republic of</option>
+															<option value="Thailand">Thailand</option>
+															<option value="Timor-Leste">Timor-Leste</option>
+															<option value="Togo">Togo</option>
+															<option value="Tokelau">Tokelau</option>
+															<option value="Tonga">Tonga</option>
+															<option value="Trinidad and Tobago">Trinidad and Tobago
+															</option>
+															<option value="Tunisia">Tunisia</option>
+															<option value="Turkmenistan">Turkmenistan</option>
+															<option value="Turks and Caicos Islands">Turks and Caicos
+																Islands</option>
+															<option value="Tuvalu">Tuvalu</option>
+															<option value="Türkiye">Türkiye</option>
+															<option value="US Minor Outlying Islands">US Minor Outlying
+																Islands</option>
+															<option value="Uganda">Uganda</option>
+															<option value="Ukraine">Ukraine</option>
+															<option value="United Arab Emirates">United Arab Emirates
+															</option>
+															<option value="United Kingdom">United Kingdom</option>
+															<option value="United States">United States</option>
+															<option value="Uruguay">Uruguay</option>
+															<option value="Uzbekistan">Uzbekistan</option>
+															<option value="Vanuatu">Vanuatu</option>
+															<option value="Venezuela">Venezuela</option>
+															<option value="Viet Nam">Viet Nam</option>
+															<option value="Virgin Islands, British">Virgin Islands,
+																British</option>
+															<option value="Virgin Islands, U.S.">Virgin Islands, U.S.
+															</option>
+															<option value="Wallis and Futuna">Wallis and Futuna</option>
+															<option value="Western Sahara">Western Sahara</option>
+															<option value="Yemen">Yemen</option>
+															<option value="Zambia">Zambia</option>
+															<option value="Zimbabwe">Zimbabwe</option>
+															<option value="Åland Islands">Åland Islands</option>
+														</select>
+														<label for="input_1_11_6" id="input_1_11_6_label" class="gform-field-label gform-field-label--type-sub ">Country</label>
+													</span>
+													<div class="gf_clear gf_clear_complex"></div>
+												</div>
+											</fieldset>
+											<div id="field_1_27" class="gfield gfield--type-honeypot gform_validation_container field_sublabel_below gfield--has-description field_description_below field_validation_below gfield_visibility_visible" data-js-reload="field_1_27"><label class="gfield_label gform-field-label" for="input_1_27">Email</label>
+												<div class="ginput_container"><input name="input_27" id="input_1_27" type="text" value="" autocomplete="new-password"></div>
+												<div class="gfield_description" id="gfield_description_1_27">This field
+													is for validation purposes and should be left unchanged.</div>
+											</div>
+										</div>
+									</div>
+									<div class="gform_footer top_label"> <input type="submit" id="gform_submit_button_1" class="gform_button button" value="Submit" onclick="if(window[&quot;gf_submitting_1&quot;]){return false;}  if( !jQuery(&quot;#gform_1&quot;)[0].checkValidity || jQuery(&quot;#gform_1&quot;)[0].checkValidity()){window[&quot;gf_submitting_1&quot;]=true;}  " onkeypress="if( event.keyCode == 13 ){ if(window[&quot;gf_submitting_1&quot;]){return false;} if( !jQuery(&quot;#gform_1&quot;)[0].checkValidity || jQuery(&quot;#gform_1&quot;)[0].checkValidity()){window[&quot;gf_submitting_1&quot;]=true;}  jQuery(&quot;#gform_1&quot;).trigger(&quot;submit&quot;,[true]); }">
+										<input type="hidden" class="gform_hidden" name="is_submit_1" value="1">
+										<input type="hidden" class="gform_hidden" name="gform_submit" value="1">
+										<input type="hidden" class="gform_hidden" name="gform_unique_id" value="">
+										<input type="hidden" class="gform_hidden" name="state_1" value="WyJ7XCI0XCI6W1wiOTMwMzhmNmJmYTVhZmE0ZjAzMDVmNmRlNGM3NDRkMjNcIixcImY3M2E5ZWUzY2FkNWFiNzMyYTFmYzY4NjM4MzI5ZjkxXCIsXCJkMDBlNDdiY2U5ODdlNTdmZThhNTIwNWRjNGVhNDExYVwiXSxcIjdcIjpbXCI5MzAzOGY2YmZhNWFmYTRmMDMwNWY2ZGU0Yzc0NGQyM1wiLFwiZjczYTllZTNjYWQ1YWI3MzJhMWZjNjg2MzgzMjlmOTFcIixcImQwMGU0N2JjZTk4N2U1N2ZlOGE1MjA1ZGM0ZWE0MTFhXCJdLFwiNi4xXCI6XCI5MzAzOGY2YmZhNWFmYTRmMDMwNWY2ZGU0Yzc0NGQyM1wiLFwiNi4yXCI6XCJmNzNhOWVlM2NhZDVhYjczMmExZmM2ODYzODMyOWY5MVwiLFwiNi4zXCI6XCJkMDBlNDdiY2U5ODdlNTdmZThhNTIwNWRjNGVhNDExYVwifSIsIjEzMTQ4OTk0ZWQ4ZjhhZGVjODU0MDMyZThhZDA5MzEwIl0=">
+										<input type="hidden" class="gform_hidden" name="gform_target_page_number_1" id="gform_target_page_number_1" value="0">
+										<input type="hidden" class="gform_hidden" name="gform_source_page_number_1" id="gform_source_page_number_1" value="1">
+										<input type="hidden" name="gform_field_values" value="">
+									</div>
+								</form>
+							</div>
+							<script type="text/javascript">
+								/* <![CDATA[ */
+								gform.initializeOnLoaded(function() {
+									gformInitSpinner(1, 'https://basethemedevel.wpengine.com/wp-content/plugins/gravityforms/images/spinner.svg', true);
+									jQuery('#gform_ajax_frame_1').on('load', function() {
+										var contents = jQuery(this).contents().find('*').html();
+										var is_postback = contents.indexOf('GF_AJAX_POSTBACK') >= 0;
+										if (!is_postback) {
+											return;
+										}
+										var form_content = jQuery(this).contents().find('#gform_wrapper_1');
+										var is_confirmation = jQuery(this).contents().find('#gform_confirmation_wrapper_1').length > 0;
+										var is_redirect = contents.indexOf('gformRedirect(){') >= 0;
+										var is_form = form_content.length > 0 && !is_redirect && !is_confirmation;
+										var mt = parseInt(jQuery('html').css('margin-top'), 10) + parseInt(jQuery('body').css('margin-top'), 10) + 100;
+										if (is_form) {
+											jQuery('#gform_wrapper_1').html(form_content.html());
+											if (form_content.hasClass('gform_validation_error')) {
+												jQuery('#gform_wrapper_1').addClass('gform_validation_error');
+											} else {
+												jQuery('#gform_wrapper_1').removeClass('gform_validation_error');
+											}
+											setTimeout(function() {
+												/* delay the scroll by 50 milliseconds to fix a bug in chrome */ }, 50);
+											if (window['gformInitDatepicker']) {
+												gformInitDatepicker();
+											}
+											if (window['gformInitPriceFields']) {
+												gformInitPriceFields();
+											}
+											var current_page = jQuery('#gform_source_page_number_1').val();
+											gformInitSpinner(1, 'https://basethemedevel.wpengine.com/wp-content/plugins/gravityforms/images/spinner.svg', true);
+											jQuery(document).trigger('gform_page_loaded', [1, current_page]);
+											window['gf_submitting_1'] = false;
+										} else if (!is_redirect) {
+											var confirmation_content = jQuery(this).contents().find('.GF_AJAX_POSTBACK').html();
+											if (!confirmation_content) {
+												confirmation_content = contents;
+											}
+											jQuery('#gform_wrapper_1').replaceWith(confirmation_content);
+											jQuery(document).trigger('gform_confirmation_loaded', [1]);
+											window['gf_submitting_1'] = false;
+											wp.a11y.speak(jQuery('#gform_confirmation_message_1').text());
+										} else {
+											jQuery('#gform_1').append(contents);
+											if (window['gformRedirect']) {
+												gformRedirect();
+											}
+										}
+										jQuery(document).trigger("gform_pre_post_render", [{
+											formId: "1",
+											currentPage: "current_page",
+											abort: function() {
+												this.preventDefault();
+											}
+										}]);
+										if (event && event.defaultPrevented) {
+											return;
+										}
+										const gformWrapperDiv = document.getElementById("gform_wrapper_1");
+										if (gformWrapperDiv) {
+											const visibilitySpan = document.createElement("span");
+											visibilitySpan.id = "gform_visibility_test_1";
+											gformWrapperDiv.insertAdjacentElement("afterend", visibilitySpan);
+										}
+										const visibilityTestDiv = document.getElementById("gform_visibility_test_1");
+										let postRenderFired = false;
+
+										function triggerPostRender() {
+											if (postRenderFired) {
+												return;
+											}
+											postRenderFired = true;
+											jQuery(document).trigger('gform_post_render', [1, current_page]);
+											gform.utils.trigger({
+												event: 'gform/postRender',
+												native: false,
+												data: {
+													formId: 1,
+													currentPage: current_page
+												}
+											});
+											if (visibilityTestDiv) {
+												visibilityTestDiv.parentNode.removeChild(visibilityTestDiv);
+											}
+										}
+
+										function debounce(func, wait, immediate) {
+											var timeout;
+											return function() {
+												var context = this,
+													args = arguments;
+												var later = function() {
+													timeout = null;
+													if (!immediate) func.apply(context, args);
+												};
+												var callNow = immediate && !timeout;
+												clearTimeout(timeout);
+												timeout = setTimeout(later, wait);
+												if (callNow) func.apply(context, args);
+											};
+										}
+										const debouncedTriggerPostRender = debounce(function() {
+											triggerPostRender();
+										}, 200);
+										if (visibilityTestDiv && visibilityTestDiv.offsetParent === null) {
+											const observer = new MutationObserver((mutations) => {
+												mutations.forEach((mutation) => {
+													if (mutation.type === 'attributes' && visibilityTestDiv.offsetParent !== null) {
+														debouncedTriggerPostRender();
+														observer.disconnect();
+													}
+												});
+											});
+											observer.observe(document.body, {
+												attributes: true,
+												childList: false,
+												subtree: true,
+												attributeFilter: ['style', 'class'],
+											});
+										} else {
+											triggerPostRender();
+										}
+									});
+								});
+								/* ]]&gt; */
+							</script>
+							<div class="clear clearfix"></div>
+						</div><!-- /entry -->
+					</div><!-- /post -->
+				</div>
+			</div>
+		</main>
+	</div>
+	<script type="text/javascript" src="https://basethemedevel.wpengine.com/wp-includes/js/comment-reply.min.js?ver=6.6.1" id="comment-reply-js" async="async" data-wp-strategy="async"></script>
+	<!-- <script type="text/javascript" src="https://basethemedevel.wpengine.com/wp-content/themes/base-theme/markup-template/markup/js/jquery.main.js?ver=1724102028&_v=20240903185734" id="am_markup-template-markup-js-jquery-main-js-js"></script> -->
+	<script type="text/javascript" src="js/jquery.main.js?_v=20240903185734"></script>
+	<script type="text/javascript" src="https://basethemedevel.wpengine.com/wp-content/themes/base-theme/wp-assets/js/general.js?ver=1707148218" id="am_wp-assets-js-general-js-js"></script>
+	<script type="text/javascript" src="https://basethemedevel.wpengine.com/wp-includes/js/dist/dom-ready.min.js?ver=f77871ff7694fffea381" id="wp-dom-ready-js"></script>
+	<script type="text/javascript" src="https://basethemedevel.wpengine.com/wp-includes/js/dist/hooks.min.js?ver=2810c76e705dd1a53b18" id="wp-hooks-js"></script>
+	<script type="text/javascript" src="https://basethemedevel.wpengine.com/wp-includes/js/dist/i18n.min.js?ver=5e580eb46a90c2b997e6" id="wp-i18n-js"></script>
+	<script type="text/javascript" id="wp-i18n-js-after">
+		/* <![CDATA[ */
+		wp.i18n.setLocaleData({
+			'text direction\u0004ltr': ['ltr']
+		});
+		/* ]]> */
+	</script>
+	<script type="text/javascript" src="https://basethemedevel.wpengine.com/wp-includes/js/dist/a11y.min.js?ver=d90eebea464f6c09bfd5" id="wp-a11y-js"></script>
+	<script type="text/javascript" src="https://basethemedevel.wpengine.com/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3" id="jquery-ui-core-js"></script>
+	<script type="text/javascript" src="https://basethemedevel.wpengine.com/wp-includes/js/jquery/ui/datepicker.min.js?ver=1.13.3" id="jquery-ui-datepicker-js"></script>
+	<script type="text/javascript" id="jquery-ui-datepicker-js-after">
+		/* <![CDATA[ */
+		jQuery(function(jQuery) {
+			jQuery.datepicker.setDefaults({
+				"closeText": "Close",
+				"currentText": "Today",
+				"monthNames": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+				"monthNamesShort": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+				"nextText": "Next",
+				"prevText": "Previous",
+				"dayNames": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+				"dayNamesShort": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+				"dayNamesMin": ["S", "M", "T", "W", "T", "F", "S"],
+				"dateFormat": "MM d, yy",
+				"firstDay": 0,
+				"isRTL": false
+			});
+		});
+		/* ]]> */
+	</script>
+	<script type="text/javascript" defer="defer" src="https://basethemedevel.wpengine.com/wp-content/plugins/gravityforms/js/datepicker-legacy.min.js?ver=2.8.17" id="gform_datepicker_legacy-js"></script>
+	<script type="text/javascript" defer="defer" src="https://basethemedevel.wpengine.com/wp-content/plugins/gravityforms/js/datepicker.min.js?ver=2.8.17" id="gform_datepicker_init-js"></script>
+	<script type="text/javascript" defer="defer" src="https://basethemedevel.wpengine.com/wp-content/plugins/gravityforms/js/placeholders.jquery.min.js?ver=2.8.17" id="gform_placeholder-js"></script>
+	<script type="text/javascript" defer="defer" src="https://basethemedevel.wpengine.com/wp-content/plugins/gravityforms/assets/js/dist/vendor-theme.min.js?ver=54e7080aa7a02c83aa61fae430b9d869" id="gform_gravityforms_theme_vendors-js"></script>
+	<script type="text/javascript" id="gform_gravityforms_theme-js-extra">
+		/* <![CDATA[ */
+		var gform_theme_config = {
+			"common": {
+				"form": {
+					"honeypot": {
+						"version_hash": "c8c1199f003780466ac938c337805292"
+					}
+				}
+			},
+			"hmr_dev": "",
+			"public_path": "https:\/\/basethemedevel.wpengine.com\/wp-content\/plugins\/gravityforms\/assets\/js\/dist\/"
+		};
+		/* ]]> */
+	</script>
+	<script type="text/javascript" defer="defer" src="https://basethemedevel.wpengine.com/wp-content/plugins/gravityforms/assets/js/dist/scripts-theme.min.js?ver=bab19fd84843dabc070e73326d787910" id="gform_gravityforms_theme-js"></script>
+	<script type="text/javascript">
+		/* <![CDATA[ */
+		gform.initializeOnLoaded(function() {
+			jQuery(document).on('gform_post_render', function(event, formId, currentPage) {
+				if (formId == 1) {
+					if (typeof Placeholders != 'undefined') {
+						Placeholders.enable();
+					}
+				}
+			});
+			jQuery(document).on('gform_post_conditional_logic', function(event, formId, fields, isInit) {})
+		});
+		/* ]]> */
+	</script>
+	<script type="text/javascript">
+		/* <![CDATA[ */
+		gform.initializeOnLoaded(function() {
+			jQuery(document).trigger("gform_pre_post_render", [{
+				formId: "1",
+				currentPage: "1",
+				abort: function() {
+					this.preventDefault();
+				}
+			}]);
+			if (event && event.defaultPrevented) {
+				return;
+			}
+			const gformWrapperDiv = document.getElementById("gform_wrapper_1");
+			if (gformWrapperDiv) {
+				const visibilitySpan = document.createElement("span");
+				visibilitySpan.id = "gform_visibility_test_1";
+				gformWrapperDiv.insertAdjacentElement("afterend", visibilitySpan);
+			}
+			const visibilityTestDiv = document.getElementById("gform_visibility_test_1");
+			let postRenderFired = false;
+
+			function triggerPostRender() {
+				if (postRenderFired) {
+					return;
+				}
+				postRenderFired = true;
+				jQuery(document).trigger('gform_post_render', [1, 1]);
+				gform.utils.trigger({
+					event: 'gform/postRender',
+					native: false,
+					data: {
+						formId: 1,
+						currentPage: 1
+					}
+				});
+				if (visibilityTestDiv) {
+					visibilityTestDiv.parentNode.removeChild(visibilityTestDiv);
+				}
+			}
+
+			function debounce(func, wait, immediate) {
+				var timeout;
+				return function() {
+					var context = this,
+						args = arguments;
+					var later = function() {
+						timeout = null;
+						if (!immediate) func.apply(context, args);
+					};
+					var callNow = immediate && !timeout;
+					clearTimeout(timeout);
+					timeout = setTimeout(later, wait);
+					if (callNow) func.apply(context, args);
+				};
+			}
+			const debouncedTriggerPostRender = debounce(function() {
+				triggerPostRender();
+			}, 200);
+			if (visibilityTestDiv && visibilityTestDiv.offsetParent === null) {
+				const observer = new MutationObserver((mutations) => {
+					mutations.forEach((mutation) => {
+						if (mutation.type === 'attributes' && visibilityTestDiv.offsetParent !== null) {
+							debouncedTriggerPostRender();
+							observer.disconnect();
+						}
+					});
+				});
+				observer.observe(document.body, {
+					attributes: true,
+					childList: false,
+					subtree: true,
+					attributeFilter: ['style', 'class'],
+				});
+			} else {
+				triggerPostRender();
+			}
+		});
+		/* ]]> */
+	</script>
+</body>
+
+</html>

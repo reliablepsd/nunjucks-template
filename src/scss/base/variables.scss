@@ -10,7 +10,7 @@ $breakpoints: (
 	"phone": 667px,
 	"phone-md": 568px,
 	"phone-sm": 480px,
-	"phone-xs": 375px
+	"phone-xs": 375px,
 );
 // ligatured operators ≥ ≤
 
@@ -24,13 +24,20 @@ $media-expressions: (
 	"landscape": "(orientation: landscape)",
 	"portrait": "(orientation: portrait)",
 	"retina2x": "(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)",
-	"retina3x": "(-webkit-min-device-pixel-ratio: 2.5), (min-resolution: 240dpi)"
+	"retina3x": "(-webkit-min-device-pixel-ratio: 2.5), (min-resolution: 240dpi)",
 );
 
 // Headers
 // name use for media query `<${name}`. See `$breakpoints` variable for a possible key.
 $h1-h6-font-size: (
 	// --------- h1 ---- h2 ----h3 ---- h4 -- h5 -- h6 ---
-	"default": (4rem, 2.8rem, 2.2rem, 2rem, 17px, 16px),
-	"tablet": (3rem, 2.4rem, 2rem, 1.8rem, 17px, 15px)
+	"default":
+		(
+			clamp(30px, 4.5rem, 45px),
+			clamp(24px, 3.6rem, 36px),
+			clamp(22px, 3rem, 30px),
+			clamp(20px, 2.8rem, 28px),
+			clamp(18px, 2.4rem, 24px),
+			clamp(16px, 2rem, 20px)
+		)
 );

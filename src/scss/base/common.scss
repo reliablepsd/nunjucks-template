@@ -37,7 +37,8 @@ body {
 
 .wrapper {
 	display: grid;
-	grid-template-rows: auto 1fr auto;
+	// Fixed header is out of grid flow
+	grid-template-rows: 1fr auto;
 	min-height: 100%;
 	width: 100%;
 	position: relative;

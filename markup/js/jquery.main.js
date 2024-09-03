@@ -4,9 +4,6 @@ jQuery(function () {
 	isElementExist(".header", initHeaderOffset);
 	isElementExist(".header", initScrollClass);
 	jcfInit();
-});
-
-jQuery(window).on("load", () => {
 	initAOS();
 });
 
