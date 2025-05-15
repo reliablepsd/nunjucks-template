@@ -82,7 +82,7 @@
 	.entry-title {
 		margin-bottom: 2rem;
 
-		> * {
+		>* {
 			margin-bottom: 0;
 		}
 	}
@@ -237,7 +237,7 @@ figure {
 		}
 
 		&__desc {
-			> * {
+			>* {
 				&:last-child {
 					margin-bottom: 0;
 				}
@@ -449,7 +449,7 @@ figure {
 		-webkit-box-orient: vertical;
 		overflow: hidden;
 
-		> * {
+		>* {
 			&:last-child {
 				margin-bottom: 0;
 			}
@@ -457,7 +457,7 @@ figure {
 	}
 }
 
-.comment{
+.comment {
 	display: grid;
 	gap: 40px;
 	font-size: 18px;
@@ -467,51 +467,51 @@ figure {
 		font-size: 16px;
 	}
 
-	&:not(.depth-1){
+	&:not(.depth-1) {
 		@include media('>=tablet') {
 			padding-left: 69px;
 		}
 	}
 
-	.comment-body{
+	.comment-body {
 		padding-left: 69px;
 	}
 
-	.comment-author{
+	.comment-author {
 		display: flex;
 		gap: 21px;
 		align-items: flex-start;
 		margin-left: -69px;
 		font-size: 1.1em;
 
-		img{
+		img {
 			flex: 0 0 48px;
 			aspect-ratio: 1/1;
 			border-radius: 50%;
 		}
 	}
 
-	.comment-content{
-		>*{
-			&:last-child{
+	.comment-content {
+		>* {
+			&:last-child {
 				margin-bottom: 0;
 			}
 		}
 	}
-	
+
 	.says,
-	.comment-metadata{
+	.comment-metadata {
 		display: none;
 	}
 
-	.reply{
+	.reply {
 		font-size: clamp(14px, 0.77em, 16px);
 		padding-top: 10px;
 
-		a{
+		a {
 			color: inherit;
 
-			&:hover{
+			&:hover {
 				color: var(--accent-blog-color);
 				text-decoration: underline;
 			}
@@ -531,7 +531,7 @@ figure {
 		margin-inline: auto;
 	}
 
-	#comments{
+	#comments {
 		margin-block: 70px 46px;
 	}
 
@@ -676,7 +676,11 @@ figure {
 
 .widget {
 	margin-bottom: 3rem;
-	@extend %clearfix;
+	&:after {
+		content: '';
+		display: block;
+		clear: both;
+	}
 
 	&title {
 		margin-bottom: 1rem;
@@ -767,6 +771,7 @@ figure {
 			color: var(--accent-blog-color);
 
 			span {
+
 				&:before,
 				&:after {
 					background-color: var(--accent-blog-color) !important;
@@ -794,8 +799,7 @@ figure {
 					mask-repeat: no-repeat;
 					background-color: var(--base-text-color);
 					rotate: 90deg;
-					transition: background-color var(--animation-duration)
-						var(--animation-timing-function);
+					transition: background-color var(--animation-duration) var(--animation-timing-function);
 				}
 			}
 		}
@@ -820,8 +824,7 @@ figure {
 					mask-repeat: no-repeat;
 					background-color: var(--base-text-color);
 					rotate: -90deg;
-					transition: background-color var(--animation-duration)
-						var(--animation-timing-function);
+					transition: background-color var(--animation-duration) var(--animation-timing-function);
 				}
 			}
 		}
@@ -829,7 +832,7 @@ figure {
 
 	.al,
 	.ar {
-		> a {
+		>a {
 			display: flex;
 			align-items: center;
 			gap: 8px;
@@ -861,18 +864,18 @@ figure {
 	}
 }
 
-.error404{
-	.main{
+.error404 {
+	.main {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		padding-block: 60px;
 	}
 
-	#search_block{
+	#search_block {
 		max-width: 450px;
 
-		fieldset{
+		fieldset {
 			display: flex;
 			gap: 20px;
 			margin-bottom: 0;

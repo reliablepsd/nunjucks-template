@@ -16,8 +16,7 @@ $breakpoints: (
 
 // keywords
 $media-expressions: (
-	"iphoneX":
-		"(min-width: 812px) and (max-height: 414px) and (orientation: landscape)",
+	"iphoneX": "(min-width: 812px) and (max-height: 414px) and (orientation: landscape)",
 	"screen": "screen",
 	"print": "print",
 	"handheld": "handheld",
@@ -31,13 +30,10 @@ $media-expressions: (
 // name use for media query `<${name}`. See `$breakpoints` variable for a possible key.
 $h1-h6-font-size: (
 	// --------- h1 ---- h2 ----h3 ---- h4 -- h5 -- h6 ---
-	"default":
-		(
-			clamp(30px, 4.5rem, 45px),
-			clamp(24px, 3.6rem, 36px),
-			clamp(22px, 3rem, 30px),
-			clamp(20px, 2.8rem, 28px),
-			clamp(18px, 2.4rem, 24px),
-			clamp(16px, 2rem, 20px)
-		)
+	"default": (clamp(30px, 4.5rem, 45px),
+		clamp(24px, 3.6rem, 36px),
+		clamp(22px, 3rem, 30px),
+		clamp(20px, 2.8rem, 28px),
+		clamp(18px, 2.4rem, 24px),
+		clamp(16px, 2rem, 20px))
 );

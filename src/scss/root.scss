@@ -55,6 +55,7 @@
 		//increase paddings that content didn't disturb notch for landscape orientation https://twitter.com/i/status/907911237983449088
 		--gutter: 50px;
 	}
+
 	@include media('<phone') {
 		--gutter: 20px;
 	}
@@ -93,11 +94,13 @@
 
 	// --- Css variable for h1-h6 font-size
 	@each $name, $array in $h1-h6-font-size {
-		@if ($name == "default") {
+		@if ($name =="default") {
 			@for $i from 1 through length($array) {
 				--h#{$i}: #{nth($array, $i)};
 			}
-		} @else {
+		}
+
+		@else {
 			@include media("<#{$name}") {
 				@for $i from 1 through length($array) {
 					--h#{$i}: #{nth($array, $i)};

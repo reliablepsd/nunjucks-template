@@ -40,10 +40,10 @@
 }
 
 .button-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    color: var(--base-link-color);
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	color: var(--base-link-color);
 
 	&:hover {
 		color: var(--accent-color);

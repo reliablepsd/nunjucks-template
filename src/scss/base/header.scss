@@ -20,6 +20,7 @@ $menu-mobile-breakpoint: 'desktop';
 			align-items: center;
 			justify-content: space-between;
 		}
+
 		@include media("<#{$menu-mobile-breakpoint}") {
 			padding: 0;
 		}
@@ -92,7 +93,7 @@ $menu-mobile-breakpoint: 'desktop';
 		display: block;
 	}
 
-	> li {
+	>li {
 		position: relative;
 
 		@include media(">=#{$menu-mobile-breakpoint}") {
@@ -104,7 +105,7 @@ $menu-mobile-breakpoint: 'desktop';
 			border-top: 1px solid #E1E1E1;
 		}
 
-		&:last-child{
+		&:last-child {
 			@include media('<#{$menu-mobile-breakpoint}') {
 				border-bottom: 1px solid #E1E1E1;
 			}
@@ -149,8 +150,7 @@ $menu-mobile-breakpoint: 'desktop';
 			transform: translateY(-50%);
 			width: 14px;
 			height: 14px;
-			background: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAxNCAxNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAwXzUxMDJfMTI1MzkpIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMi4yMDY2IDUuMDIxMDRMNi45ODQwMiA5LjkyODkzTDEuNzkzMDIgNS4wMTg3NEwyLjQ4MDIxIDQuMjkyMjVMNi45ODYyNiA4LjU1NDU2TDExLjUyMTggNC4yOTIzMkwxMi4yMDY2IDUuMDIxMDRaIiBmaWxsPSIjMTkyNTVBIi8+CjwvZz4KPGRlZnM+CjxjbGlwUGF0aCBpZD0iY2xpcDBfNTEwMl8xMjUzOSI+CjxyZWN0IHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIgZmlsbD0id2hpdGUiLz4KPC9jbGlwUGF0aD4KPC9kZWZzPgo8L3N2Zz4K")
-				no-repeat;
+			background: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAxNCAxNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAwXzUxMDJfMTI1MzkpIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMi4yMDY2IDUuMDIxMDRMNi45ODQwMiA5LjkyODkzTDEuNzkzMDIgNS4wMTg3NEwyLjQ4MDIxIDQuMjkyMjVMNi45ODYyNiA4LjU1NDU2TDExLjUyMTggNC4yOTIzMkwxMi4yMDY2IDUuMDIxMDRaIiBmaWxsPSIjMTkyNTVBIi8+CjwvZz4KPGRlZnM+CjxjbGlwUGF0aCBpZD0iY2xpcDBfNTEwMl8xMjUzOSI+CjxyZWN0IHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIgZmlsbD0id2hpdGUiLz4KPC9jbGlwUGF0aD4KPC9kZWZzPgo8L3N2Zz4K") no-repeat;
 			background-size: 100%;
 
 			@include media('<#{$menu-mobile-breakpoint}') {
@@ -282,11 +282,11 @@ $menu-mobile-breakpoint: 'desktop';
 		transition: all 0.2s linear;
 	}
 
-	span{
+	span {
 		top: 12px;
 	}
 
-	&::before{
+	&::before {
 		top: 4px;
 	}
 
@@ -325,7 +325,7 @@ $menu-mobile-breakpoint: 'desktop';
 
 // use this class to point active menu item WP
 .current-menu-item {
-	& > a {
+	&>a {
 		color: var(--accent-color);
 	}
 }

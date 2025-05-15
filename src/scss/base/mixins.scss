@@ -1,12 +1,3 @@
-// Clearfix
-%clearfix {
-	&:after {
-		content: '';
-		display: block;
-		clear: both;
-	}
-}
-
 // Stretch img with fix to chrome
 %bg-stretch-img {
 	width: 100%;
@@ -74,10 +65,6 @@
 	@return $var-aspect-ratio-round * 100%;
 }
 
-@mixin a-r($x: 16, $y: 9) {
-	@extend %a-r-ex;
-}
-
 %a-r-ex {
 	position: relative;
 	overflow: hidden;
@@ -86,12 +73,24 @@
 		content: "";
 		display: block;
 		width: 100%;
-		padding-top: arf(16px,9px);
+		padding-top: arf(16,9);
 	}
 }
 
-//how to use see https://codepen.io/sharnirio/pen/ZEOQvmb
-//div {@include a-r(16,9);} or div {@include a-r(200px,400px);}
+@mixin m-ar($x: 16, $y: 9) {
+	&:before {
+		padding-top: arf($x,$y);
+	}
+}
+
+//how to use full trick
+// .div {
+// 	@extend %a-r-ex;
+// 	@include m-ar(1,1);
+// 	img {
+// 		@extend %bg-stretch-img;
+// 	}
+// }
 
 //------------------------- mixin for modifications responsive-ratio
 @mixin armod($xReal: 100, $yReal: 100,$x: 1, $y: 1) {
@@ -105,17 +104,6 @@
 // 	@include a-r();
 // 	@include armod(100,100,1,1);
 // 	@include armod(100,50,2,1);
-// }
-
-//------------------------- function calculate px --to-- em
-@function em($pixels, $context) {
-	$em-pixels: calc($pixels / $context * 1em);
-	@return calc(round($em-pixels * 100) / 100);
-}
-
-//how to use
-// .div {
-// 	font-size: em(20px, 18px);
 // }
 
 // Fetch nested keys https://www.sitepoint.com/extra-map-functions-sass/

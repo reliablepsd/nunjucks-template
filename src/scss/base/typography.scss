@@ -69,6 +69,7 @@ h2,
 	font-size: var(--h2);
 	margin: 0 0 0.5em;
 }
+
 h3,
 .h3 {
 	font-size: var(--h3);
@@ -143,7 +144,7 @@ ol.list-style {
 		padding-left: 20px;
 		position: relative;
 
-		& + li {
+		&+li {
 			margin-top: var(--margin-li-top);
 		}
 	}
@@ -165,7 +166,7 @@ ol.list-style {
 #sidebar ul:not([class]),
 .entry ul:not([class]),
 ul.list-style {
-	& > li {
+	&>li {
 		padding-left: 15px;
 
 		&:before {
@@ -187,7 +188,7 @@ ul.list-style {
 ol.list-style {
 	counter-reset: list;
 
-	& > li {
+	&>li {
 		padding-left: 24px;
 
 		&:before {
