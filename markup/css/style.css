@@ -297,12 +297,6 @@ template {
 	display: none;
 }
 
-.widget:after {
-	content: "";
-	display: block;
-	clear: both;
-}
-
 .bg-str img {
 	width: 100%;
 	max-width: none;
@@ -3252,6 +3246,11 @@ figure figcaption a:hover {
 
 .widget {
 	margin-bottom: 3rem;
+}
+.widget:after {
+	content: "";
+	display: block;
+	clear: both;
 }
 .widgettitle {
 	margin-bottom: 1rem;

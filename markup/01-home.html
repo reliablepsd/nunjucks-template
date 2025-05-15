@@ -5,7 +5,9 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="initial-scale=1, width=device-width, height=device-height, viewport-fit=cover">
 	<link media="all" rel="stylesheet" href="css/root.css">
-	<link media="all" rel="stylesheet" href="css/style.css?_v=20240903185734">
+	<!-- using preload trick to speed up page loading -->
+	<link rel="preload" href="css/style.css?_v=20250515192552" as="style" onload="this.onload=null;this.rel='stylesheet';this.media='all'">
+	<noscript><link rel="stylesheet" href="css/style.css?_v=20250515192552"></noscript>
 	<title>Don't forget to change title - for this page</title>
 </head>
 
@@ -213,7 +215,7 @@
 		</footer>
 	</div>
 	<script src="js/jquery.min.js" defer=""></script>
-	<script src="js/jquery.main.js?_v=20240903185734" defer=""></script>
+	<script src="js/jquery.main.js?_v=20250515192552" defer=""></script>
 </body>
 
 </html>

@@ -16,7 +16,7 @@ export const cssBuild = () =>  {
 			g.plumber({ errorHandler: g.notify.onError("Error: <%= error.message %>") })
 		)
 		.pipe(sourcemaps.init())
-		.pipe(sass({
+		.pipe(sass.sync({
 			style: "expanded",
 			silenceDeprecations: silenceDeprecationsVar
 		}))
@@ -40,7 +40,7 @@ export const cssProd = () => {
 		.pipe(
 			g.plumber({ errorHandler: g.notify.onError("Error: <%= error.message %>") })
 		)
-		.pipe(sass({silenceDeprecations: silenceDeprecationsVar}))
+		.pipe(sass.sync({silenceDeprecations: silenceDeprecationsVar}))
 		.pipe(postcss(postcssPlugins))
 		.pipe(g.gulp.dest(g.v.dist.style))
 		.pipe(g.browserSync.reload({ stream: true }));
