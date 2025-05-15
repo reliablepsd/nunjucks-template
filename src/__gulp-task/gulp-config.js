@@ -158,7 +158,7 @@ export const pathVar = {
 		jsModules: `${folder.src}js/modules.js`,
 		img: `${folder.src}img/**/*.${ext.img}`,
 		fonts: `${folder.src}fonts/**/*.${ext.fonts}`,
-		other: `${folder.src}other/**/*.*`,
+		other: [`${folder.src}other/**/*.*`, `!${folder.src}other/README.md`],
 	},
 	build: {
 		html: folder.build,

@@ -1,6 +1,6 @@
 // other file build version project
 export const otherBuild = (cb) => {
-	g.gulp.src(g.v.src.other)
+	g.gulp.src(g.v.src.other, { encoding: false })
 	.pipe(g.newer(g.v.build.other))
 	.pipe(g.gulp.dest(g.v.build.other));
 	cb();
@@ -8,7 +8,7 @@ export const otherBuild = (cb) => {
 
 // other file build version project
 export const otherProd = (cb) => {
-	g.gulp.src(g.v.src.other)
+	g.gulp.src(g.v.src.other, { encoding: false })
 	.pipe(g.newer(g.v.dist.other))
 	.pipe(g.gulp.dest(g.v.dist.other));
 	cb();

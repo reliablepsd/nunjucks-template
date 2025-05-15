@@ -1,6 +1,6 @@
 // fonts file build version project
 export const fontsBuild = (cb) => {
-	g.gulp.src(g.v.src.fonts)
+	g.gulp.src(g.v.src.fonts, { encoding: false })
 		.pipe(
 			g.plumber({ errorHandler: g.notify.onError("Error: <%= error.message %>") })
 		)
@@ -11,7 +11,7 @@ export const fontsBuild = (cb) => {
 
 // fonts file build version project
 export const fontsProd = (cb) => {
-	g.gulp.src(g.v.src.fonts)
+	g.gulp.src(g.v.src.fonts, { encoding: false })
 		.pipe(
 			g.plumber({ errorHandler: g.notify.onError("Error: <%= error.message %>") })
 		)

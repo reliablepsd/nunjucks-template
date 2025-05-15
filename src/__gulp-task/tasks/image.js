@@ -4,7 +4,7 @@ import imageminMozjpeg from "imagemin-mozjpeg";
 
 // image optimize build version project
 export const imageBuild = (cb) => {
-	g.gulp.src(g.v.src.img)
+	g.gulp.src(g.v.src.img, { encoding: false })
 		.pipe(
 			g.plumber({ errorHandler: g.notify.onError("Error: <%= error.message %>") })
 		)
@@ -15,7 +15,7 @@ export const imageBuild = (cb) => {
 
 //image optimize build version project
 export const imageProd = (cb) => {
-	g.gulp.src(g.v.src.img)
+	g.gulp.src(g.v.src.img, { encoding: false })
 		.pipe(
 			g.plumber({ errorHandler: g.notify.onError("Error: <%= error.message %>") })
 		)
