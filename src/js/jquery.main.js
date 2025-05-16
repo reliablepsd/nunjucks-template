@@ -12,14 +12,13 @@ jQuery(function () {
 //-------- -------- -------- --------
 
 // Helper if element exist then call function
-function isElementExist(_el, _cb) {
-	var elem = document.querySelector(_el);
-
-	if (document.body.contains(elem)) {
+function isElementExist(selector, callback, ...rest) {
+	const elem = document.querySelector(selector);
+	if (elem) {
 		try {
-			_cb();
+			callback(...rest);
 		} catch (e) {
-			console.log(e);
+			console.error(e);
 		}
 	}
 }
@@ -70,8 +69,8 @@ function jcfInit() {
 	var customRadio = jQuery('input[type="radio"]');
 
 	customSelect.each(function () {
-		$(this).find('option').first().addClass("placeholder")
-	})
+		$(this).find("option").first().addClass("placeholder");
+	});
 
 	// all option see https://github.com/w3co/jcf
 	jcf.setOptions("Select", {
@@ -96,79 +95,85 @@ function initSmartMenu() {
 	jQuery(".menu").smartmenus({
 		collapsibleBehavior: "accordion",
 		hideTimeout: 0,
-		showTimeout: 0
+		showTimeout: 0,
 	});
 
 	// changed date attribute to a class (need to reverse last item menu)
-	jQuery('.menu').children().last().addClass('menu-sm-reverse');
+	jQuery(".menu").children().last().addClass("menu-sm-reverse");
 
 	jQuery("body").mobileNav({
 		menuActiveClass: "menu-active",
 		menuOpener: ".menu-opener",
 		hideOnClickOutside: true,
-		menuDrop: ".menu-drop"
-	}), "ontouchstart" in document.documentElement || jQuery(window).on("resize orientationchange", function() {
-		jQuery("body").removeClass("menu-active"), $.SmartMenus.hideAll();
-	});
+		menuDrop: ".menu-drop",
+	}),
+		"ontouchstart" in document.documentElement ||
+			jQuery(window).on("resize orientationchange", function () {
+				jQuery("body").removeClass("menu-active"), $.SmartMenus.hideAll();
+			});
 }
 
 function initHeaderOffset() {
-	let container = jQuery(".offset-header");
-	let header = jQuery(".header");
-	let adjustDebounced = debounce(function () {
-		if(headerHeight != header.outerHeight()){
-			adjustHeightOffset();
-		}
-	}, 250);
+	const container = document.querySelector(".offset-header");
+	const header = document.querySelector(".header");
+	if (!container || !header) return;
 
 	let headerHeight;
 
 	function adjustHeightOffset() {
-		headerHeight = header.outerHeight();
-		container.css("padding-top", headerHeight);
-		document.documentElement.style.setProperty("--offset-header", `${headerHeight}px`);
+		headerHeight = header.offsetHeight;
+		container.style.paddingTop = `${headerHeight}px`;
+		document.documentElement.style.setProperty(
+			"--offset-header",
+			`${headerHeight}px`
+		);
 	}
 
-	adjustHeightOffset();
+	const adjustDebounced = debounce(() => {
+		if (headerHeight !== header.offsetHeight) {
+			adjustHeightOffset();
+		}
+	}, 300);
 
-	jQuery(window).on("resize", adjustDebounced);
+	adjustHeightOffset();
+	window.addEventListener("resize", adjustDebounced, { passive: true });
 }
 
 function initScrollClass() {
-	var $window = jQuery(window);
-	var lastScrollTop = 0;
-	var $header = jQuery('.header');
+	const header = document.querySelector(".header");
+	if (!header) return;
 
+	let lastScrollTop = 0;
 
-	if ($window.scrollTop() <= 0) {
-		$header.removeClass('_sticked');
+	if (window.scrollY <= 0) {
+		header.classList.remove("_sticked");
 	}
 
-	$window.scroll(function () {
-		let windowTop = $window.scrollTop();
+	window.addEventListener(
+		"scroll",
+		() => {
+			const scrollTop = window.scrollY;
 
-		if (!jQuery('body').hasClass("nav-active")) {
-
-			if (windowTop > 1) {
-				$header.addClass('_sticked');
-			} else {
-				$header.removeClass('_sticked');
-				$header.removeClass('_showed');
-			}
-
-			if ($header.hasClass('_sticked')) {
-				if (windowTop < lastScrollTop) {
-					$header.addClass('_showed');
+			if (!document.body.classList.contains("nav-active")) {
+				if (scrollTop > 1) {
+					header.classList.add("_sticked");
 				} else {
-					$header.removeClass('_showed');
+					header.classList.remove("_sticked", "_showed");
+				}
+
+				if (header.classList.contains("_sticked")) {
+					if (scrollTop < lastScrollTop) {
+						header.classList.add("_showed");
+					} else {
+						header.classList.remove("_showed");
+					}
 				}
 			}
 
-		}
-
-		lastScrollTop = windowTop;
-
-	});
+			lastScrollTop = scrollTop;
+		},
+		{ passive: true }
+	);
 }
 
 //-------- -------- -------- --------
