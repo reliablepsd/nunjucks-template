@@ -1,12 +1,10 @@
-$menu-mobile-breakpoint: 'desktop';
-
 .header {
 	position: fixed;
 	top: 0;
 	left: 0;
 	right: 0;
 	z-index: 10;
-	padding: 20px 0;
+	padding: 2rem 0;
 	background: #ccc;
 	transition: all 0.3s linear;
 
@@ -19,6 +17,7 @@ $menu-mobile-breakpoint: 'desktop';
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
+			gap: 4rem;
 		}
 
 		@include media("<#{$menu-mobile-breakpoint}") {
@@ -26,9 +25,9 @@ $menu-mobile-breakpoint: 'desktop';
 		}
 	}
 
-	.logo {
+	&-logo {
 		display: block;
-		width: 150px;
+		width: 15rem;
 		font-size: 0;
 		line-height: 0;
 	}
@@ -40,7 +39,7 @@ $menu-mobile-breakpoint: 'desktop';
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
-			padding: 20px var(--gutter);
+			padding: 2rem var(--gutter);
 		}
 	}
 
@@ -71,13 +70,13 @@ $menu-mobile-breakpoint: 'desktop';
 		opacity: 0;
 		background: var(--color-white);
 	}
-}
 
-.menu-drop__wrap {
-	@include media("<#{$menu-mobile-breakpoint}") {
-		height: 100%;
-		overflow-x: hidden;
-		overflow-y: auto;
+	&__wrap {
+		@include media("<#{$menu-mobile-breakpoint}") {
+			height: 100%;
+			overflow-x: hidden;
+			overflow-y: auto;
+		}
 	}
 }
 
@@ -87,18 +86,18 @@ $menu-mobile-breakpoint: 'desktop';
 	list-style: none;
 	display: flex;
 	align-items: center;
-	gap: 30px;
+	gap: 3rem;
 
 	@include media("<#{$menu-mobile-breakpoint}") {
 		display: block;
 	}
 
-	>li {
+	> li {
 		position: relative;
 
 		@include media(">=#{$menu-mobile-breakpoint}") {
-			padding-bottom: 29px;
-			margin-bottom: -29px;
+			padding-bottom: 3rem;
+			margin-bottom: -3rem;
 		}
 
 		@include media('<#{$menu-mobile-breakpoint}') {
@@ -121,7 +120,7 @@ $menu-mobile-breakpoint: 'desktop';
 
 		@include media("<#{$menu-mobile-breakpoint}") {
 			display: block;
-			padding: 10px var(--gutter);
+			padding: 1rem var(--gutter);
 		}
 
 		&:hover,
@@ -136,7 +135,7 @@ $menu-mobile-breakpoint: 'desktop';
 		}
 
 		&.has-submenu {
-			padding-right: 18px;
+			padding-right: 2rem;
 
 			@include media('<#{$menu-mobile-breakpoint}') {
 				padding-right: calc(var(--gutter) + 14px);
@@ -278,21 +277,21 @@ $menu-mobile-breakpoint: 'desktop';
 		position: absolute;
 		right: 0;
 		height: 2px;
-		width: 32px;
+		width: 100%;
 		transition: all 0.2s linear;
 	}
 
 	span {
 		top: 12px;
+		width: 70%;
 	}
 
-	&::before {
+	&:before {
 		top: 4px;
 	}
 
 	&:after {
 		top: 20px;
-		width: 24px;
 	}
 }
 
@@ -305,12 +304,12 @@ $menu-mobile-breakpoint: 'desktop';
 			top: 50%;
 		}
 
-		span {
+		&:after {
 			transform: rotate(-45deg);
 			top: 50%;
 		}
 
-		&:after {
+		span {
 			opacity: 0;
 		}
 	}
@@ -325,7 +324,7 @@ $menu-mobile-breakpoint: 'desktop';
 
 // use this class to point active menu item WP
 .current-menu-item {
-	&>a {
+	& > a {
 		color: var(--accent-color);
 	}
 }

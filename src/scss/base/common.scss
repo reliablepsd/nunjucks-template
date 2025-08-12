@@ -53,6 +53,10 @@ body {
 	min-width: 0;
 }
 
+.offset-header {
+	padding-top: var(--offset-header);
+}
+
 // bg-str
 .bg-str {
 	position: absolute;

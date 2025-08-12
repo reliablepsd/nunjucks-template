@@ -27,7 +27,7 @@ html {
 //-------------------- #body
 body {
 	color: var(--base-text-color);
-	font: 400 var(--base-font-size) / var(--base-line-height) var(--base-font);
+	font: var(--base-font-weight) var(--base-font-size) / var(--base-line-height) var(--base-font);
 	min-width: 320px;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -48,6 +48,7 @@ h5,
 h6,
 .h6,
 .h {
+	display: block;
 	font-weight: 700;
 	line-height: 1.2;
 	color: var(--h1-h6-color);
@@ -144,7 +145,7 @@ ol.list-style {
 		padding-left: 20px;
 		position: relative;
 
-		&+li {
+		& + li {
 			margin-top: var(--margin-li-top);
 		}
 	}
@@ -166,7 +167,7 @@ ol.list-style {
 #sidebar ul:not([class]),
 .entry ul:not([class]),
 ul.list-style {
-	&>li {
+	& > li {
 		padding-left: 15px;
 
 		&:before {
@@ -188,7 +189,7 @@ ul.list-style {
 ol.list-style {
 	counter-reset: list;
 
-	&>li {
+	& > li {
 		padding-left: 24px;
 
 		&:before {
@@ -228,21 +229,16 @@ pre {
 
 //------------------- #blockquote
 blockquote {
-	font-size: 24px;
-	line-height: 137%;
+	font-size: 2rem;
+	line-height: 1.2;
 	color: var(--accent-blog-color);
 	background: transparent;
 	border-left: 6px solid #ececec;
-	padding: 10px 0 10px 30px;
+	padding: 2rem 0 2rem 4rem;
 	margin: 0 0 var(--vertical-rhythm);
 
 	@include media("<tablet") {
-		font-size: 20px;
 		border-left-width: 4px;
-	}
-
-	@include media("<phone-md") {
-		font-size: 18px;
 	}
 
 	&:not([class]) {

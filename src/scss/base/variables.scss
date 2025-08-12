@@ -26,6 +26,8 @@ $media-expressions: (
 	"retina3x": "(-webkit-min-device-pixel-ratio: 2.5), (min-resolution: 240dpi)",
 );
 
+$menu-mobile-breakpoint: 'desktop';
+
 // Headers
 // name use for media query `<${name}`. See `$breakpoints` variable for a possible key.
 $h1-h6-font-size: (
@@ -37,3 +39,23 @@ $h1-h6-font-size: (
 		clamp(18px, 2.4rem, 24px),
 		clamp(16px, 2rem, 20px))
 );
+
+$colors: (
+	"white": #ffffff,
+	"black": #000000,
+	"red": #EA5622,
+);
+
+@function HexToRGB($hex) {
+	@return red($hex),
+	green($hex),
+	blue($hex);
+}
+
+@function toDarken($color, $amount) {
+	@return darken($color, $amount);
+}
+
+@function toLighten($color, $amount) {
+	@return lighten($color, $amount);
+}

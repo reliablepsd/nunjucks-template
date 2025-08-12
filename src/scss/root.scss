@@ -10,6 +10,7 @@
 	// --- Body style
 	--base-font-size: 16px;
 	--base-line-height: 1.5;
+	--base-font-weight: 400;
 	--vertical-rhythm: calc(var(--base-line-height) * 1em);
 
 	// --- Font-family
@@ -22,13 +23,14 @@
 	--accent-font: var(--base-font-serif);
 
 	// --- Colors
-	--color-white: #fff;
-	--color-black: #000;
-	--color-gray-100: #eee;
-	--color-gray-200: #333;
-	--color-gray-300: #666;
-	--color-gray-400: #999;
-	--color-red: #f00;
+	@if $colors {
+		@each $key, $value in $colors {
+			--color-#{$key}: #{$value};
+			--color-#{$key}--rgb: #{HexToRGB($value)};
+			--color-#{$key}--darken: #{toDarken($value, 20%)};
+			--color-#{$key}--lighten: #{toLighten($value, 25%)};
+		}
+	}
 
 	// --- Colors theme
 	--brand-color: #000;
@@ -59,6 +61,8 @@
 	@include media('<phone') {
 		--gutter: 20px;
 	}
+
+	--offset-header: 100px;
 
 	// Form elements styling
 	--input-x: 25px;

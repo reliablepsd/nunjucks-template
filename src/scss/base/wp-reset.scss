@@ -19,21 +19,6 @@
 	}
 }
 
-.entry {
-	font-size: 16px;
-	line-height: 150%;
-}
-
-.entry-content {
-	a {
-		text-decoration: underline;
-
-		&:hover {
-			text-decoration: none;
-		}
-	}
-}
-
 .section-entry {
 	.container.entry {
 		max-width: 1028px;
@@ -519,8 +504,6 @@ figure {
 	}
 }
 
-
-
 .section-respond {
 	background-color: #f8f8f7;
 	padding-block: 60px 90px;
@@ -880,5 +863,86 @@ figure {
 			gap: 20px;
 			margin-bottom: 0;
 		}
+	}
+}
+
+.gform_wrapper.gravity-theme {
+	.gform_fields {
+		grid-column-gap: 2rem !important;
+		grid-row-gap: 2rem !important;
+	}
+
+	input:not([type='submit']),
+	textarea {
+		padding: var(--input-y) var(--input-x) !important;
+		margin: 0 !important;
+		min-height: 0 !important;
+		font-size: var(--input-fz) !important;
+		line-height: var(--input-lh) !important;
+	}
+
+	button[type='submit'],
+	input[type='submit'] {
+		line-height: 1.2 !important;
+		min-height: 0 !important;
+	}
+
+	.gfield textarea.small {
+		height: 18rem !important;
+	}
+
+	.gform_footer,
+	.gform_page_footer {
+		flex-shrink: 0;
+		padding: 4rem 0 0 !important;
+		margin: 0 !important;
+
+		input,
+		.button {
+			margin: 0 !important;
+		}
+	}
+
+	.gfield_error [aria-invalid="true"] {
+		border-color: var(--error-color) !important;
+	}
+
+	.gfield_validation_message,
+	.validation_message {
+		background: none !important;
+		border: none !important;
+		margin: 0 !important;
+		padding: 0 !important;
+		color: var(--error-color) !important;
+	}
+
+	.description,
+	.gfield_description,
+	.gsection_description,
+	.instruction {
+		padding-top: 5px !important;
+		font-size: 14px !important;
+		line-height: 1.2 !important;
+	}
+
+	.gform_validation_errors {
+		background: none !important;
+		border: none !important;
+		border-radius: 0 !important;
+		box-shadow: none !important;
+		padding-inline-end: 0 !important;
+		margin-block-start: 0 !important;
+		outline: none !important;
+
+		> h2 {
+			font-size: 14px !important;
+			line-height: 1.2 !important;
+			color: var(--error-color) !important;
+			margin: 0 !important;
+		}
+	}
+
+	.gform-loader {
+		display: none !important;
 	}
 }
