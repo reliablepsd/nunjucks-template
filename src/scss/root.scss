@@ -40,8 +40,8 @@
 
 	// --- Colors base
 	--base-text-color: var(--color-black);
-	--base-link-color: var(--accent-color);
-	--h1-h6-color: var(--base-text-color);
+	--base-link-color: rgba(var(--color-black--rgb), 0.5);
+	--h1-h6-color: var(--color-black--lighten);
 
 	// --- Animation
 	--animation-duration: 0.3s;
