@@ -24,8 +24,6 @@ input[type="search"],
 input[type="password"],
 input[type="url"],
 input[type="number"],
-input[type="date"],
-input[type="file"],
 textarea {
 	-webkit-appearance: none;
 	outline: none;
@@ -289,7 +287,6 @@ body>.jcf-select-drop.jcf-drop-flipped {
 	display: inline-block;
 	border: 1px solid #b8c3c9;
 	min-width: 200px;
-	margin: 0 15px;
 }
 
 /* select options styles */

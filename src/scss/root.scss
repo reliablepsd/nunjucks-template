@@ -69,11 +69,11 @@
 	--input-y: 15px;
 	--input-color: var(--brand-color);
 	--input-placeholder-color: var(--brand-color);
-	--input-bg-color: var(--color-gray-100);
+	--input-bg-color: transparent;
 	--input-radius: 5px;
 	--input-border: 1px;
-	--input-border-color: transparent;
-	--input-focus-border-color: var(--color-gray-200);
+	--input-border-color: rgba(var(--color-black--rgb), 0.5);
+	--input-focus-border-color: rgba(var(--color-black--rgb), 0.5);
 	--input-fz: 16px;
 	--input-lh: 1.2;
 

@@ -876,7 +876,7 @@ figure {
 		grid-row-gap: 2rem !important;
 	}
 
-	input:not([type='submit']),
+	input:not([type='submit']):not([type='file']),
 	textarea {
 		padding: var(--input-y) var(--input-x) !important;
 		margin: 0 !important;
