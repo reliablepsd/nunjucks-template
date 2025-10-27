@@ -130,9 +130,13 @@
 
 	.b-social {
 		position: sticky;
+		transition: all 0.3s ease;
 		top: 10px;
 		left: 0;
 		z-index: 1;
+		.header._showed ~ .main & {
+			top: calc(var(--offset-header) + 10px);
+		}
 	}
 }
 

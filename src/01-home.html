@@ -31,44 +31,41 @@ title: Don't forget to change title - for this page
 			</section>
 			<section>
 				<div class="container">
-						{# How to use global variable #}
-						<h2 style="text-align: center; padding-top: 50px">{{global.h2TestVar}}</h2>
-						{# How to use macros #}
-						{{ global.test({
-							h1: "This is H1",
-							h2: "This is H2",
-							h3: "This is H3"
-						}) }}
-						{# How to use loop #}
-						{% set testList = [{
-							'h2': 'H2 text',
-							'p': 'p text'
-							},{
-							'h2': 'H2 text 2',
-							'p': 'p text 2'
-							}] %}
-						<ul>
-						{% for item in testList %}
-							<li>
-								<h2>{{item.h2}}</h2>
-								<p>{{item.p}}</p>
-							</li>
-						{% endfor %}
-						</ul>
-						{# How to use range loop #}
-						<ul>
-						{% for i in range(0, 5) %}
-							<li>{{ i }} Lorem ipsum, dolor sit amet consectetur adipisicing elit.!</li>
-						{% endfor %}
-						</ul>
-						<p><button class="button">Button</button></p>
+				{# How to use global variable #}
+				<h2 style="text-align: center; padding-top: 50px">{{global.h2TestVar}}</h2>
+				{# How to use macros #}
+				{{ global.test({
+					h1: "This is H1",
+					h2: "This is H2",
+					h3: "This is H3"
+				}) }}
+				{# How to use loop #}
+				{% set testList = [{
+					'h2': 'H2 text',
+					'p': 'p text'
+					},{
+					'h2': 'H2 text 2',
+					'p': 'p text 2'
+					}] %}
+				<ul>
+				{% for item in testList %}
+					<li>
+						<h2>{{item.h2}}</h2>
+						<p>{{item.p}}</p>
+					</li>
+				{% endfor %}
+				</ul>
+				{# How to use range loop #}
+				<ul>
+				{% for i in range(0, 5) %}
+					<li>{{ i }} Lorem ipsum, dolor sit amet consectetur adipisicing elit.!</li>
+				{% endfor %}
+				</ul>
+				<p><button class="button">Button</button></p>
 				<p><button class="button button-secondary">Button secondary</button></p>
 				<p>
-					<a class="button-link" href="#0">
-						Button link
-						<svg class="icon">
-							<use xlink:href="img/sprite.symbol.svg#arrow-right"></use>
-						</svg>
+					<a class="button-link" href="#0">Button link
+						<i class="i-arrow-r"></i>
 					</a>
 				</p>
 			</div>

@@ -8,6 +8,7 @@ node_modules/
 dist/
 source/
 build/
+tips.scss
 
 # Compiled Java class files
 *.class

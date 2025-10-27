@@ -453,7 +453,7 @@
 	return api;
 }));
 
- /*!
+/*!
  * JavaScript Custom Forms : Select Module
  *
  * Copyright 2014-2015 PSD2HTML - http://psd2html.com/jcf
@@ -1297,8 +1297,11 @@
 		},
 		createOption: function(option) {
 			var newOption = document.createElement('span');
+			var newOptionTxt = document.createElement('span');
+			newOptionTxt.className = 'jcf-option-txt';
+			newOption.appendChild(newOptionTxt);
 			newOption.className = this.options.optionClass;
-			newOption.innerHTML = option.innerHTML;
+			newOptionTxt.innerHTML = option.innerHTML;
 			newOption.setAttribute(this.options.indexAttribute, this.optionIndex++);
 
 			var optionImage, optionImageSrc = option.getAttribute('data-image');
@@ -1342,6 +1345,7 @@
 		createOptionsList: function(container) {
 			var self = this,
 				list = document.createElement('ul');
+				list.classList.add("jcf-ul");
 
 			$.each(container.children, function(index, currentNode) {
 				var item = self.createOptionContainer(currentNode),
@@ -1395,7 +1399,7 @@
 }(jQuery, this));
 
 
- /*!
+/*!
  * JavaScript Custom Forms : Radio Module
  *
  * Copyright 2014-2015 PSD2HTML - http://psd2html.com/jcf
@@ -1588,7 +1592,7 @@
 }(jQuery));
 
 
- /*!
+/*!
  * JavaScript Custom Forms : Checkbox Module
  *
  * Copyright 2014-2015 PSD2HTML - http://psd2html.com/jcf

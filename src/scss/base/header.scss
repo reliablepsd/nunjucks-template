@@ -6,7 +6,7 @@
 	z-index: 10;
 	padding: 2rem 0;
 	background: #ccc;
-	transition: all 0.3s linear;
+	transition: none;
 
 	@include media("<#{$menu-mobile-breakpoint}") {
 		padding: 0;
@@ -44,13 +44,16 @@
 	}
 
 	&._sticked {
-		top: -150px;
+		// top: calc(var(--offset-header) * -1);
+		transition: all 0.3s ease-out;
+		transform: translateY(-100%);
 		opacity: 0;
 		box-shadow: 5px 0 10px rgba(0, 0, 0, 0.5);
 	}
 
 	&._showed {
-		top: 0;
+		// top: 0;
+		transform: translateY(0%);
 		opacity: 1;
 	}
 }

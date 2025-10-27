@@ -141,11 +141,13 @@ function initHeaderOffset() {
 
 function initScrollClass() {
 	const header = document.querySelector(".header");
+	const stickedHeight = 200;
+
 	if (!header) return;
 
 	let lastScrollTop = 0;
 
-	if (window.scrollY <= 0) {
+	if (window.scrollY <= stickedHeight) {
 		header.classList.remove("_sticked");
 	}
 
@@ -155,7 +157,7 @@ function initScrollClass() {
 			const scrollTop = window.scrollY;
 
 			if (!document.body.classList.contains("nav-active")) {
-				if (scrollTop > 1) {
+				if (scrollTop > stickedHeight) {
 					header.classList.add("_sticked");
 				} else {
 					header.classList.remove("_sticked", "_showed");

@@ -7,7 +7,7 @@ import gulpSass from "gulp-sass";
 const sass = gulpSass(dartSass);
 import pcsscomb from '../postcss-csscomb-fix.js';
 // variable for hidden Deprecation Warning
-const silenceDeprecationsVar = ['import', 'global-builtin', 'mixed-decls', 'legacy-js-api'];
+const silenceDeprecationsVar = ['import', 'global-builtin', 'mixed-decls', 'legacy-js-api', 'color-functions'];
 
 // scss build version project
 export const cssBuild = () =>  {
