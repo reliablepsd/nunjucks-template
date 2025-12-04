@@ -134,9 +134,9 @@
 		}
 	</style>
 	<!-- <link rel='stylesheet' id='am_markup-template-markup-css-root-css-css' href='https://basethemedevel.wpengine.com/wp-content/themes/base-theme/markup-template/markup/css/root.css?ver=1724102028' type='text/css' media='all' /> -->
-	<!-- <link rel='stylesheet' id='am_markup-template-markup-css-style-css-css' href='https://basethemedevel.wpengine.com/wp-content/themes/base-theme/markup-template/markup/css/style.css?ver=1724102028&_v=20250516184416' type='text/css' media='all' /> -->
+	<!-- <link rel='stylesheet' id='am_markup-template-markup-css-style-css-css' href='https://basethemedevel.wpengine.com/wp-content/themes/base-theme/markup-template/markup/css/style.css?ver=1724102028&_v=20251204155938' type='text/css' media='all' /> -->
 	<link rel="stylesheet" href="css/root.css">
-	<link rel="stylesheet" href="css/style.css?_v=20250516184416">
+	<link rel="stylesheet" href="css/style.css?_v=20251204155938">
 	<link rel="stylesheet" id="am_wp-assets-css-style-wp-css-css" href="https://basethemedevel.wpengine.com/wp-content/themes/base-theme/wp-assets/css/style-wp.css?ver=1707148218" type="text/css" media="all">
 	<script type="text/javascript" src="https://basethemedevel.wpengine.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
 	<script type="text/javascript" src="https://basethemedevel.wpengine.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
@@ -153,7 +153,7 @@
 		<header class="header">
 			<div class="container">
 				<div class="header-holder">
-					<a href="#" class="logo">
+					<a href="#" class="header-logo">
 						<svg viewBox="0 0 161 40" id="logo">
 							<path d="M0.132125 13.2526C0.285953 5.97934 6.27531 0.140826 13.6602 0.0650508L20.0001 0L26.3399 0.0650508C33.7248 0.140826 39.7143 5.97934 39.8681 13.2526L40 19.4996L39.8651 25.8819C39.7124 33.1007 33.808 38.9167 26.4794 39.0671L20.0001 39.2002L13.5207 39.0671C6.19216 38.9167 0.287665 33.1007 0.134986 25.8819L0 19.4996L0.132125 13.2526Z" fill="#ef5d62"></path>
 							<path fill-rule="evenodd" clip-rule="evenodd" d="M16.9286 9.71167H11.6543V29.5499H16.9286V9.71167ZM28.228 20.9786H19.7489C19.7489 25.6626 23.5581 29.4833 28.228 29.4833V20.9786ZM19.7672 13.9732C19.7672 16.306 21.6535 18.2164 23.9976 18.2164C26.3234 18.2164 28.228 16.2876 28.228 13.9548C28.228 11.622 26.3417 9.71167 23.9976 9.71167C21.6535 9.71167 19.7672 11.6404 19.7672 13.9732Z" fill="white"></path>
@@ -173,7 +173,7 @@
 					<nav class="menu-drop__wrap">
 						<ul class="menu">
 							<li class="current-menu-item">
-								<a href="#">Item 1</a>
+								<a href="#" class="has-submenu">Item 1</a>
 								<ul>
 									<li><a href="#">Item 2-1</a></li>
 									<li>
@@ -188,7 +188,7 @@
 								</ul>
 							</li>
 							<li>
-								<a href="#">Item 2</a>
+								<a href="#" class="has-submenu">Item 2</a>
 								<ul>
 									<li>
 										<a href="#">Item 2-1</a>
@@ -224,7 +224,7 @@
 								</ul>
 							</li>
 							<li class="has-mega-menu">
-								<a href="#">Mega 3</a>
+								<a href="#" class="has-submenu">Mega 3</a>
 								<ul class="mega-menu">
 									<li>
 										<div class="col">
@@ -481,34 +481,25 @@
 											<li>
 												<a href="#!" target="_blank">
 													X/Twitter
-													<svg class="b-social__icon">
-														<use xlink:href="img/spriteBlog.symbol.svg#icon-x"></use>
-													</svg>
+													<i class="i-x b-social__icon"></i>
 												</a>
 											</li>
 											<li>
 												<a href="#!" target="_blank">
 													Instagram
-													<svg class="b-social__icon">
-														<use xlink:href="img/spriteBlog.symbol.svg#icon-instagram">
-														</use>
-													</svg>
+													<i class="i-instagram b-social__icon"></i>
 												</a>
 											</li>
 											<li>
 												<a href="#!" target="_blank">
 													Youtube
-													<svg class="b-social__icon">
-														<use xlink:href="img/spriteBlog.symbol.svg#icon-youtube"></use>
-													</svg>
+													<i class="i-youtube b-social__icon"></i>
 												</a>
 											</li>
 											<li>
 												<a href="#!" target="_blank">
 													Facebook
-													<svg class="b-social__icon">
-														<use xlink:href="img/spriteBlog.symbol.svg#icon-facebook"></use>
-													</svg>
+													<i class="i-facebook b-social__icon"></i>
 												</a>
 											</li>
 										</ul>
@@ -521,33 +512,25 @@
 								<li>
 									<a href="#!" target="_blank" title="Share on X">
 										X/Twitter
-										<svg class="b-social__icon">
-											<use xlink:href="img/spriteBlog.symbol.svg#icon-x"></use>
-										</svg>
+										<i class="i-x b-social__icon"></i>
 									</a>
 								</li>
 								<li>
 									<a href="#!" target="_blank" title="Share on Instagram">
 										Instagram
-										<svg class="b-social__icon">
-											<use xlink:href="img/spriteBlog.symbol.svg#icon-instagram"></use>
-										</svg>
+										<i class="i-instagram b-social__icon"></i>
 									</a>
 								</li>
 								<li>
 									<a href="#!" target="_blank" title="Share on Pinteres">
 										Pinterest
-										<svg class="b-social__icon">
-											<use xlink:href="img/spriteBlog.symbol.svg#icon-pinterest"></use>
-										</svg>
+										<i class="i-pinterest-bg b-social__icon"></i>
 									</a>
 								</li>
 								<li>
 									<a href="#!" target="_blank" title="Share on Facebook">
 										Facebook
-										<svg class="b-social__icon">
-											<use xlink:href="img/spriteBlog.symbol.svg#icon-facebook"></use>
-										</svg>
+										<i class="i-facebook b-social__icon"></i>
 									</a>
 								</li>
 							</ul>
@@ -741,8 +724,8 @@
 		</footer>
 	</div>
 	<script type="text/javascript" src="https://basethemedevel.wpengine.com/wp-includes/js/comment-reply.min.js?ver=6.6.1" id="comment-reply-js" async="async" data-wp-strategy="async"></script>
-	<!-- <script type="text/javascript" src="https://basethemedevel.wpengine.com/wp-content/themes/base-theme/markup-template/markup/js/jquery.main.js?ver=1724102028&_v=20250516184416" id="am_markup-template-markup-js-jquery-main-js-js"></script> -->
-	<script type="text/javascript" src="js/jquery.main.js?_v=20250516184416"></script>
+	<!-- <script type="text/javascript" src="https://basethemedevel.wpengine.com/wp-content/themes/base-theme/markup-template/markup/js/jquery.main.js?ver=1724102028&_v=20251204155938" id="am_markup-template-markup-js-jquery-main-js-js"></script> -->
+	<script type="text/javascript" src="js/jquery.main.js?_v=20251204155938"></script>
 	<script type="text/javascript" src="https://basethemedevel.wpengine.com/wp-content/themes/base-theme/wp-assets/js/general.js?ver=1707148218" id="am_wp-assets-js-general-js-js"></script>
 </body>
 

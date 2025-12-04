@@ -2,6 +2,7 @@
 	--rem-base: 10px;
 	--base-font-size: 16px;
 	--base-line-height: 1.5;
+	--base-font-weight: 400;
 	--vertical-rhythm: calc(var(--base-line-height) * 1em);
 	--font-open-sans: "Open Sans";
 	--base-main-font: var(--font-open-sans);
@@ -10,32 +11,38 @@
 	--base-font: var(--base-main-font), var(--base-font-sans-serif);
 	--accent-font: var(--base-font-serif);
 	--color-white: #fff;
+	--color-white--rgb: 255, 255, 255;
+	--color-white--darken: #ccc;
+	--color-white--lighten: white;
 	--color-black: #000;
-	--color-gray-100: #eee;
-	--color-gray-200: #333;
-	--color-gray-300: #666;
-	--color-gray-400: #999;
-	--color-red: #f00;
+	--color-black--rgb: 0, 0, 0;
+	--color-black--darken: black;
+	--color-black--lighten: rgb(63.75, 63.75, 63.75);
+	--color-red: #ea5622;
+	--color-red--rgb: 234, 86, 34;
+	--color-red--darken: rgb(151.5950413223, 50.0743801653, 14.4049586777);
+	--color-red--lighten: rgb(245.0640495868, 175.0392561983, 150.4359504132);
 	--brand-color: #000;
 	--accent-color: #226fc2;
 	--accent-blog-color: var(--accent-color);
 	--caption-color: #b0aeae;
 	--base-text-color: var(--color-black);
-	--base-link-color: var(--accent-color);
-	--h1-h6-color: var(--base-text-color);
+	--base-link-color: rgba(var(--color-black--rgb), 0.5);
+	--h1-h6-color: var(--color-black--lighten);
 	--animation-duration: 0.3s;
 	--animation-timing-function: ease;
 	--container: 1440px;
 	--gutter: 25px;
+	--offset-header: 100px;
 	--input-x: 25px;
 	--input-y: 15px;
 	--input-color: var(--brand-color);
 	--input-placeholder-color: var(--brand-color);
-	--input-bg-color: var(--color-gray-100);
+	--input-bg-color: transparent;
 	--input-radius: 5px;
 	--input-border: 1px;
-	--input-border-color: transparent;
-	--input-focus-border-color: var(--color-gray-200);
+	--input-border-color: rgba(var(--color-black--rgb), 0.5);
+	--input-focus-border-color: rgba(var(--color-black--rgb), 0.5);
 	--input-fz: 16px;
 	--input-lh: 1.2;
 	--form-theme-color: var(--brand-color);
@@ -48,12 +55,18 @@
 	--error-bg-color: var(--color-red);
 	--form-col-gutter: 30px;
 	--form-row-margin: var(--form-col-gutter) * 1.5;
+	--admin-bar-h: 32px;
 	--h1: clamp(30px, 4.5rem, 45px);
 	--h2: clamp(24px, 3.6rem, 36px);
 	--h3: clamp(22px, 3rem, 30px);
 	--h4: clamp(20px, 2.8rem, 28px);
 	--h5: clamp(18px, 2.4rem, 24px);
 	--h6: clamp(16px, 2rem, 20px);
+}
+@media (max-width: 782px) {
+	:root {
+		--admin-bar-h: 46px;
+	}
 }
 @media (max-width: 767px) {
 	:root {

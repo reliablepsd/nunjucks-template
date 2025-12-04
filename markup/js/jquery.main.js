@@ -1,9 +1,11 @@
 var $ = jQuery.noConflict();
 jQuery(function () {
-	isElementExist(".menu-drop", initSmartMenu);
-	isElementExist(".header", initHeaderOffset);
-	isElementExist(".header", initScrollClass);
+	// isElementExist(".class", functionName);
+
+	initHeaderOffset()
+	initSmartMenu()
 	jcfInit();
+	initScrollClass()
 	initAOS();
 });
 
@@ -64,30 +66,32 @@ function initAOS() {
 
 // initialize custom form elements (checkbox, radio, select) https://github.com/w3co/jcf
 function jcfInit() {
-	var customSelect = jQuery("select");
-	var customCheckbox = jQuery('input[type="checkbox"]');
-	var customRadio = jQuery('input[type="radio"]');
+	function jcfReplace() {
+		var customSelect = jQuery("select:not(.jcf-off)");
+		var customCheckbox = jQuery('input[type="checkbox"]:not(.jcf-off)');
+		var customRadio = jQuery('input[type="radio"]:not(.jcf-off)');
 
-	customSelect.each(function () {
-		$(this).find("option").first().addClass("placeholder");
+		customSelect.each(function () {
+			jQuery(this).find("option").first().addClass("placeholder");
+		});
+
+		// all option see https://github.com/w3co/jcf
+		jcf.replace(customSelect, "Select", {
+			wrapNative: false,
+			wrapNativeOnMobile: false,
+			fakeDropInBody: false,
+			maxVisibleItems: 6,
+		});
+		jcf.replace(customCheckbox, "Checkbox", {});
+		jcf.replace(customRadio, "Radio", {});
+	}
+
+	jcfReplace();
+
+	// fix for gravity form (important for Ajax) in wp
+	jQuery(document).on("gform_post_render", function () {
+		jcfReplace();
 	});
-
-	// all option see https://github.com/w3co/jcf
-	jcf.setOptions("Select", {
-		wrapNative: false,
-		wrapNativeOnMobile: false,
-		fakeDropInBody: false,
-		maxVisibleItems: 6,
-	});
-
-	jcf.setOptions("Checkbox", {});
-
-	jcf.setOptions("Radio", {});
-
-	// init only after option
-	jcf.replace(customSelect);
-	jcf.replace(customCheckbox);
-	jcf.replace(customRadio);
 }
 
 // smart menu init
@@ -108,9 +112,9 @@ function initSmartMenu() {
 		menuDrop: ".menu-drop",
 	}),
 		"ontouchstart" in document.documentElement ||
-			jQuery(window).on("resize orientationchange", function () {
-				jQuery("body").removeClass("menu-active"), $.SmartMenus.hideAll();
-			});
+		jQuery(window).on("resize orientationchange", function () {
+			jQuery("body").removeClass("menu-active"), $.SmartMenus.hideAll();
+		});
 }
 
 function initHeaderOffset() {
@@ -122,7 +126,8 @@ function initHeaderOffset() {
 
 	function adjustHeightOffset() {
 		headerHeight = header.offsetHeight;
-		container.style.paddingTop = `${headerHeight}px`;
+		// I'm not deleting it completely yet, as it might cause problems with AOS animation.
+		// container.style.paddingTop = `${headerHeight}px`;
 		document.documentElement.style.setProperty(
 			"--offset-header",
 			`${headerHeight}px`
@@ -141,11 +146,13 @@ function initHeaderOffset() {
 
 function initScrollClass() {
 	const header = document.querySelector(".header");
+	const stickedHeight = 200;
+
 	if (!header) return;
 
 	let lastScrollTop = 0;
 
-	if (window.scrollY <= 0) {
+	if (window.scrollY <= stickedHeight) {
 		header.classList.remove("_sticked");
 	}
 
@@ -155,7 +162,7 @@ function initScrollClass() {
 			const scrollTop = window.scrollY;
 
 			if (!document.body.classList.contains("nav-active")) {
-				if (scrollTop > 1) {
+				if (scrollTop > stickedHeight) {
 					header.classList.add("_sticked");
 				} else {
 					header.classList.remove("_sticked", "_showed");
@@ -2325,7 +2332,7 @@ function debounce(func, timeout) {
 	return api;
 }));
 
- /*!
+/*!
  * JavaScript Custom Forms : Select Module
  *
  * Copyright 2014-2015 PSD2HTML - http://psd2html.com/jcf
@@ -3169,8 +3176,11 @@ function debounce(func, timeout) {
 		},
 		createOption: function(option) {
 			var newOption = document.createElement('span');
+			var newOptionTxt = document.createElement('span');
+			newOptionTxt.className = 'jcf-option-txt';
+			newOption.appendChild(newOptionTxt);
 			newOption.className = this.options.optionClass;
-			newOption.innerHTML = option.innerHTML;
+			newOptionTxt.innerHTML = option.innerHTML;
 			newOption.setAttribute(this.options.indexAttribute, this.optionIndex++);
 
 			var optionImage, optionImageSrc = option.getAttribute('data-image');
@@ -3214,6 +3224,7 @@ function debounce(func, timeout) {
 		createOptionsList: function(container) {
 			var self = this,
 				list = document.createElement('ul');
+				list.classList.add("jcf-ul");
 
 			$.each(container.children, function(index, currentNode) {
 				var item = self.createOptionContainer(currentNode),
@@ -3267,7 +3278,7 @@ function debounce(func, timeout) {
 }(jQuery, this));
 
 
- /*!
+/*!
  * JavaScript Custom Forms : Radio Module
  *
  * Copyright 2014-2015 PSD2HTML - http://psd2html.com/jcf
@@ -3460,7 +3471,7 @@ function debounce(func, timeout) {
 }(jQuery));
 
 
- /*!
+/*!
  * JavaScript Custom Forms : Checkbox Module
  *
  * Copyright 2014-2015 PSD2HTML - http://psd2html.com/jcf
