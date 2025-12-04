@@ -116,3 +116,30 @@
 	}
 	@return $map;
 }
+
+
+
+
+@function fluid($max: 100, $min: 10, $maxVW: 1440, $minVW: 375) {
+	// slope = (max - min) / (maxVW - minVW)
+	$slope: math.div($max - $min, $maxVW - $minVW);
+
+	@return clamp(
+		#{$min}px,
+		unquote("calc(#{$min}px + #{$slope * 100}vw - #{$slope * $minVW}px)"),
+		#{$max}px
+	);
+}
+
+//how to use
+.div-fluid {
+	background-color: tomato;
+	// use default
+	font-size: fluid(60, 30);
+	// or use with other max or min breakpoints
+	font-size: fluid(60, 30, 768, 375);
+	font-size: fluid(60, 30, 1440, 768);
+	// you can also use it in other properties
+	padding: fluid(50, 10) fluid(100, 10);
+	margin-block: fluid(50, 10);
+}

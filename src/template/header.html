@@ -1,4 +1,7 @@
-<header class="header">
+{% if not(headerClass) %}
+{% set headerClass = false %}
+{% endif %}
+<header class="header{% if headerClass %} {{headerClass}}{% endif %}">
 	<div class="container">
 		<div class="header-holder">
 			<a href="#" class="header-logo">
@@ -42,7 +45,7 @@
 			<nav class="menu-drop__wrap">
 				<ul class="menu">
 					<li class="current-menu-item">
-						<a href="#">Item 1</a>
+						<a href="#" class="has-submenu">Item 1</a>
 						<ul>
 							<li><a href="#">Item 2-1</a></li>
 							<li>
@@ -57,7 +60,7 @@
 						</ul>
 					</li>
 					<li>
-						<a href="#">Item 2</a>
+						<a href="#" class="has-submenu">Item 2</a>
 						<ul>
 							<li>
 								<a href="#">Item 2-1</a>
@@ -93,7 +96,7 @@
 						</ul>
 					</li>
 					<li class="has-mega-menu">
-						<a href="#">Mega 3</a>
+						<a href="#" class="has-submenu">Mega 3</a>
 						<ul class="mega-menu">
 							<li>
 								<div class="col">

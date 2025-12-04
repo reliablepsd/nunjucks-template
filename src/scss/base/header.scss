@@ -1,10 +1,11 @@
 .header {
+	--header-indent: 2rem;
 	position: fixed;
 	top: 0;
 	left: 0;
 	right: 0;
 	z-index: 10;
-	padding: 2rem 0;
+	padding: var(--header-indent) 0;
 	background: #ccc;
 	transition: none;
 
@@ -44,7 +45,6 @@
 	}
 
 	&._sticked {
-		// top: calc(var(--offset-header) * -1);
 		transition: all 0.3s ease-out;
 		transform: translateY(-100%);
 		opacity: 0;
@@ -52,9 +52,12 @@
 	}
 
 	&._showed {
-		// top: 0;
 		transform: translateY(0%);
 		opacity: 1;
+	}
+
+	.admin-bar & {
+		top: var(--admin-bar-h);
 	}
 }
 
@@ -99,8 +102,8 @@
 		position: relative;
 
 		@include media(">=#{$menu-mobile-breakpoint}") {
-			padding-bottom: 3rem;
-			margin-bottom: -3rem;
+			padding-bottom: var(--header-indent);
+			margin-bottom: calc(var(--header-indent) * -1);
 		}
 
 		@include media('<#{$menu-mobile-breakpoint}') {
@@ -111,6 +114,10 @@
 			@include media('<#{$menu-mobile-breakpoint}') {
 				border-bottom: 1px solid #E1E1E1;
 			}
+		}
+
+		& > a {
+			padding-block: 10px;
 		}
 	}
 
@@ -139,6 +146,8 @@
 
 		&.has-submenu {
 			padding-right: 2rem;
+			// fixed bug with jump menu on load
+			transition: padding-right 0s;
 
 			@include media('<#{$menu-mobile-breakpoint}') {
 				padding-right: calc(var(--gutter) + 14px);
