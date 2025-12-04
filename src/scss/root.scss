@@ -96,6 +96,13 @@
 		--input-y: 12px;
 	}
 
+		// wp fix
+		--admin-bar-h: 32px;
+
+		@include media('<=782px') {
+			--admin-bar-h: 46px;
+		}
+
 	// --- Css variable for h1-h6 font-size
 	@each $name, $array in $h1-h6-font-size {
 		@if ($name =="default") {

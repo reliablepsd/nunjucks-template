@@ -1,104 +1,103 @@
 @import "variables";
 
 @font-face {
-  font-family: '#{$icomoon-font-family}';
-  src:
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?34vu0f') format('truetype'),
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?34vu0f') format('woff'),
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?34vu0f##{$icomoon-font-family}') format('svg');
-  font-weight: normal;
-  font-style: normal;
-  font-display: block;
+	font-family: '#{$icomoon-font-family}';
+	src:
+		url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?34vu0f') format('truetype'),
+		url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?34vu0f') format('woff'),
+		url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?34vu0f##{$icomoon-font-family}') format('svg');
+	font-weight: normal;
+	font-style: normal;
+	font-display: block;
 }
 
 [class^="i-"], [class*=" i-"] {
-  /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: '#{$icomoon-font-family}' !important;
-  speak: never;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
+	/* use !important to prevent issues with browser extensions that change fonts */
+	font-family: '#{$icomoon-font-family}' !important;
+	speak: never;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
 
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 .i-arrow-u {
-  &:before {
-    content: $i-arrow-u; 
-  }
+	&:before {
+		content: $i-arrow-u;
+	}
 }
 .i-arrow-r {
-  &:before {
-    content: $i-arrow-r; 
-  }
+	&:before {
+		content: $i-arrow-r;
+	}
 }
 .i-arrow-l {
-  &:before {
-    content: $i-arrow-l; 
-  }
+	&:before {
+		content: $i-arrow-l;
+	}
 }
 .i-arrow-d {
-  &:before {
-    content: $i-arrow-d; 
-  }
+	&:before {
+		content: $i-arrow-d;
+	}
 }
 .i-facebook-bg {
-  &:before {
-    content: $i-facebook-bg; 
-  }
+	&:before {
+		content: $i-facebook-bg;
+	}
 }
 .i-g-plus {
-  &:before {
-    content: $i-g-plus; 
-  }
+	&:before {
+		content: $i-g-plus;
+	}
 }
 .i-pinterest-bg {
-  &:before {
-    content: $i-pinterest-bg; 
-  }
+	&:before {
+		content: $i-pinterest-bg;
+	}
 }
 .i-twitter {
-  &:before {
-    content: $i-twitter; 
-  }
+	&:before {
+		content: $i-twitter;
+	}
 }
 .i-tik-tok {
-  &:before {
-    content: $i-tik-tok; 
-  }
+	&:before {
+		content: $i-tik-tok;
+	}
 }
 .i-instagram {
-  &:before {
-    content: $i-instagram; 
-  }
+	&:before {
+		content: $i-instagram;
+	}
 }
 .i-linkedin {
-  &:before {
-    content: $i-linkedin; 
-  }
+	&:before {
+		content: $i-linkedin;
+	}
 }
 .i-x {
-  &:before {
-    content: $i-x; 
-  }
+	&:before {
+		content: $i-x;
+	}
 }
 .i-facebook {
-  &:before {
-    content: $i-facebook; 
-  }
+	&:before {
+		content: $i-facebook;
+	}
 }
 .i-youtube {
-  &:before {
-    content: $i-youtube; 
-  }
+	&:before {
+		content: $i-youtube;
+	}
 }
 .i-pinterest {
-  &:before {
-    content: $i-pinterest; 
-  }
+	&:before {
+		content: $i-pinterest;
+	}
 }
-
