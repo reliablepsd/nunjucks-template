@@ -6,14 +6,14 @@
 	<meta name="viewport" content="initial-scale=1, width=device-width, height=device-height, viewport-fit=cover">
 	<link media="all" rel="stylesheet" href="css/root.css">
 	<!-- using preload trick to speed up page loading -->
-	<link rel="preload" href="css/style.css?_v=20251202111754" as="style" onload="this.onload=null;this.rel='stylesheet';this.media='all'">
-	<noscript><link rel="stylesheet" href="css/style.css?_v=20251202111754"></noscript>
+	<link rel="preload" href="css/style.css?_v=20251204160221" as="style" onload="this.onload=null;this.rel='stylesheet';this.media='all'">
+	<noscript><link rel="stylesheet" href="css/style.css?_v=20251204160221"></noscript>
 	<title>Don't forget to change title - for this page</title>
 </head>
 
 <body>
 	<div class="wrapper offset-header">
-		<header class="header">
+		<header class="header _light eee">
 			<div class="container">
 				<div class="header-holder">
 					<a href="#" class="header-logo">
@@ -36,7 +36,7 @@
 					<nav class="menu-drop__wrap">
 						<ul class="menu">
 							<li class="current-menu-item">
-								<a href="#">Item 1</a>
+								<a href="#" class="has-submenu">Item 1</a>
 								<ul>
 									<li><a href="#">Item 2-1</a></li>
 									<li>
@@ -51,7 +51,7 @@
 								</ul>
 							</li>
 							<li>
-								<a href="#">Item 2</a>
+								<a href="#" class="has-submenu">Item 2</a>
 								<ul>
 									<li>
 										<a href="#">Item 2-1</a>
@@ -87,7 +87,7 @@
 								</ul>
 							</li>
 							<li class="has-mega-menu">
-								<a href="#">Mega 3</a>
+								<a href="#" class="has-submenu">Mega 3</a>
 								<ul class="mega-menu">
 									<li>
 										<div class="col">
@@ -169,6 +169,7 @@
 			</section>
 			<section>
 				<div class="container">
+					<div class="div-fluid">Test new scss function fluid()</div>
 					<h2 style="text-align: center; padding-top: 50px">h2 Global variable
 						nunjucks</h2>
 					<div style="margin-top: 50px">
@@ -212,7 +213,7 @@
 		</footer>
 	</div>
 	<script src="js/jquery.min.js" defer=""></script>
-	<script src="js/jquery.main.js?_v=20251202111754" defer=""></script>
+	<script src="js/jquery.main.js?_v=20251204160221" defer=""></script>
 </body>
 
 </html>
