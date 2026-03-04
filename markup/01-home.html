@@ -5,19 +5,18 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="initial-scale=1, width=device-width, height=device-height, viewport-fit=cover">
 	<link media="all" rel="stylesheet" href="css/root.css">
-	<!-- using preload trick to speed up page loading -->
-	<link rel="preload" href="css/style.css?_v=20251206170458" as="style" onload="this.onload=null;this.rel='stylesheet';this.media='all'">
-	<noscript><link rel="stylesheet" href="css/style.css?_v=20251206170458"></noscript>
+	<link rel="stylesheet" href="css/style.css?_v=20260304192944">
 	<title>Don't forget to change title - for this page</title>
 </head>
 
 <body>
+	<a href="#main" class="skip-link">Skip to contentt</a>
 	<div class="wrapper offset-header">
-		<header class="header _light eee">
+		<header class="header _dark">
 			<div class="container">
 				<div class="header-holder">
 					<a href="#" class="header-logo">
-						<svg viewBox="0 0 161 40" id="logo">
+						<svg viewBox="0 0 161 40">
 							<path d="M0.132125 13.2526C0.285953 5.97934 6.27531 0.140826 13.6602 0.0650508L20.0001 0L26.3399 0.0650508C33.7248 0.140826 39.7143 5.97934 39.8681 13.2526L40 19.4996L39.8651 25.8819C39.7124 33.1007 33.808 38.9167 26.4794 39.0671L20.0001 39.2002L13.5207 39.0671C6.19216 38.9167 0.287665 33.1007 0.134986 25.8819L0 19.4996L0.132125 13.2526Z" fill="#ef5d62"></path>
 							<path fill-rule="evenodd" clip-rule="evenodd" d="M16.9286 9.71167H11.6543V29.5499H16.9286V9.71167ZM28.228 20.9786H19.7489C19.7489 25.6626 23.5581 29.4833 28.228 29.4833V20.9786ZM19.7672 13.9732C19.7672 16.306 21.6535 18.2164 23.9976 18.2164C26.3234 18.2164 28.228 16.2876 28.228 13.9548C28.228 11.622 26.3417 9.71167 23.9976 9.71167C21.6535 9.71167 19.7672 11.6404 19.7672 13.9732Z" fill="white"></path>
 							<path d="M62.1917 13.885C61.7483 13.8217 61.4 13.7583 60.7983 13.7583C58.93 13.7583 57.2517 14.4867 56.3333 15.6267V14.075H52.375V29.4333H56.4917V19.775C56.9983 18.8567 58.4233 17.5583 60.2283 17.5583C60.83 17.5583 61.4317 17.6217 61.7167 17.7167L62.1917 13.885Z"></path>
@@ -30,7 +29,7 @@
 							<path d="M158.172 24.6517C157.444 25.4433 156.05 26.425 154.309 26.425C152.124 26.425 150.382 24.9367 150.16 22.7833H160.8C160.864 22.435 160.895 22.0233 160.895 21.6117C160.895 17.3367 157.887 13.7583 153.644 13.7583C149.084 13.7583 146.17 17.495 146.17 21.77C146.17 26.5833 149.622 29.75 154.214 29.75C156.589 29.75 159.027 28.7683 160.515 26.995L158.172 24.6517ZM150.35 19.775C150.54 18.3817 151.934 17.0833 153.644 17.0833C155.322 17.0833 156.557 18.4133 156.684 19.775H150.35Z"></path>
 						</svg>
 					</a>
-					<button class="menu-opener"><span></span></button>
+					<button class="menu-opener" aria-label="Toggle menu"><span></span></button>
 				</div>
 				<div class="menu-drop">
 					<nav class="menu-drop__wrap">
@@ -127,7 +126,7 @@
 								</ul>
 							</li>
 							<li>
-								<a href="#">Item 4</a>
+								<a href="#" class="has-submenu">Item 4</a>
 								<ul>
 									<li><a href="#">Item 2-1</a></li>
 									<li>
@@ -146,7 +145,7 @@
 				</div>
 			</div>
 		</header>
-		<main class="main">
+		<main class="main" id="main">
 			<section class="hero">
 				<div class="container">
 					<div class="hero-grid">
@@ -213,7 +212,7 @@
 		</footer>
 	</div>
 	<script src="js/jquery.min.js" defer=""></script>
-	<script src="js/jquery.main.js?_v=20251206170458" defer=""></script>
+	<script src="js/jquery.main.js?_v=20260304192944" defer=""></script>
 </body>
 
 </html>

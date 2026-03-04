@@ -1,11 +1,8 @@
-{% if not(headerClass) %}
-{% set headerClass = false %}
-{% endif %}
 <header class="header{% if headerClass %} {{headerClass}}{% endif %}">
 	<div class="container">
 		<div class="header-holder">
 			<a href="#" class="header-logo">
-				<svg viewBox="0 0 161 40" id="logo">
+				<svg viewBox="0 0 161 40">
 					<path
 						d="M0.132125 13.2526C0.285953 5.97934 6.27531 0.140826 13.6602 0.0650508L20.0001 0L26.3399 0.0650508C33.7248 0.140826 39.7143 5.97934 39.8681 13.2526L40 19.4996L39.8651 25.8819C39.7124 33.1007 33.808 38.9167 26.4794 39.0671L20.0001 39.2002L13.5207 39.0671C6.19216 38.9167 0.287665 33.1007 0.134986 25.8819L0 19.4996L0.132125 13.2526Z"
 						fill="#ef5d62"
@@ -38,7 +35,7 @@
 					></path>
 				</svg>
 			</a>
-			<button class="menu-opener"><span></span></button>
+			<button class="menu-opener" aria-label="Toggle menu"><span></span></button>
 		</div>
 
 		<div class="menu-drop">
@@ -136,7 +133,7 @@
 						</ul>
 					</li>
 					<li>
-						<a href="#">Item 4</a>
+						<a href="#" class="has-submenu">Item 4</a>
 						<ul>
 							<li><a href="#">Item 2-1</a></li>
 							<li>

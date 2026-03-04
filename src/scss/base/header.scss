@@ -28,9 +28,15 @@
 
 	&-logo {
 		display: block;
-		width: 15rem;
+		width: 100%;
 		font-size: 0;
 		line-height: 0;
+		img,
+		svg {
+			display: block;
+			width: 100%;
+			height: auto;
+		}
 	}
 
 	&-holder {

@@ -1,0 +1,12 @@
+// fix header-logo
+.header-logo {
+	max-width: 15rem;
+}
+
+// fix menu
+.menu ul {
+	display: none;
+}
+.menu a.has-submenu {
+	padding-right: 2rem;
+}

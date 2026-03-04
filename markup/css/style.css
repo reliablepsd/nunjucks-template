@@ -103,6 +103,18 @@
 	margin-block: clamp(10px, calc(10px + 3.7558685446vw - 14.0845070423px), 50px);
 }
 
+.header-logo {
+	max-width: 15rem;
+}
+
+.menu ul {
+	display: none;
+}
+
+.menu a.has-submenu {
+	padding-right: 2rem;
+}
+
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -677,6 +689,88 @@ dl dd {
 	padding: 10px 0;
 }
 
+.skip-link {
+	position: absolute;
+	padding: 5px;
+	line-height: 1;
+	font-size: 16px;
+	background-color: rebeccapurple;
+	color: #fff;
+	-webkit-transform: translateY(-100%);
+	        transform: translateY(-100%);
+	z-index: 999;
+	-webkit-transition: -webkit-transform 0.3s ease;
+	transition: -webkit-transform 0.3s ease;
+	transition: transform 0.3s ease;
+	transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+}
+.skip-link:focus {
+	-webkit-transform: translateY(0%);
+	        transform: translateY(0%);
+}
+
+* {
+	-webkit-box-sizing: inherit;
+	        box-sizing: inherit;
+	max-height: 1000000px;
+}
+*:after,
+*:before {
+	-webkit-box-sizing: inherit;
+	        box-sizing: inherit;
+}
+
+.resize-active {
+	-webkit-transition: none !important;
+	transition: none !important;
+}
+.resize-active *,
+.resize-active *:before,
+.resize-active *:after {
+	-webkit-transition: inherit !important;
+	transition: inherit !important;
+}
+
+.container {
+	width: 100%;
+	max-width: calc(var(--container) + var(--gutter) * 2);
+	margin: 0 auto;
+	padding-left: var(--gutter);
+	padding-right: var(--gutter);
+}
+
+html,
+body {
+	height: 100%;
+}
+
+.wrapper {
+	display: grid;
+	grid-template-rows: 1fr auto;
+	min-height: 100%;
+	width: 100%;
+	position: relative;
+	overflow: clip;
+}
+
+.main,
+.header,
+.footer {
+	min-width: 0;
+}
+
+.offset-header {
+	padding-top: var(--offset-header);
+}
+
+.bg-str {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+}
 .button,
 input[type=button],
 input[type=reset],
@@ -1183,68 +1277,6 @@ body > .jcf-select-drop.jcf-drop-flipped {
 	color: #000;
 }
 
-* {
-	-webkit-box-sizing: inherit;
-	        box-sizing: inherit;
-	max-height: 1000000px;
-}
-*:after,
-*:before {
-	-webkit-box-sizing: inherit;
-	        box-sizing: inherit;
-}
-
-.resize-active {
-	-webkit-transition: none !important;
-	transition: none !important;
-}
-.resize-active *,
-.resize-active *:before,
-.resize-active *:after {
-	-webkit-transition: inherit !important;
-	transition: inherit !important;
-}
-
-.container {
-	width: 100%;
-	max-width: calc(var(--container) + var(--gutter) * 2);
-	margin: 0 auto;
-	padding-left: var(--gutter);
-	padding-right: var(--gutter);
-}
-
-html,
-body {
-	height: 100%;
-}
-
-.wrapper {
-	display: grid;
-	grid-template-rows: 1fr auto;
-	min-height: 100%;
-	width: 100%;
-	position: relative;
-	overflow: clip;
-}
-
-.main,
-.header,
-.footer {
-	min-width: 0;
-}
-
-.offset-header {
-	padding-top: var(--offset-header);
-}
-
-.bg-str {
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: -1;
-	width: 100%;
-	height: 100%;
-}
 .header {
 	--header-indent: 2rem;
 	position: fixed;
@@ -1259,9 +1291,15 @@ body {
 }
 .header-logo {
 	display: block;
-	width: 15rem;
+	width: 100%;
 	font-size: 0;
 	line-height: 0;
+}
+.header-logo img,
+.header-logo svg {
+	display: block;
+	width: 100%;
+	height: auto;
 }
 .header._sticked {
 	-webkit-transition: all 0.3s ease-out;

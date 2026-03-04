@@ -103,7 +103,7 @@ function initSmartMenu() {
 	});
 
 	// changed date attribute to a class (need to reverse last item menu)
-	jQuery(".menu").children().last().addClass("menu-sm-reverse");
+	jQuery(".menu").children().last().addClass("nav-sm-reverse");
 
 	jQuery("body").mobileNav({
 		menuActiveClass: "menu-active",

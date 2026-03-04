@@ -103,7 +103,7 @@ function initSmartMenu() {
 	});
 
 	// changed date attribute to a class (need to reverse last item menu)
-	jQuery(".menu").children().last().addClass("menu-sm-reverse");
+	jQuery(".menu").children().last().addClass("nav-sm-reverse");
 
 	jQuery("body").mobileNav({
 		menuActiveClass: "menu-active",
@@ -122,26 +122,16 @@ function initHeaderOffset() {
 	const header = document.querySelector(".header");
 	if (!container || !header) return;
 
-	let headerHeight;
-
-	function adjustHeightOffset() {
-		headerHeight = header.offsetHeight;
-		// I'm not deleting it completely yet, as it might cause problems with AOS animation.
-		// container.style.paddingTop = `${headerHeight}px`;
-		document.documentElement.style.setProperty(
-			"--offset-header",
-			`${headerHeight}px`
-		);
+	function applyOffset() {
+		const height = header.offsetHeight;
+		container.style.paddingTop = `${height}px`;
+		document.documentElement.style.setProperty("--offset-header", `${height}px`);
 	}
 
-	const adjustDebounced = debounce(() => {
-		if (headerHeight !== header.offsetHeight) {
-			adjustHeightOffset();
-		}
-	}, 300);
+	applyOffset();
 
-	adjustHeightOffset();
-	window.addEventListener("resize", adjustDebounced, { passive: true });
+	const ro = new ResizeObserver(applyOffset);
+	ro.observe(header);
 }
 
 function initScrollClass() {
@@ -215,7 +205,7 @@ function debounce(func, timeout) {
 
 // library smartmenus (if you dont have menu in the project - just remove)
 /*
- * Simple Mobile Navigation
+ * Simple Mobile Navigation (ARIA + breakpoint aware)
  */
 (function($) {
 	function MobileNav(options) {
@@ -226,28 +216,41 @@ function debounce(func, timeout) {
 				menuActiveClass: "nav-active",
 				menuOpener: ".nav-opener",
 				menuDrop: ".nav-drop",
+				menuMobileBreakpoint: 1024,
 				toggleEvent: "click",
 				outsideClickEvent: "click touchstart pointerdown MSPointerDown"
 			},
 			options
 		);
+
+		this.isMobile = false;
+
 		this.initStructure();
 		this.attachEvents();
+		this.handleResize(); // initialize correct mode
 	}
+
 	MobileNav.prototype = {
 		initStructure: function() {
 			this.page = $("html");
+			this.win = $(window);
 			this.container = $(this.options.container);
 			this.opener = this.container.find(this.options.menuOpener);
 			this.drop = this.container.find(this.options.menuDrop);
 		},
+
 		attachEvents: function() {
 			var self = this;
-			if (activateResizeHandler) {
-				activateResizeHandler();
-				activateResizeHandler = null;
-			}
+
+			this.openerClickHandler = function(e) {
+				if (!self.isMobile) return;
+				e.preventDefault();
+				self.toggle();
+			};
+
 			this.outsideClickHandler = function(e) {
+				if (!self.isMobile) return;
+
 				if (self.isOpened()) {
 					var target = $(e.target);
 					if (
@@ -258,87 +261,115 @@ function debounce(func, timeout) {
 					}
 				}
 			};
-			this.openerClickHandler = function(e) {
-				e.preventDefault();
-				self.toggle();
+
+			this.resizeHandler = function() {
+				self.handleResize();
 			};
+
 			this.opener.on(this.options.toggleEvent, this.openerClickHandler);
+			this.win.on("resize orientationchange", this.resizeHandler);
 		},
+
+		handleResize: function() {
+			var width = window.innerWidth;
+			var shouldBeMobile = width < this.options.menuMobileBreakpoint;
+
+			if (shouldBeMobile === this.isMobile) return;
+
+			this.isMobile = shouldBeMobile;
+
+			if (this.isMobile) {
+				this.enableMobileMode();
+			} else {
+				this.enableDesktopMode();
+			}
+		},
+
+		enableMobileMode: function() {
+			this.opener.attr("aria-expanded", "false");
+			this.drop.attr("aria-hidden", "true");
+			this.hide();
+		},
+
+		enableDesktopMode: function() {
+			this.container.removeClass(this.options.menuActiveClass);
+
+			this.opener.removeAttr("aria-expanded");
+			this.drop.removeAttr("aria-hidden");
+
+			this.page.off(this.options.outsideClickEvent, this.outsideClickHandler);
+		},
+
 		isOpened: function() {
 			return this.container.hasClass(this.options.menuActiveClass);
 		},
+
 		show: function() {
+			if (!this.isMobile) return;
+
 			this.container.addClass(this.options.menuActiveClass);
+
+			this.opener.attr("aria-expanded", "true");
+			this.drop.attr("aria-hidden", "false");
+
 			if (this.options.hideOnClickOutside) {
 				this.page.on(this.options.outsideClickEvent, this.outsideClickHandler);
 			}
 		},
+
 		hide: function() {
+			if (!this.isMobile) return;
+
 			this.container.removeClass(this.options.menuActiveClass);
+
+			this.opener.attr("aria-expanded", "false");
+			this.drop.attr("aria-hidden", "true");
+
 			if (this.options.hideOnClickOutside) {
 				this.page.off(this.options.outsideClickEvent, this.outsideClickHandler);
 			}
 		},
+
 		toggle: function() {
+			if (!this.isMobile) return;
+
 			if (this.isOpened()) {
 				this.hide();
 			} else {
 				this.show();
 			}
 		},
+
 		destroy: function() {
 			this.container.removeClass(this.options.menuActiveClass);
-			this.opener.off(this.options.toggleEvent, this.clickHandler);
+
+			this.opener.off(this.options.toggleEvent, this.openerClickHandler);
+			this.win.off("resize orientationchange", this.resizeHandler);
 			this.page.off(this.options.outsideClickEvent, this.outsideClickHandler);
+
+			this.opener.removeAttr("aria-expanded");
+			this.drop.removeAttr("aria-hidden");
 		}
 	};
-	var activateResizeHandler = function() {
-		var win = $(window),
-			doc = $("html"),
-			resizeClass = "resize-active",
-			flag,
-			timer;
-		var removeClassHandler = function() {
-			flag = false;
-			doc.removeClass(resizeClass);
-		};
-		var resizeHandler = function() {
-			if (!flag) {
-				flag = true;
-				doc.addClass(resizeClass);
-			}
-			clearTimeout(timer);
-			timer = setTimeout(removeClassHandler, 500);
-		};
-		win.on("resize orientationchange", resizeHandler);
-	};
+
 	$.fn.mobileNav = function(opt) {
-		var args = Array.prototype.slice.call(arguments);
-		var method = args[0];
 		return this.each(function() {
-			var $container = jQuery(this);
-			var instance = $container.data("MobileNav");
-			if (typeof opt === "object" || typeof opt === "undefined") {
-				$container.data(
-					"MobileNav",
-					new MobileNav(
-						$.extend(
-							{
-								container: this
-							},
-							opt
-						)
+			var $container = $(this);
+			$container.data(
+				"MobileNav",
+				new MobileNav(
+					$.extend(
+						{
+							container: this
+						},
+						opt
 					)
-				);
-			} else if (typeof method === "string" && instance) {
-				if (typeof instance[method] === "function") {
-					args.shift();
-					instance[method].apply(instance, args);
-				}
-			}
+				)
+			);
 		});
 	};
 })(jQuery);
+
 /*
  * SmartMenus jQuery v1.1.0+
  * http://www.smartmenus.org/
