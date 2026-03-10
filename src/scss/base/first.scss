@@ -1,0 +1,25 @@
+// fixs header
+.header-logo {
+	max-width: 15rem;
+}
+
+// fixs menu
+.menu ul {
+	display: none;
+}
+.menu a.has-submenu {
+	padding-right: 2rem;
+}
+
+// fixs for accessible
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip-path: inset(50%);
+	border: 0;
+	white-space: nowrap;
+}

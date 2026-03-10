@@ -1,15 +1,16 @@
 ---
 title: Don't forget to change title - for this page
-headerClass: "_light eee"
+headerClass: "_dark"
 ---
 {% import 'src/template/macrosAndVariable.html' as global %}
 {% include 'src/template/head.html' %}
 
 <body>
+	<a href="#main" class="skip-link">Skip to contentt</a>
 	<div class="wrapper offset-header">
 		{% include 'src/template/header.html' %}
 
-		<main class="main">
+		<main class="main" id="main">
 			<section class="hero">
 				<div class="container">
 					<div class="hero-grid">

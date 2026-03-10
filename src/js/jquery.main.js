@@ -103,7 +103,7 @@ function initSmartMenu() {
 	});
 
 	// changed date attribute to a class (need to reverse last item menu)
-	jQuery(".menu").children().last().addClass("menu-sm-reverse");
+	jQuery(".menu").children().last().addClass("nav-sm-reverse");
 
 	jQuery("body").mobileNav({
 		menuActiveClass: "menu-active",
@@ -122,26 +122,16 @@ function initHeaderOffset() {
 	const header = document.querySelector(".header");
 	if (!container || !header) return;
 
-	let headerHeight;
-
-	function adjustHeightOffset() {
-		headerHeight = header.offsetHeight;
-		// I'm not deleting it completely yet, as it might cause problems with AOS animation.
-		// container.style.paddingTop = `${headerHeight}px`;
-		document.documentElement.style.setProperty(
-			"--offset-header",
-			`${headerHeight}px`
-		);
+	function applyOffset() {
+		const height = header.offsetHeight;
+		container.style.paddingTop = `${height}px`;
+		document.documentElement.style.setProperty("--offset-header", `${height}px`);
 	}
 
-	const adjustDebounced = debounce(() => {
-		if (headerHeight !== header.offsetHeight) {
-			adjustHeightOffset();
-		}
-	}, 300);
+	applyOffset();
 
-	adjustHeightOffset();
-	window.addEventListener("resize", adjustDebounced, { passive: true });
+	const ro = new ResizeObserver(applyOffset);
+	ro.observe(header);
 }
 
 function initScrollClass() {

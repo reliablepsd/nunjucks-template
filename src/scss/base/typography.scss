@@ -299,3 +299,20 @@ dl {
 		padding: 10px 0;
 	}
 }
+
+//------------------- a11y
+.skip-link {
+	position: absolute;
+	padding: 5px;
+	line-height: 1;
+	font-size: 16px;
+	background-color: rebeccapurple;
+	color: #fff;
+	transform: translateY(-100%);
+	z-index: 999;
+	transition: transform 0.3s ease;
+
+	&:focus {
+		transform: translateY(0%);
+	}
+}
